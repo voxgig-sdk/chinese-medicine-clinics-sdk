@@ -1,0 +1,53 @@
+# Entity: annual_attendances_sc
+
+main: kit: entity: annual_attendances_sc: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "attendance"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "clinic_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "location"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "year"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "annual_attendances_sc"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/cmctr/annual-attendances-sc.json"
+          parts: [
+            "cmctr"
+            "annual-attendances-sc.json"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

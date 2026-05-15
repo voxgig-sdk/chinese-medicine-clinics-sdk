@@ -1,0 +1,34 @@
+{
+  "existing": {
+    "annual_attendances_sc": {
+      "ANNUAL_ATTENDANCES_SC00": {
+        "attendance": "s28",
+        "clinic_name": "s29",
+        "location": "s2a",
+        "year": "s2b"
+      },
+      "ANNUAL_ATTENDANCES_SC01": {
+        "attendance": "s50",
+        "clinic_name": "s51",
+        "location": "s52",
+        "year": "s53"
+      },
+      "ANNUAL_ATTENDANCES_SC02": {
+        "attendance": "s78",
+        "clinic_name": "s79",
+        "location": "s7a",
+        "year": "s7b"
+      }
+    }
+  },
+  "new": {
+    "annual_attendances_sc": {
+      "annual_attendances_sc_ref01": {
+        "attendance": "sa0",
+        "clinic_name": "sa1",
+        "location": "sa2",
+        "year": "sa3"
+      }
+    }
+  }
+}

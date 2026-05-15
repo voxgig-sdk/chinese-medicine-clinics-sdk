@@ -1,0 +1,29 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        email: "enquiry@ha.org.hk"
+        name: "Hospital Authority"
+        url: "https://data.gov.hk/en-data/dataset/hospital-hadata-service-cmctr"
+      }
+      description: "This API provides access to the attendance data of Chinese medicine clinics and training and research centers. Users can access datasets including annual attendances categorized by languages such as English, Traditional Chinese, and Simplified Chinese."
+      license: {
+        name: "Hospital Authority"
+        url: "https://data.gov.hk"
+      }
+      servers: [
+        {
+          description: "Hospital Authority Open Data Server"
+          url: "https://www.ha.org.hk/opendata"
+        }
+      ]
+      title: "Chinese Medicine Clinics"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

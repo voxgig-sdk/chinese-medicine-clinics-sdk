@@ -1,0 +1,22 @@
+# BasicAnnualAttendancesTcFlow
+
+main: kit: flow: BasicAnnualAttendancesTcFlow:
+{
+  entity: "annual_attendances_tc",
+  kind: "basic",
+  name: "BasicAnnualAttendancesTcFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "annual_attendances_tc_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAnnualAttendancesTcFlow"
+}

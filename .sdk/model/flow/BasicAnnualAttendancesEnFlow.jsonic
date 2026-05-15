@@ -1,0 +1,22 @@
+# BasicAnnualAttendancesEnFlow
+
+main: kit: flow: BasicAnnualAttendancesEnFlow:
+{
+  entity: "annual_attendances_en",
+  kind: "basic",
+  name: "BasicAnnualAttendancesEnFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "annual_attendances_en_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAnnualAttendancesEnFlow"
+}

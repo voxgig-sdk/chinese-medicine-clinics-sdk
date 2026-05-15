@@ -1,0 +1,242 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Chinese Medicine Clinics",
+    "description": "This API provides access to the attendance data of Chinese medicine clinics and training and research centers. Users can access datasets including annual attendances categorized by languages such as English, Traditional Chinese, and Simplified Chinese.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Hospital Authority",
+      "email": "enquiry@ha.org.hk",
+      "url": "https://data.gov.hk/en-data/dataset/hospital-hadata-service-cmctr"
+    },
+    "license": {
+      "name": "Hospital Authority",
+      "url": "https://data.gov.hk"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://www.ha.org.hk/opendata",
+      "description": "Hospital Authority Open Data Server"
+    }
+  ],
+  "paths": {
+    "/cmctr/annual-attendances-en.json": {
+      "get": {
+        "summary": "Get Annual Attendances (English)",
+        "description": "Retrieves the number of annual attendances by Chinese Medicine Clinics cum Training and Research Centres in English",
+        "operationId": "getAnnualAttendancesEnglish",
+        "tags": [
+          "Attendances"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with annual attendance data in English",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttendanceDataResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cmctr/annual-attendances-tc.json": {
+      "get": {
+        "summary": "Get Annual Attendances (Traditional Chinese)",
+        "description": "Retrieves the number of annual attendances by Chinese Medicine Clinics cum Training and Research Centres in Traditional Chinese",
+        "operationId": "getAnnualAttendancesTraditionalChinese",
+        "tags": [
+          "Attendances"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with annual attendance data in Traditional Chinese",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttendanceDataResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cmctr/annual-attendances-sc.json": {
+      "get": {
+        "summary": "Get Annual Attendances (Simplified Chinese)",
+        "description": "Retrieves the number of annual attendances by Chinese Medicine Clinics cum Training and Research Centres in Simplified Chinese",
+        "operationId": "getAnnualAttendancesSimplifiedChinese",
+        "tags": [
+          "Attendances"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with annual attendance data in Simplified Chinese",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttendanceDataResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AttendanceDataResponse": {
+        "type": "object",
+        "description": "Response containing annual attendance data for Chinese Medicine Clinics cum Training and Research Centres",
+        "properties": {
+          "data": {
+            "type": "array",
+            "description": "Array of attendance records",
+            "items": {
+              "$ref": "#/components/schemas/AttendanceRecord"
+            }
+          },
+          "metadata": {
+            "type": "object",
+            "description": "Metadata about the dataset",
+            "properties": {
+              "lastUpdated": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Last update timestamp of the dataset"
+              },
+              "updateFrequency": {
+                "type": "string",
+                "description": "Frequency of dataset updates",
+                "example": "Annually"
+              },
+              "dataProvider": {
+                "type": "string",
+                "description": "Provider of the data",
+                "example": "Hospital Authority"
+              }
+            }
+          }
+        }
+      },
+      "AttendanceRecord": {
+        "type": "object",
+        "description": "A single attendance record for a Chinese Medicine Clinic",
+        "properties": {
+          "year": {
+            "type": "string",
+            "description": "Year of the attendance record",
+            "example": "2023"
+          },
+          "clinicName": {
+            "type": "string",
+            "description": "Name of the Chinese Medicine Clinic cum Training and Research Centre"
+          },
+          "attendances": {
+            "type": "integer",
+            "description": "Number of attendances for the specified year",
+            "example": 15000
+          },
+          "location": {
+            "type": "string",
+            "description": "Location or district of the clinic"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "description": "Error response object",
+        "properties": {
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "description": "Error code"
+              },
+              "message": {
+                "type": "string",
+                "description": "Error message describing what went wrong"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Attendances",
+      "description": "Operations related to Chinese Medicine Clinic attendance data"
+    }
+  ],
+  "externalDocs": {
+    "description": "Data Specification and Documentation",
+    "url": "https://www.ha.org.hk/opendata/cmctr/Data-Specification-for-CMCTR-attnd-en.pdf"
+  }
+}

@@ -1,0 +1,26 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 3
+  metrics: count: path: 3
+  metrics: count: method: 3
+
+  entity: annual_attendances_en: {
+    path: "/cmctr/annual-attendances-en.json": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: annual_attendances_sc: {
+    path: "/cmctr/annual-attendances-sc.json": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: annual_attendances_tc: {
+    path: "/cmctr/annual-attendances-tc.json": {
+      op: list: method: *GET
+    }
+  }
+
+}
