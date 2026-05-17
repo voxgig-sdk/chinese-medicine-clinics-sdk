@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/chinese-medicine-clinics-sdk"
-	"github.com/voxgig-sdk/chinese-medicine-clinics-sdk/core"
+	sdk "github.com/voxgig-sdk/chinese-medicine-clinics-sdk/go"
+	"github.com/voxgig-sdk/chinese-medicine-clinics-sdk/go/core"
 )
 
 func TestAnnualAttendancesEnDirect(t *testing.T) {

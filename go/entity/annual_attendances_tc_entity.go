@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/chinese-medicine-clinics-sdk/core"
+	"github.com/voxgig-sdk/chinese-medicine-clinics-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/chinese-medicine-clinics-sdk/go/utility/struct"
 )
 
 type AnnualAttendancesTcEntity struct {

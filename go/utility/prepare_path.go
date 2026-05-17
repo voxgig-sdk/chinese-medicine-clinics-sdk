@@ -1,9 +1,9 @@
 package utility
 
 import (
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/chinese-medicine-clinics-sdk/go/utility/struct"
 
-	"github.com/voxgig-sdk/chinese-medicine-clinics-sdk/core"
+	"github.com/voxgig-sdk/chinese-medicine-clinics-sdk/go/core"
 )
 
 func preparePathUtil(ctx *core.Context) string {

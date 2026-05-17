@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/chinese-medicine-clinics-sdk/core"
+import "github.com/voxgig-sdk/chinese-medicine-clinics-sdk/go/core"
 
 func init() {
 	core.UtilityRegistrar = registerAll

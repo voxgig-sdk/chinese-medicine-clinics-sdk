@@ -6,7 +6,7 @@ package sdktest
 import (
 	"fmt"
 
-	voxgigstruct "github.com/voxgig/struct"
+	voxgigstruct "github.com/voxgig-sdk/chinese-medicine-clinics-sdk/go/utility/struct"
 
 	"encoding/json"
 	"errors"
