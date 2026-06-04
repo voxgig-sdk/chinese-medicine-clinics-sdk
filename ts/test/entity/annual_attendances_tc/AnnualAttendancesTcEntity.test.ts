@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'CHINESE_MEDICINE_CLINICS_TEST_ANNUAL_ATTENDANCES_TC_ENTID': idmap,
     'CHINESE_MEDICINE_CLINICS_TEST_LIVE': 'FALSE',
     'CHINESE_MEDICINE_CLINICS_TEST_EXPLAIN': 'FALSE',
-    'CHINESE_MEDICINE_CLINICS_APIKEY': 'NONE',
   })
 
   idmap = env['CHINESE_MEDICINE_CLINICS_TEST_ANNUAL_ATTENDANCES_TC_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new ChineseMedicineClinicsSDK(merge([
       {
-        apikey: env.CHINESE_MEDICINE_CLINICS_APIKEY,
       },
       extra
     ]))

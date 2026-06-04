@@ -92,7 +92,6 @@ def _annual_attendances_sc_basic_setup(extra):
         "CHINESEMEDICINECLINICS_TEST_ANNUAL_ATTENDANCES_SC_ENTID": idmap,
         "CHINESEMEDICINECLINICS_TEST_LIVE": "FALSE",
         "CHINESEMEDICINECLINICS_TEST_EXPLAIN": "FALSE",
-        "CHINESEMEDICINECLINICS_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +102,6 @@ def _annual_attendances_sc_basic_setup(extra):
     if env.get("CHINESEMEDICINECLINICS_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("CHINESEMEDICINECLINICS_APIKEY"),
             },
             extra or {},
         ])

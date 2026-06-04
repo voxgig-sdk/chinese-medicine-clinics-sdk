@@ -68,14 +68,12 @@ function annual_attendances_sc_direct_setup($mockres)
     $env = Runner::env_override([
         "CHINESEMEDICINECLINICS_TEST_ANNUAL_ATTENDANCES_SC_ENTID" => [],
         "CHINESEMEDICINECLINICS_TEST_LIVE" => "FALSE",
-        "CHINESEMEDICINECLINICS_APIKEY" => "NONE",
     ]);
 
     $live = $env["CHINESEMEDICINECLINICS_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["CHINESEMEDICINECLINICS_APIKEY"],
         ];
         $client = new ChineseMedicineClinicsSDK($merged_opts);
         return [

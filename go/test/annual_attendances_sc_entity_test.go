@@ -119,7 +119,6 @@ func annual_attendances_scBasicSetup(extra map[string]any) *entityTestSetup {
 		"CHINESEMEDICINECLINICS_TEST_ANNUAL_ATTENDANCES_SC_ENTID": idmap,
 		"CHINESEMEDICINECLINICS_TEST_LIVE":      "FALSE",
 		"CHINESEMEDICINECLINICS_TEST_EXPLAIN":   "FALSE",
-		"CHINESEMEDICINECLINICS_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["CHINESEMEDICINECLINICS_TEST_ANNUAL_ATTENDANCES_SC_ENTID"])
@@ -130,7 +129,6 @@ func annual_attendances_scBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["CHINESEMEDICINECLINICS_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["CHINESEMEDICINECLINICS_APIKEY"],
 			},
 			extra,
 		})

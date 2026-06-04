@@ -22,7 +22,19 @@
           }
         ],
         "title": "Chinese Medicine Clinics",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "tagline": "Annual attendance figures for Hong Kong's Chinese medicine clinics and training & research centres",
+        "homepage": "https://www.ha.org.hk/opendata",
+        "docs_url": "https://freepublicapis.com/chinese-medicine-clinics",
+        "license_short": "Hospital Authority open data — published by the Hong Kong Hospital Authority",
+        "license_md": "- Data is published by the Hong Kong Hospital Authority as part of its open data programme.\n- Refer to the Hospital Authority website (`ha.org.hk`) for the current terms of use and attribution requirements.\n- The dataset is provided in three language editions (English, Traditional Chinese, Simplified Chinese) covering the same underlying figures.",
+        "about_md": "This SDK wraps the Chinese Medicine Clinics attendance feeds published by the [Hong Kong Hospital Authority](https://www.ha.org.hk/opendata). The Hospital Authority is the statutory body that manages Hong Kong's public hospitals and clinics, and it releases service statistics — including attendance counts for its Chinese medicine clinics and training & research centres (CMCTR) — as open JSON files.\n\nWhat you get from the API:\n\n- Annual attendance totals for Chinese medicine clinics and training & research centres operated under the Hospital Authority.\n- Three parallel feeds covering the same data in English, Traditional Chinese, and Simplified Chinese.\n- Static JSON documents served directly over HTTPS from `www.ha.org.hk/opendata`.\n\nThe endpoints are unauthenticated and CORS-enabled, so they can be called from browsers as well as servers. Because the feeds are flat JSON files refreshed by the publisher, there is no rate limit documented and no query parameters — clients fetch the whole document and read the language edition they need.",
+        "entity_desc": {
+          "annual_attendances_en": "Annual attendance figures for Chinese medicine clinics and training & research centres, English edition — served from `https://www.ha.org.hk/opendata/cmctr/cmctr-attnd-en.json`.",
+          "annual_attendances_sc": "The same annual attendance figures in Simplified Chinese — served from `https://www.ha.org.hk/opendata/cmctr/cmctr-attnd-sc.json`.",
+          "annual_attendances_tc": "The same annual attendance figures in Traditional Chinese — served from `https://www.ha.org.hk/opendata/cmctr/cmctr-attnd-tc.json`."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -30,7 +42,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "annual_attendances_en": {

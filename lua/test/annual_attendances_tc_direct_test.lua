@@ -63,14 +63,12 @@ function annual_attendances_tc_direct_setup(mockres)
   local env = runner.env_override({
     ["CHINESEMEDICINECLINICS_TEST_ANNUAL_ATTENDANCES_TC_ENTID"] = {},
     ["CHINESEMEDICINECLINICS_TEST_LIVE"] = "FALSE",
-    ["CHINESEMEDICINECLINICS_APIKEY"] = "NONE",
   })
 
   local live = env["CHINESEMEDICINECLINICS_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["CHINESEMEDICINECLINICS_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {
