@@ -8,12 +8,14 @@ source = {
   dir = "chinese-medicine-clinics-sdk/lua"
 }
 description = {
-  summary = "ChineseMedicineClinics SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the Chinese Medicine Clinics public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/chinese-medicine-clinics-sdk",
+  issues_url = "https://github.com/voxgig-sdk/chinese-medicine-clinics-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "chinese-medicine-clinics" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {

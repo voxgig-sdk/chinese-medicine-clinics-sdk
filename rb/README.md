@@ -10,13 +10,13 @@ The Ruby SDK for the ChineseMedicineClinics API — an entity-oriented client us
 
 ## Install
 ```bash
-gem install chinese-medicine-clinics-sdk
+gem install voxgig-sdk-chinese-medicine-clinics
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "chinese-medicine-clinics-sdk"
+gem "voxgig-sdk-chinese-medicine-clinics"
 ```
 
 Then run:

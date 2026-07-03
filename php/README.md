@@ -10,7 +10,7 @@ The PHP SDK for the ChineseMedicineClinics API — an entity-oriented client usi
 
 ## Install
 ```bash
-composer require voxgig/chinese-medicine-clinics-sdk
+composer require voxgig-sdk/chinese-medicine-clinics
 ```
 
 

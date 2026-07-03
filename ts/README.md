@@ -10,7 +10,7 @@ The TypeScript SDK for the ChineseMedicineClinics API — a type-safe, entity-or
 
 ## Install
 ```bash
-npm install chinese-medicine-clinics
+npm install @voxgig-sdk/chinese-medicine-clinics
 ```
 ## Tutorial: your first API call
 

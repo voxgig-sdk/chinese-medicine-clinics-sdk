@@ -10,7 +10,7 @@ The Lua SDK for the ChineseMedicineClinics API — an entity-oriented client usi
 
 ## Install
 ```bash
-luarocks install chinese-medicine-clinics-sdk
+luarocks install voxgig-sdk-chinese-medicine-clinics
 ```
 
 If the module is not yet published, add the source directory to

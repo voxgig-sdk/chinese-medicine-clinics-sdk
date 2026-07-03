@@ -10,7 +10,7 @@ The Python SDK for the ChineseMedicineClinics API — an entity-oriented client 
 
 ## Install
 ```bash
-pip install chinese-medicine-clinics-sdk
+pip install voxgig-sdk-chinese-medicine-clinics
 ```
 
 Or install from source:
