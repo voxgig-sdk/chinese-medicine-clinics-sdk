@@ -1,9 +1,378 @@
 {
-  "name": "chinese-medicine-clinics",
-  "origin": "voxgig-sdk",
   "def": "chinese-medicine-clinics_0.1.0.json",
   "main": {
+    "def": {
+      "desc": ""
+    },
     "kit": {
+      "config": {
+        "auth": {
+          "prefix": "Bearer"
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ],
+        "headers": {
+          "content-type": "application/json"
+        }
+      },
+      "entity": {
+        "annual_attendances_en": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "attendance",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "clinic_name",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "location",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "year",
+              "req": false,
+              "type": "`$STRING`"
+            }
+          ],
+          "name": "annual_attendances_en",
+          "op": {
+            "list": {
+              "input": "data",
+              "name": "list",
+              "points": [
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "GET",
+                  "orig": "/cmctr/annual-attendances-en.json",
+                  "parts": [
+                    "cmctr",
+                    "annual-attendances-en.json"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "annual_attendances_sc": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "attendance",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "clinic_name",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "location",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "year",
+              "req": false,
+              "type": "`$STRING`"
+            }
+          ],
+          "name": "annual_attendances_sc",
+          "op": {
+            "list": {
+              "input": "data",
+              "name": "list",
+              "points": [
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "GET",
+                  "orig": "/cmctr/annual-attendances-sc.json",
+                  "parts": [
+                    "cmctr",
+                    "annual-attendances-sc.json"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "annual_attendances_tc": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "attendance",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "clinic_name",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "location",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "year",
+              "req": false,
+              "type": "`$STRING`"
+            }
+          ],
+          "name": "annual_attendances_tc",
+          "op": {
+            "list": {
+              "input": "data",
+              "name": "list",
+              "points": [
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "GET",
+                  "orig": "/cmctr/annual-attendances-tc.json",
+                  "parts": [
+                    "cmctr",
+                    "annual-attendances-tc.json"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        }
+      },
+      "feature": {
+        "test": {
+          "active": true,
+          "config": {
+            "options": {
+              "active": false
+            }
+          },
+          "hook": {
+            "GetData": {
+              "active": true,
+              "await": false
+            },
+            "GetMatch": {
+              "active": true,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": true,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": true,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PrePoint": {
+              "active": true,
+              "await": false
+            },
+            "PreRequest": {
+              "active": true,
+              "await": false
+            },
+            "PreResponse": {
+              "active": true,
+              "await": false
+            },
+            "PreResult": {
+              "active": true,
+              "await": false
+            },
+            "PreSpec": {
+              "active": true,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": true,
+              "await": false
+            },
+            "SetMatch": {
+              "active": true,
+              "await": false
+            }
+          },
+          "name": "test",
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "In-memory mock transport for testing without a live server",
+          "version": "0.0.1"
+        }
+      },
+      "flow": {
+        "BasicAnnualAttendancesEnFlow": {
+          "active": true,
+          "entity": "annual_attendances_en",
+          "key$": "BasicAnnualAttendancesEnFlow",
+          "kind": "basic",
+          "name": "BasicAnnualAttendancesEnFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {},
+              "match": {},
+              "op": "list",
+              "spec": [],
+              "valid": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "annual_attendances_en_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicAnnualAttendancesScFlow": {
+          "active": true,
+          "entity": "annual_attendances_sc",
+          "key$": "BasicAnnualAttendancesScFlow",
+          "kind": "basic",
+          "name": "BasicAnnualAttendancesScFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {},
+              "match": {},
+              "op": "list",
+              "spec": [],
+              "valid": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "annual_attendances_sc_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicAnnualAttendancesTcFlow": {
+          "active": true,
+          "entity": "annual_attendances_tc",
+          "key$": "BasicAnnualAttendancesTcFlow",
+          "kind": "basic",
+          "name": "BasicAnnualAttendancesTcFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {},
+              "match": {},
+              "op": "list",
+              "spec": [],
+              "valid": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "annual_attendances_tc_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
       "info": {
         "contact": {
           "email": "enquiry@ha.org.hk",
@@ -22,396 +391,35 @@
           }
         ],
         "title": "Chinese Medicine Clinics",
-        "version": "1.0.0",
-        "tagline": "Annual attendance figures for Hong Kong's Chinese medicine clinics and training & research centres",
-        "homepage": "https://www.ha.org.hk/opendata",
-        "docs_url": "https://freepublicapis.com/chinese-medicine-clinics",
-        "license_short": "Hospital Authority open data — published by the Hong Kong Hospital Authority",
-        "license_md": "- Data is published by the Hong Kong Hospital Authority as part of its open data programme.\n- Refer to the Hospital Authority website (`ha.org.hk`) for the current terms of use and attribution requirements.\n- The dataset is provided in three language editions (English, Traditional Chinese, Simplified Chinese) covering the same underlying figures.",
-        "about_md": "This SDK wraps the Chinese Medicine Clinics attendance feeds published by the [Hong Kong Hospital Authority](https://www.ha.org.hk/opendata). The Hospital Authority is the statutory body that manages Hong Kong's public hospitals and clinics, and it releases service statistics — including attendance counts for its Chinese medicine clinics and training & research centres (CMCTR) — as open JSON files.\n\nWhat you get from the API:\n\n- Annual attendance totals for Chinese medicine clinics and training & research centres operated under the Hospital Authority.\n- Three parallel feeds covering the same data in English, Traditional Chinese, and Simplified Chinese.\n- Static JSON documents served directly over HTTPS from `www.ha.org.hk/opendata`.\n\nThe endpoints are unauthenticated and CORS-enabled, so they can be called from browsers as well as servers. Because the feeds are flat JSON files refreshed by the publisher, there is no rate limit documented and no query parameters — clients fetch the whole document and read the language edition they need.",
-        "entity_desc": {
-          "annual_attendances_en": "Annual attendance figures for Chinese medicine clinics and training & research centres, English edition — served from `https://www.ha.org.hk/opendata/cmctr/cmctr-attnd-en.json`.",
-          "annual_attendances_sc": "The same annual attendance figures in Simplified Chinese — served from `https://www.ha.org.hk/opendata/cmctr/cmctr-attnd-sc.json`.",
-          "annual_attendances_tc": "The same annual attendance figures in Traditional Chinese — served from `https://www.ha.org.hk/opendata/cmctr/cmctr-attnd-tc.json`."
-        },
-        "auth": false
+        "version": "1.0.0"
       },
-      "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
-        "headers": {
-          "content-type": "application/json"
-        },
-        "docs_order": [
-          "ts",
-          "py",
-          "php",
-          "go",
-          "rb",
-          "lua"
-        ]
-      },
-      "entity": {
-        "annual_attendances_en": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "attendance",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "clinic_name",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "location",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "year",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            }
-          ],
-          "name": "annual_attendances_en",
-          "op": {
-            "list": {
-              "name": "list",
-              "points": [
-                {
-                  "method": "GET",
-                  "orig": "/cmctr/annual-attendances-en.json",
-                  "parts": [
-                    "cmctr",
-                    "annual-attendances-en.json"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        },
-        "annual_attendances_sc": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "attendance",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "clinic_name",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "location",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "year",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            }
-          ],
-          "name": "annual_attendances_sc",
-          "op": {
-            "list": {
-              "name": "list",
-              "points": [
-                {
-                  "method": "GET",
-                  "orig": "/cmctr/annual-attendances-sc.json",
-                  "parts": [
-                    "cmctr",
-                    "annual-attendances-sc.json"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        },
-        "annual_attendances_tc": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "attendance",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "clinic_name",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "location",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "year",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            }
-          ],
-          "name": "annual_attendances_tc",
-          "op": {
-            "list": {
-              "name": "list",
-              "points": [
-                {
-                  "method": "GET",
-                  "orig": "/cmctr/annual-attendances-tc.json",
-                  "parts": [
-                    "cmctr",
-                    "annual-attendances-tc.json"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        }
-      },
-      "feature": {
-        "test": {
-          "name": "test",
-          "title": "In-memory mock transport for testing without a live server",
-          "version": "0.0.1",
-          "active": true,
-          "config": {
-            "options": {
-              "active": false
-            }
-          },
-          "hook": {
-            "PostConstruct": {
-              "active": true,
-              "await": false
-            },
-            "PostConstructEntity": {
-              "active": true,
-              "await": false
-            },
-            "SetData": {
-              "active": true,
-              "await": false
-            },
-            "GetData": {
-              "active": true,
-              "await": false
-            },
-            "SetMatch": {
-              "active": true
-            },
-            "GetMatch": {
-              "active": true,
-              "await": false
-            },
-            "PrePoint": {
-              "active": true
-            },
-            "PreSpec": {
-              "active": true,
-              "await": false
-            },
-            "PreRequest": {
-              "active": true,
-              "await": false
-            },
-            "PreResponse": {
-              "active": true,
-              "await": false
-            },
-            "PreResult": {
-              "active": true,
-              "await": false
-            },
-            "PreTarget": {
-              "active": false,
-              "await": false
-            },
-            "PostOperation": {
-              "active": false,
-              "await": false
-            }
-          },
-          "target": {
-            "ts": {
-              "deps": {}
-            },
-            "go": {
-              "deps": {}
-            },
-            "lua": {
-              "deps": {}
-            },
-            "php": {
-              "deps": {}
-            },
-            "py": {
-              "deps": {}
-            },
-            "rb": {
-              "deps": {}
-            },
-            "go-cli": {
-              "deps": {}
-            },
-            "go-mcp": {
-              "deps": {}
-            }
-          }
-        }
-      },
-      "flow": {
-        "BasicAnnualAttendancesEnFlow": {
-          "entity": "annual_attendances_en",
-          "kind": "basic",
-          "name": "BasicAnnualAttendancesEnFlow",
-          "step": [
-            {
-              "op": "list",
-              "valid": [
-                {
-                  "apply": "ItemExists",
-                  "def": {
-                    "ref": "annual_attendances_en_ref01"
-                  }
-                }
-              ],
-              "active": true,
-              "match": {},
-              "data": {},
-              "input": {},
-              "spec": []
-            }
-          ],
-          "key$": "BasicAnnualAttendancesEnFlow",
-          "active": true,
-          "param": {}
-        },
-        "BasicAnnualAttendancesScFlow": {
-          "entity": "annual_attendances_sc",
-          "kind": "basic",
-          "name": "BasicAnnualAttendancesScFlow",
-          "step": [
-            {
-              "op": "list",
-              "valid": [
-                {
-                  "apply": "ItemExists",
-                  "def": {
-                    "ref": "annual_attendances_sc_ref01"
-                  }
-                }
-              ],
-              "active": true,
-              "match": {},
-              "data": {},
-              "input": {},
-              "spec": []
-            }
-          ],
-          "key$": "BasicAnnualAttendancesScFlow",
-          "active": true,
-          "param": {}
-        },
-        "BasicAnnualAttendancesTcFlow": {
-          "entity": "annual_attendances_tc",
-          "kind": "basic",
-          "name": "BasicAnnualAttendancesTcFlow",
-          "step": [
-            {
-              "op": "list",
-              "valid": [
-                {
-                  "apply": "ItemExists",
-                  "def": {
-                    "ref": "annual_attendances_tc_ref01"
-                  }
-                }
-              ],
-              "active": true,
-              "match": {},
-              "data": {},
-              "input": {},
-              "spec": []
-            }
-          ],
-          "key$": "BasicAnnualAttendancesTcFlow",
-          "active": true,
-          "param": {}
-        }
-      },
+      "option": {},
       "target": {
-        "go-cli": {
-          "title": "Go CLI",
-          "ext": "go",
+        "go": {
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "go",
           "module": {
             "name": "chinese-medicine-clinics"
           },
+          "name": "go",
+          "srcfeature": false,
+          "title": "Golang"
+        },
+        "go-cli": {
+          "active": true,
+          "comment": {
+            "line": "//"
+          },
+          "deps": {},
+          "ext": "go",
+          "module": {
+            "name": "chinese-medicine-clinics"
+          },
+          "name": "go-cli",
           "phase": {
             "entity": {
               "active": false
@@ -426,19 +434,19 @@
               "active": false
             }
           },
-          "deps": {},
-          "name": "go-cli",
-          "active": true
+          "title": "Go CLI"
         },
         "go-mcp": {
-          "title": "Go MCP server",
-          "ext": "go",
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "go",
           "module": {
             "name": "chinese-medicine-clinics"
           },
+          "name": "go-mcp",
           "phase": {
             "entity": {
               "active": false
@@ -453,138 +461,120 @@
               "active": false
             }
           },
-          "deps": {},
-          "name": "go-mcp",
-          "active": true
-        },
-        "ts": {
-          "title": "TypeScript",
-          "ext": "ts",
-          "comment": {
-            "line": "//"
-          },
-          "module": {
-            "name": "chinese-medicine-clinics"
-          },
-          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
-          "deps": {
-            "dotenv": {
-              "active": true,
-              "version": "^17.4.2",
-              "kind": "dev"
-            },
-            "typescript": {
-              "active": true,
-              "version": "^5.9.3",
-              "kind": "dev"
-            },
-            "@types/node": {
-              "active": true,
-              "version": "^25.6.0",
-              "kind": "dev"
-            }
-          },
-          "name": "ts",
-          "active": true
-        },
-        "go": {
-          "title": "Golang",
-          "ext": "go",
-          "comment": {
-            "line": "//"
-          },
-          "module": {
-            "name": "chinese-medicine-clinics"
-          },
-          "srcfeature": false,
-          "deps": {},
-          "name": "go",
-          "active": true
+          "title": "Go MCP server"
         },
         "lua": {
-          "title": "Lua",
-          "ext": "lua",
+          "active": true,
           "comment": {
             "line": "--"
           },
-          "module": {
-            "name": "chinese-medicine-clinics"
-          },
-          "srcfeature": false,
           "deps": {
             "dkjson": {
               "active": true,
-              "version": "2.5",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "2.5"
             }
           },
+          "ext": "lua",
+          "module": {
+            "name": "chinese-medicine-clinics"
+          },
           "name": "lua",
-          "active": true
+          "srcfeature": false,
+          "title": "Lua"
         },
         "php": {
-          "title": "PHP",
-          "ext": "php",
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "php",
           "module": {
             "name": "chinese-medicine-clinics"
           },
-          "srcfeature": false,
-          "deps": {},
           "name": "php",
-          "active": true
+          "srcfeature": false,
+          "title": "PHP"
         },
         "py": {
-          "title": "Python",
-          "ext": "py",
+          "active": true,
           "comment": {
             "line": "#"
           },
-          "module": {
-            "name": "chinese-medicine-clinics"
-          },
-          "srcfeature": false,
           "deps": {
             "requests": {
               "active": true,
-              "version": "2.33",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "2.33"
             }
           },
-          "name": "py",
-          "active": true
-        },
-        "rb": {
-          "title": "Ruby",
-          "ext": "rb",
-          "comment": {
-            "line": "#"
-          },
+          "ext": "py",
           "module": {
             "name": "chinese-medicine-clinics"
           },
+          "name": "py",
           "srcfeature": false,
+          "title": "Python"
+        },
+        "rb": {
+          "active": true,
+          "comment": {
+            "line": "#"
+          },
           "deps": {
-            "voxgig-struct": {
-              "active": true,
-              "version": "0.0.10",
-              "kind": "prod"
-            },
             "json": {
               "active": true,
-              "version": "0",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "0"
+            },
+            "voxgig-struct": {
+              "active": true,
+              "kind": "prod",
+              "version": "0.0.10"
             }
           },
+          "ext": "rb",
+          "module": {
+            "name": "chinese-medicine-clinics"
+          },
           "name": "rb",
-          "active": true
+          "srcfeature": false,
+          "title": "Ruby"
+        },
+        "ts": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "comment": {
+            "line": "//"
+          },
+          "deps": {
+            "@types/node": {
+              "active": true,
+              "kind": "dev",
+              "version": "^25.6.0"
+            },
+            "dotenv": {
+              "active": true,
+              "kind": "dev",
+              "version": "^17.4.2"
+            },
+            "typescript": {
+              "active": true,
+              "kind": "dev",
+              "version": "^5.9.3"
+            }
+          },
+          "ext": "ts",
+          "module": {
+            "name": "chinese-medicine-clinics"
+          },
+          "name": "ts",
+          "title": "TypeScript"
         }
-      },
-      "option": {}
-    },
-    "def": {
-      "desc": ""
+      }
     }
-  }
+  },
+  "name": "chinese-medicine-clinics",
+  "origin": "voxgig-sdk"
 }

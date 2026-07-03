@@ -62,12 +62,14 @@ def annual_attendances_en_direct_setup(mockres)
   env = Runner.env_override({
     "CHINESEMEDICINECLINICS_TEST_ANNUAL_ATTENDANCES_EN_ENTID" => {},
     "CHINESEMEDICINECLINICS_TEST_LIVE" => "FALSE",
+    "CHINESEMEDICINECLINICS_APIKEY" => "NONE",
   })
 
   live = env["CHINESEMEDICINECLINICS_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
+      "apikey" => env["CHINESEMEDICINECLINICS_APIKEY"],
     }
     client = ChineseMedicineClinicsSDK.new(merged_opts)
     return {

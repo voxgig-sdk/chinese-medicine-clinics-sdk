@@ -1,20 +1,8 @@
 # ChineseMedicineClinics SDK
 
-Annual attendance figures for Hong Kong's Chinese medicine clinics and training & research centres
+Chinese Medicine Clinics client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Chinese Medicine Clinics
-
-This SDK wraps the Chinese Medicine Clinics attendance feeds published by the [Hong Kong Hospital Authority](https://www.ha.org.hk/opendata). The Hospital Authority is the statutory body that manages Hong Kong's public hospitals and clinics, and it releases service statistics — including attendance counts for its Chinese medicine clinics and training & research centres (CMCTR) — as open JSON files.
-
-What you get from the API:
-
-- Annual attendance totals for Chinese medicine clinics and training & research centres operated under the Hospital Authority.
-- Three parallel feeds covering the same data in English, Traditional Chinese, and Simplified Chinese.
-- Static JSON documents served directly over HTTPS from `www.ha.org.hk/opendata`.
-
-The endpoints are unauthenticated and CORS-enabled, so they can be called from browsers as well as servers. Because the feeds are flat JSON files refreshed by the publisher, there is no rate limit documented and no query parameters — clients fetch the whole document and read the language edition they need.
 
 ## Try it
 
@@ -48,29 +36,31 @@ gem install chinese-medicine-clinics-sdk
 luarocks install chinese-medicine-clinics-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { ChineseMedicineClinicsSDK } from 'chinese-medicine-clinics'
 
-const client = new ChineseMedicineClinicsSDK({})
+const client = new ChineseMedicineClinicsSDK({
+  apikey: process.env.CHINESE-MEDICINE-CLINICS_APIKEY,
+})
 
 // List all annualattendancesens
 const annualattendancesens = await client.AnnualAttendancesEn().list()
+console.log(annualattendancesens.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -100,9 +90,9 @@ The API exposes 3 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **AnnualAttendancesEn** | Annual attendance figures for Chinese medicine clinics and training & research centres, English edition — served from `https://www.ha.org.hk/opendata/cmctr/cmctr-attnd-en.json`. | `/cmctr/annual-attendances-en.json` |
-| **AnnualAttendancesSc** | The same annual attendance figures in Simplified Chinese — served from `https://www.ha.org.hk/opendata/cmctr/cmctr-attnd-sc.json`. | `/cmctr/annual-attendances-sc.json` |
-| **AnnualAttendancesTc** | The same annual attendance figures in Traditional Chinese — served from `https://www.ha.org.hk/opendata/cmctr/cmctr-attnd-tc.json`. | `/cmctr/annual-attendances-tc.json` |
+| **AnnualAttendancesEn** |  | `/cmctr/annual-attendances-en.json` |
+| **AnnualAttendancesSc** |  | `/cmctr/annual-attendances-sc.json` |
+| **AnnualAttendancesTc** |  | `/cmctr/annual-attendances-tc.json` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -112,12 +102,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from chinesemedicineclinics_sdk import ChineseMedicineClinicsSDK
 
-client = ChineseMedicineClinicsSDK({})
+client = ChineseMedicineClinicsSDK({
+    "apikey": os.environ.get("CHINESE-MEDICINE-CLINICS_APIKEY"),
+})
 
 # List all annualattendancesens
-annualattendancesens, err = client.AnnualAttendancesEn(None).list(None, None)
+annualattendancesens, err = client.AnnualAttendancesEn().list()
+print(annualattendancesens)
 ```
 
 ### PHP
@@ -126,10 +120,13 @@ annualattendancesens, err = client.AnnualAttendancesEn(None).list(None, None)
 <?php
 require_once 'chinesemedicineclinics_sdk.php';
 
-$client = new ChineseMedicineClinicsSDK([]);
+$client = new ChineseMedicineClinicsSDK([
+    "apikey" => getenv("CHINESE-MEDICINE-CLINICS_APIKEY"),
+]);
 
 // List all annualattendancesens
-[$annualattendancesens, $err] = $client->AnnualAttendancesEn(null)->list(null, null);
+[$annualattendancesens, $err] = $client->AnnualAttendancesEn()->list();
+print_r($annualattendancesens);
 ```
 
 ### Golang
@@ -137,10 +134,13 @@ $client = new ChineseMedicineClinicsSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/chinese-medicine-clinics-sdk/go"
 
-client := sdk.NewChineseMedicineClinicsSDK(map[string]any{})
+client := sdk.NewChineseMedicineClinicsSDK(map[string]any{
+    "apikey": os.Getenv("CHINESE-MEDICINE-CLINICS_APIKEY"),
+})
 
 // List all annualattendancesens
 annualattendancesens, err := client.AnnualAttendancesEn(nil).List(nil, nil)
+fmt.Println(annualattendancesens)
 ```
 
 ### Ruby
@@ -148,10 +148,13 @@ annualattendancesens, err := client.AnnualAttendancesEn(nil).List(nil, nil)
 ```ruby
 require_relative "ChineseMedicineClinics_sdk"
 
-client = ChineseMedicineClinicsSDK.new({})
+client = ChineseMedicineClinicsSDK.new({
+  "apikey" => ENV["CHINESE-MEDICINE-CLINICS_APIKEY"],
+})
 
 # List all annualattendancesens
-annualattendancesens, err = client.AnnualAttendancesEn(nil).list(nil, nil)
+annualattendancesens, err = client.AnnualAttendancesEn().list
+puts annualattendancesens
 ```
 
 ### Lua
@@ -159,10 +162,13 @@ annualattendancesens, err = client.AnnualAttendancesEn(nil).list(nil, nil)
 ```lua
 local sdk = require("chinese-medicine-clinics_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("CHINESE-MEDICINE-CLINICS_APIKEY"),
+})
 
 -- List all annualattendancesens
-local annualattendancesens, err = client:AnnualAttendancesEn(nil):list(nil, nil)
+local annualattendancesens, err = client:AnnualAttendancesEn():list()
+print(annualattendancesens)
 ```
 
 ## Unit testing in offline mode
@@ -181,25 +187,21 @@ const result = await client.AnnualAttendancesEn().load({ id: 'test01' })
 ### Python
 
 ```python
-client = ChineseMedicineClinicsSDK.test(None, None)
-result, err = client.AnnualAttendancesEn(None).load(
-    {"id": "test01"}, None
-)
+client = ChineseMedicineClinicsSDK.test()
+result, err = client.AnnualAttendancesEn().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = ChineseMedicineClinicsSDK::test(null, null);
-[$result, $err] = $client->AnnualAttendancesEn(null)->load(
-    ["id" => "test01"], null
-);
+$client = ChineseMedicineClinicsSDK::test();
+[$result, $err] = $client->AnnualAttendancesEn()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.AnnualAttendancesEn(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -208,19 +210,15 @@ result, err := client.AnnualAttendancesEn(nil).Load(
 ### Ruby
 
 ```ruby
-client = ChineseMedicineClinicsSDK.test(nil, nil)
-result, err = client.AnnualAttendancesEn(nil).load(
-  { "id" => "test01" }, nil
-)
+client = ChineseMedicineClinicsSDK.test
+result, err = client.AnnualAttendancesEn().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:AnnualAttendancesEn(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:AnnualAttendancesEn():load({ id = "test01" })
 ```
 
 ## How it works
@@ -324,15 +322,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Chinese Medicine Clinics
-
-- Upstream: [https://www.ha.org.hk/opendata](https://www.ha.org.hk/opendata)
-- API docs: [https://freepublicapis.com/chinese-medicine-clinics](https://freepublicapis.com/chinese-medicine-clinics)
-
-- Data is published by the Hong Kong Hospital Authority as part of its open data programme.
-- Refer to the Hospital Authority website (`ha.org.hk`) for the current terms of use and attribution requirements.
-- The dataset is provided in three language editions (English, Traditional Chinese, Simplified Chinese) covering the same underlying figures.
 
 ---
 

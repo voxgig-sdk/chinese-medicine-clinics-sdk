@@ -15,6 +15,9 @@ def make_config():
         },
         "options": {
             "base": "https://www.ha.org.hk/opendata",
+            "auth": {
+                "prefix": "Bearer",
+            },
             "headers": {
         "content-type": "application/json",
       },
@@ -28,57 +31,57 @@ def make_config():
       "annual_attendances_en": {
         "fields": [
           {
+            "active": True,
             "name": "attendance",
             "req": False,
             "type": "`$INTEGER`",
-            "active": True,
             "index$": 0,
           },
           {
+            "active": True,
             "name": "clinic_name",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 1,
           },
           {
+            "active": True,
             "name": "location",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 2,
           },
           {
+            "active": True,
             "name": "year",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 3,
           },
         ],
         "name": "annual_attendances_en",
         "op": {
           "list": {
+            "input": "data",
             "name": "list",
             "points": [
               {
+                "active": True,
+                "args": {},
                 "method": "GET",
                 "orig": "/cmctr/annual-attendances-en.json",
                 "parts": [
                   "cmctr",
                   "annual-attendances-en.json",
                 ],
+                "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
-                "select": {},
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "list",
           },
         },
@@ -89,57 +92,57 @@ def make_config():
       "annual_attendances_sc": {
         "fields": [
           {
+            "active": True,
             "name": "attendance",
             "req": False,
             "type": "`$INTEGER`",
-            "active": True,
             "index$": 0,
           },
           {
+            "active": True,
             "name": "clinic_name",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 1,
           },
           {
+            "active": True,
             "name": "location",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 2,
           },
           {
+            "active": True,
             "name": "year",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 3,
           },
         ],
         "name": "annual_attendances_sc",
         "op": {
           "list": {
+            "input": "data",
             "name": "list",
             "points": [
               {
+                "active": True,
+                "args": {},
                 "method": "GET",
                 "orig": "/cmctr/annual-attendances-sc.json",
                 "parts": [
                   "cmctr",
                   "annual-attendances-sc.json",
                 ],
+                "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
-                "select": {},
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "list",
           },
         },
@@ -150,57 +153,57 @@ def make_config():
       "annual_attendances_tc": {
         "fields": [
           {
+            "active": True,
             "name": "attendance",
             "req": False,
             "type": "`$INTEGER`",
-            "active": True,
             "index$": 0,
           },
           {
+            "active": True,
             "name": "clinic_name",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 1,
           },
           {
+            "active": True,
             "name": "location",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 2,
           },
           {
+            "active": True,
             "name": "year",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 3,
           },
         ],
         "name": "annual_attendances_tc",
         "op": {
           "list": {
+            "input": "data",
             "name": "list",
             "points": [
               {
+                "active": True,
+                "args": {},
                 "method": "GET",
                 "orig": "/cmctr/annual-attendances-tc.json",
                 "parts": [
                   "cmctr",
                   "annual-attendances-tc.json",
                 ],
+                "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
-                "select": {},
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "list",
           },
         },

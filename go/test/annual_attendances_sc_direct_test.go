@@ -93,12 +93,14 @@ func annual_attendances_scDirectSetup(mockres any) *annual_attendances_scDirectS
 	env := envOverride(map[string]any{
 		"CHINESEMEDICINECLINICS_TEST_ANNUAL_ATTENDANCES_SC_ENTID": map[string]any{},
 		"CHINESEMEDICINECLINICS_TEST_LIVE":    "FALSE",
+		"CHINESEMEDICINECLINICS_APIKEY":       "NONE",
 	})
 
 	live := env["CHINESEMEDICINECLINICS_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["CHINESEMEDICINECLINICS_APIKEY"],
 		}
 		client := sdk.NewChineseMedicineClinicsSDK(mergedOpts)
 
