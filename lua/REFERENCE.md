@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -92,7 +91,7 @@ same parameters as `direct()`.
 ## AnnualAttendancesEnEntity
 
 ```lua
-local annual_attendances_en = client:AnnualAttendancesEn(nil)
+local annual_attendances_en = client:annual_attendances_en(nil)
 ```
 
 ### Fields
@@ -111,7 +110,7 @@ local annual_attendances_en = client:AnnualAttendancesEn(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:AnnualAttendancesEn():list()
+local results, err = client:annual_attendances_en():list()
 ```
 
 ### Common Methods
@@ -147,7 +146,7 @@ Return the entity name.
 ## AnnualAttendancesScEntity
 
 ```lua
-local annual_attendances_sc = client:AnnualAttendancesSc(nil)
+local annual_attendances_sc = client:annual_attendances_sc(nil)
 ```
 
 ### Fields
@@ -166,7 +165,7 @@ local annual_attendances_sc = client:AnnualAttendancesSc(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:AnnualAttendancesSc():list()
+local results, err = client:annual_attendances_sc():list()
 ```
 
 ### Common Methods
@@ -202,7 +201,7 @@ Return the entity name.
 ## AnnualAttendancesTcEntity
 
 ```lua
-local annual_attendances_tc = client:AnnualAttendancesTc(nil)
+local annual_attendances_tc = client:annual_attendances_tc(nil)
 ```
 
 ### Fields
@@ -221,7 +220,7 @@ local annual_attendances_tc = client:AnnualAttendancesTc(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:AnnualAttendancesTc():list()
+local results, err = client:annual_attendances_tc():list()
 ```
 
 ### Common Methods

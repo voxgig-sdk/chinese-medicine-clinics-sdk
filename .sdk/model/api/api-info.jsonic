@@ -4,6 +4,7 @@
 main: {
   kit: {
     info: {
+      auth: false
       contact: {
         email: "enquiry@ha.org.hk"
         name: "Hospital Authority"

@@ -92,7 +92,6 @@ function annual_attendances_tc_basic_setup(extra)
     ["CHINESEMEDICINECLINICS_TEST_ANNUAL_ATTENDANCES_TC_ENTID"] = idmap,
     ["CHINESEMEDICINECLINICS_TEST_LIVE"] = "FALSE",
     ["CHINESEMEDICINECLINICS_TEST_EXPLAIN"] = "FALSE",
-    ["CHINESEMEDICINECLINICS_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -104,7 +103,6 @@ function annual_attendances_tc_basic_setup(extra)
   if env["CHINESEMEDICINECLINICS_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["CHINESEMEDICINECLINICS_APIKEY"],
       },
       extra or {},
     })

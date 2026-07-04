@@ -4,6 +4,8 @@ import { AnnualAttendancesEnEntity } from './entity/AnnualAttendancesEnEntity'
 import { AnnualAttendancesScEntity } from './entity/AnnualAttendancesScEntity'
 import { AnnualAttendancesTcEntity } from './entity/AnnualAttendancesTcEntity'
 
+export type * from './ChineseMedicineClinicsTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -204,18 +206,42 @@ class ChineseMedicineClinicsSDK {
 
 
 
+  _annual_attendances_en?: AnnualAttendancesEnEntity
+
+  // Idiomatic facade: `client.annual_attendances_en.list()` / `client.annual_attendances_en.load({ id })`.
+  get annual_attendances_en(): AnnualAttendancesEnEntity {
+    return (this._annual_attendances_en ??= new AnnualAttendancesEnEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.annual_attendances_en` instead. */
   AnnualAttendancesEn(data?: any) {
     const self = this
     return new AnnualAttendancesEnEntity(self,data)
   }
 
 
+  _annual_attendances_sc?: AnnualAttendancesScEntity
+
+  // Idiomatic facade: `client.annual_attendances_sc.list()` / `client.annual_attendances_sc.load({ id })`.
+  get annual_attendances_sc(): AnnualAttendancesScEntity {
+    return (this._annual_attendances_sc ??= new AnnualAttendancesScEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.annual_attendances_sc` instead. */
   AnnualAttendancesSc(data?: any) {
     const self = this
     return new AnnualAttendancesScEntity(self,data)
   }
 
 
+  _annual_attendances_tc?: AnnualAttendancesTcEntity
+
+  // Idiomatic facade: `client.annual_attendances_tc.list()` / `client.annual_attendances_tc.load({ id })`.
+  get annual_attendances_tc(): AnnualAttendancesTcEntity {
+    return (this._annual_attendances_tc ??= new AnnualAttendancesTcEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.annual_attendances_tc` instead. */
   AnnualAttendancesTc(data?: any) {
     const self = this
     return new AnnualAttendancesTcEntity(self,data)

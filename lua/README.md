@@ -9,12 +9,9 @@ The Lua SDK for the ChineseMedicineClinics API — an entity-oriented client usi
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-chinese-medicine-clinics
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/chinese-medicine-clinics-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("chinese-medicine-clinics_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("CHINESE-MEDICINE-CLINICS_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 2. List annualattendancesens
 
 ```lua
-local result, err = client:AnnualAttendancesEn():list()
+local result, err = client:annualattendancesen():list()
 if err then error(err) end
 
 if type(result) == "table" then
@@ -93,7 +88,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:ChineseMedicineClinics():load({ id = "test01" })
+local result, err = client:annualattendancesen():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -126,8 +121,7 @@ local client = sdk.new({
 Create a `.env.local` file at the project root:
 
 ```
-CHINESE-MEDICINE-CLINICS_TEST_LIVE=TRUE
-CHINESE-MEDICINE-CLINICS_APIKEY=<your-key>
+CHINESE_MEDICINE_CLINICS_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -150,7 +144,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -258,7 +251,7 @@ API path: `/cmctr/annual-attendances-tc.json`
 
 ### AnnualAttendancesEn
 
-Create an instance: `const annual_attendances_en = client.AnnualAttendancesEn()`
+Create an instance: `const annual_attendances_en = client.annual_attendances_en`
 
 #### Operations
 
@@ -278,13 +271,13 @@ Create an instance: `const annual_attendances_en = client.AnnualAttendancesEn()`
 #### Example: List
 
 ```ts
-const annual_attendances_ens = await client.AnnualAttendancesEn().list()
+const annual_attendances_ens = await client.annual_attendances_en.list()
 ```
 
 
 ### AnnualAttendancesSc
 
-Create an instance: `const annual_attendances_sc = client.AnnualAttendancesSc()`
+Create an instance: `const annual_attendances_sc = client.annual_attendances_sc`
 
 #### Operations
 
@@ -304,13 +297,13 @@ Create an instance: `const annual_attendances_sc = client.AnnualAttendancesSc()`
 #### Example: List
 
 ```ts
-const annual_attendances_scs = await client.AnnualAttendancesSc().list()
+const annual_attendances_scs = await client.annual_attendances_sc.list()
 ```
 
 
 ### AnnualAttendancesTc
 
-Create an instance: `const annual_attendances_tc = client.AnnualAttendancesTc()`
+Create an instance: `const annual_attendances_tc = client.annual_attendances_tc`
 
 #### Operations
 
@@ -330,7 +323,7 @@ Create an instance: `const annual_attendances_tc = client.AnnualAttendancesTc()`
 #### Example: List
 
 ```ts
-const annual_attendances_tcs = await client.AnnualAttendancesTc().list()
+const annual_attendances_tcs = await client.annual_attendances_tc.list()
 ```
 
 
@@ -405,11 +398,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local annualattendancesen = client:annualattendancesen()
+annualattendancesen:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- annualattendancesen:data_get() now returns the loaded annualattendancesen data
+-- annualattendancesen:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

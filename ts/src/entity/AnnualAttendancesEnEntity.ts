@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  AnnualAttendancesEn,
+  AnnualAttendancesEnListMatch,
+} from '../ChineseMedicineClinicsTypes'
 
 // TODO: needs Entity superclass
-class AnnualAttendancesEnEntity extends ChineseMedicineClinicsEntityBase {
+class AnnualAttendancesEnEntity extends ChineseMedicineClinicsEntityBase<AnnualAttendancesEn> {
 
   constructor(client: ChineseMedicineClinicsSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class AnnualAttendancesEnEntity extends ChineseMedicineClinicsEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: AnnualAttendancesEnListMatch, ctrl?: Control): Promise<AnnualAttendancesEn[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class AnnualAttendancesEnEntity extends ChineseMedicineClinicsEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<AnnualAttendancesEn[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

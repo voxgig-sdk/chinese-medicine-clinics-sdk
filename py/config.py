@@ -15,9 +15,6 @@ def make_config():
         },
         "options": {
             "base": "https://www.ha.org.hk/opendata",
-            "auth": {
-                "prefix": "Bearer",
-            },
             "headers": {
         "content-type": "application/json",
       },

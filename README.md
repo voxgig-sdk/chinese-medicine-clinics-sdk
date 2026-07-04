@@ -10,26 +10,24 @@ This is an unofficial SDK for the Chinese Medicine Clinics public API, generated
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/chinese-medicine-clinics` | `npm install @voxgig-sdk/chinese-medicine-clinics` |
-| Python | `voxgig-sdk-chinese-medicine-clinics` | `pip install voxgig-sdk-chinese-medicine-clinics` |
-| PHP | `voxgig-sdk/chinese-medicine-clinics` | `composer require voxgig-sdk/chinese-medicine-clinics` |
-| Golang | `github.com/voxgig-sdk/chinese-medicine-clinics-sdk/go` | `go get github.com/voxgig-sdk/chinese-medicine-clinics-sdk/go` |
-| Ruby | `voxgig-sdk-chinese-medicine-clinics` | `gem install voxgig-sdk-chinese-medicine-clinics` |
-| Lua | `voxgig-sdk-chinese-medicine-clinics` | `luarocks install voxgig-sdk-chinese-medicine-clinics` |
+| TypeScript | `@voxgig-sdk/chinese-medicine-clinics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/chinese-medicine-clinics-sdk/releases) |
+| Python | `voxgig-sdk-chinese-medicine-clinics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/chinese-medicine-clinics-sdk/releases) |
+| PHP | `voxgig-sdk/chinese-medicine-clinics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/chinese-medicine-clinics-sdk/releases) |
+| Golang | `github.com/voxgig-sdk/chinese-medicine-clinics-sdk/go` | `go get github.com/voxgig-sdk/chinese-medicine-clinics-sdk/go@latest` |
+| Ruby | `voxgig-sdk-chinese-medicine-clinics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/chinese-medicine-clinics-sdk/releases) |
+| Lua | `voxgig-sdk-chinese-medicine-clinics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/chinese-medicine-clinics-sdk/releases) |
 
 ## Quickstart
 
 ### TypeScript
 
 ```ts
-import { ChineseMedicineClinicsSDK } from 'chinese-medicine-clinics'
+import { ChineseMedicineClinicsSDK } from '@voxgig-sdk/chinese-medicine-clinics'
 
-const client = new ChineseMedicineClinicsSDK({
-  apikey: process.env.CHINESE-MEDICINE-CLINICS_APIKEY,
-})
+const client = new ChineseMedicineClinicsSDK()
 
 // List all annualattendancesens
-const annualattendancesens = await client.AnnualAttendancesEn().list()
+const annualattendancesens = await client.annualattendancesen.list()
 console.log(annualattendancesens.data)
 ```
 
@@ -71,9 +69,9 @@ The API exposes 3 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **AnnualAttendancesEn** |  | `/cmctr/annual-attendances-en.json` |
-| **AnnualAttendancesSc** |  | `/cmctr/annual-attendances-sc.json` |
-| **AnnualAttendancesTc** |  | `/cmctr/annual-attendances-tc.json` |
+| **AnnualAttendancesEn** | The AnnualAttendancesEn entity (list). | `/cmctr/annual-attendances-en.json` |
+| **AnnualAttendancesSc** | The AnnualAttendancesSc entity (list). | `/cmctr/annual-attendances-sc.json` |
+| **AnnualAttendancesTc** | The AnnualAttendancesTc entity (list). | `/cmctr/annual-attendances-tc.json` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -83,15 +81,12 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
-import os
 from chinesemedicineclinics_sdk import ChineseMedicineClinicsSDK
 
-client = ChineseMedicineClinicsSDK({
-    "apikey": os.environ.get("CHINESE-MEDICINE-CLINICS_APIKEY"),
-})
+client = ChineseMedicineClinicsSDK()
 
 # List all annualattendancesens
-annualattendancesens, err = client.AnnualAttendancesEn().list()
+annualattendancesens = client.annualattendancesen.list()
 print(annualattendancesens)
 ```
 
@@ -101,12 +96,10 @@ print(annualattendancesens)
 <?php
 require_once 'chinesemedicineclinics_sdk.php';
 
-$client = new ChineseMedicineClinicsSDK([
-    "apikey" => getenv("CHINESE-MEDICINE-CLINICS_APIKEY"),
-]);
+$client = new ChineseMedicineClinicsSDK();
 
-// List all annualattendancesens
-[$annualattendancesens, $err] = $client->AnnualAttendancesEn()->list();
+// List all annualattendancesens (throws on error)
+$annualattendancesens = $client->annualattendancesen()->list();
 print_r($annualattendancesens);
 ```
 
@@ -115,9 +108,7 @@ print_r($annualattendancesens);
 ```go
 import sdk "github.com/voxgig-sdk/chinese-medicine-clinics-sdk/go"
 
-client := sdk.NewChineseMedicineClinicsSDK(map[string]any{
-    "apikey": os.Getenv("CHINESE-MEDICINE-CLINICS_APIKEY"),
-})
+client := sdk.New()
 
 // List all annualattendancesens
 annualattendancesens, err := client.AnnualAttendancesEn(nil).List(nil, nil)
@@ -129,12 +120,10 @@ fmt.Println(annualattendancesens)
 ```ruby
 require_relative "ChineseMedicineClinics_sdk"
 
-client = ChineseMedicineClinicsSDK.new({
-  "apikey" => ENV["CHINESE-MEDICINE-CLINICS_APIKEY"],
-})
+client = ChineseMedicineClinicsSDK.new
 
 # List all annualattendancesens
-annualattendancesens, err = client.AnnualAttendancesEn().list
+annualattendancesens = client.annualattendancesen.list
 puts annualattendancesens
 ```
 
@@ -143,12 +132,10 @@ puts annualattendancesens
 ```lua
 local sdk = require("chinese-medicine-clinics_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("CHINESE-MEDICINE-CLINICS_APIKEY"),
-})
+local client = sdk.new()
 
 -- List all annualattendancesens
-local annualattendancesens, err = client:AnnualAttendancesEn():list()
+local annualattendancesens, err = client:annualattendancesen():list()
 print(annualattendancesens)
 ```
 
@@ -161,7 +148,7 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = ChineseMedicineClinicsSDK.test()
-const result = await client.AnnualAttendancesEn().load({ id: 'test01' })
+const result = await client.annualattendancesen.load({ id: 'test01' })
 // result.ok === true, result.data contains mock data
 ```
 
@@ -169,14 +156,14 @@ const result = await client.AnnualAttendancesEn().load({ id: 'test01' })
 
 ```python
 client = ChineseMedicineClinicsSDK.test()
-result, err = client.AnnualAttendancesEn().load({"id": "test01"})
+result = client.annualattendancesen.load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
 $client = ChineseMedicineClinicsSDK::test();
-[$result, $err] = $client->AnnualAttendancesEn()->load(["id" => "test01"]);
+$result = $client->annualattendancesen()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -192,14 +179,14 @@ result, err := client.AnnualAttendancesEn(nil).Load(
 
 ```ruby
 client = ChineseMedicineClinicsSDK.test
-result, err = client.AnnualAttendancesEn().load({ "id" => "test01" })
+result = client.annualattendancesen.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:AnnualAttendancesEn():load({ id = "test01" })
+local result, err = client:annualattendancesen():load({ id = "test01" })
 ```
 
 ## How it works
@@ -252,7 +239,7 @@ console.log(result.data)
 
 **Python:**
 ```python
-result, err = client.direct({
+result = client.direct({
     "path": "/api/resource/{id}",
     "method": "GET",
     "params": {"id": "example"},
@@ -261,7 +248,7 @@ result, err = client.direct({
 
 **PHP:**
 ```php
-[$result, $err] = $client->direct([
+$result = $client->direct([
     "path" => "/api/resource/{id}",
     "method" => "GET",
     "params" => ["id" => "example"],
@@ -279,7 +266,7 @@ result, err := client.Direct(map[string]any{
 
 **Ruby:**
 ```ruby
-result, err = client.direct({
+result = client.direct({
   "path" => "/api/resource/{id}",
   "method" => "GET",
   "params" => { "id" => "example" },

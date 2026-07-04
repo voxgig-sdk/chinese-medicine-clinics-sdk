@@ -13,6 +13,9 @@ require_relative 'config'
 require_relative 'feature/base_feature'
 require_relative 'features'
 
+# Load typed models (Struct value objects).
+require_relative 'ChineseMedicineClinics_types'
+
 
 class ChineseMedicineClinicsSDK
   attr_accessor :mode, :features, :options
@@ -131,7 +134,7 @@ class ChineseMedicineClinicsSDK
     end
 
     _, err = utility.prepare_auth.call(ctx)
-    return nil, err if err
+    raise err if err
 
     utility.make_fetch_def.call(ctx)
   end
@@ -139,8 +142,14 @@ class ChineseMedicineClinicsSDK
   def direct(fetchargs = {})
     utility = @_utility
 
-    fetchdef, err = prepare(fetchargs)
-    return { "ok" => false, "err" => err }, nil if err
+    # direct() is the raw-HTTP escape hatch: it always returns a result hash
+    # ({ "ok" => ..., ... }) and never raises. prepare() raises on error, so
+    # trap that and surface it in the hash.
+    begin
+      fetchdef = prepare(fetchargs)
+    rescue ChineseMedicineClinicsError => err
+      return { "ok" => false, "err" => err }
+    end
 
     fetchargs ||= {}
     ctrl = ChineseMedicineClinicsHelpers.to_map(VoxgigStruct.getprop(fetchargs, "ctrl")) || {}
@@ -153,13 +162,13 @@ class ChineseMedicineClinicsSDK
     url = fetchdef["url"] || ""
     fetched, fetch_err = utility.fetcher.call(ctx, url, fetchdef)
 
-    return { "ok" => false, "err" => fetch_err }, nil if fetch_err
+    return { "ok" => false, "err" => fetch_err } if fetch_err
 
     if fetched.nil?
       return {
         "ok" => false,
         "err" => ctx.make_error("direct_no_response", "response: undefined"),
-      }, nil
+      }
     end
 
     if fetched.is_a?(Hash)
@@ -189,28 +198,49 @@ class ChineseMedicineClinicsSDK
         "status" => status,
         "headers" => headers,
         "data" => json_data,
-      }, nil
+      }
     end
 
     return {
       "ok" => false,
       "err" => ctx.make_error("direct_invalid", "invalid response type"),
-    }, nil
+    }
   end
 
 
+  # Idiomatic facade: client.annual_attendances_en.list / client.annual_attendances_en.load({ "id" => ... })
+  def annual_attendances_en
+    require_relative 'entity/annual_attendances_en_entity'
+    @annual_attendances_en ||= AnnualAttendancesEnEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.annual_attendances_en instead.
   def AnnualAttendancesEn(data = nil)
     require_relative 'entity/annual_attendances_en_entity'
     AnnualAttendancesEnEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.annual_attendances_sc.list / client.annual_attendances_sc.load({ "id" => ... })
+  def annual_attendances_sc
+    require_relative 'entity/annual_attendances_sc_entity'
+    @annual_attendances_sc ||= AnnualAttendancesScEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.annual_attendances_sc instead.
   def AnnualAttendancesSc(data = nil)
     require_relative 'entity/annual_attendances_sc_entity'
     AnnualAttendancesScEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.annual_attendances_tc.list / client.annual_attendances_tc.load({ "id" => ... })
+  def annual_attendances_tc
+    require_relative 'entity/annual_attendances_tc_entity'
+    @annual_attendances_tc ||= AnnualAttendancesTcEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.annual_attendances_tc instead.
   def AnnualAttendancesTc(data = nil)
     require_relative 'entity/annual_attendances_tc_entity'
     AnnualAttendancesTcEntity.new(self, data)

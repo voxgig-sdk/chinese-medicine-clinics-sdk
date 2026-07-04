@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -134,7 +133,7 @@ Alias for `ChineseMedicineClinicsSDK.test()`.
 ## AnnualAttendancesEnEntity
 
 ```ts
-const annual_attendances_en = client.AnnualAttendancesEn()
+const annual_attendances_en = client.annual_attendances_en
 ```
 
 ### Fields
@@ -153,7 +152,7 @@ const annual_attendances_en = client.AnnualAttendancesEn()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.AnnualAttendancesEn().list()
+const results = await client.annual_attendances_en.list()
 ```
 
 ### Common Methods
@@ -187,7 +186,7 @@ Return a copy of the entity options.
 ## AnnualAttendancesScEntity
 
 ```ts
-const annual_attendances_sc = client.AnnualAttendancesSc()
+const annual_attendances_sc = client.annual_attendances_sc
 ```
 
 ### Fields
@@ -206,7 +205,7 @@ const annual_attendances_sc = client.AnnualAttendancesSc()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.AnnualAttendancesSc().list()
+const results = await client.annual_attendances_sc.list()
 ```
 
 ### Common Methods
@@ -240,7 +239,7 @@ Return a copy of the entity options.
 ## AnnualAttendancesTcEntity
 
 ```ts
-const annual_attendances_tc = client.AnnualAttendancesTc()
+const annual_attendances_tc = client.annual_attendances_tc
 ```
 
 ### Fields
@@ -259,7 +258,7 @@ const annual_attendances_tc = client.AnnualAttendancesTc()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.AnnualAttendancesTc().list()
+const results = await client.annual_attendances_tc.list()
 ```
 
 ### Common Methods

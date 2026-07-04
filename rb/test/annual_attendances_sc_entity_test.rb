@@ -43,8 +43,7 @@ class AnnualAttendancesScEntityTest < Minitest::Test
     annual_attendances_sc_ref01_ent = client.AnnualAttendancesSc(nil)
     annual_attendances_sc_ref01_match = {}
 
-    annual_attendances_sc_ref01_list_result, err = annual_attendances_sc_ref01_ent.list(annual_attendances_sc_ref01_match, nil)
-    assert_nil err
+    annual_attendances_sc_ref01_list_result = annual_attendances_sc_ref01_ent.list(annual_attendances_sc_ref01_match, nil)
     assert annual_attendances_sc_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def annual_attendances_sc_basic_setup(extra)
     "CHINESEMEDICINECLINICS_TEST_ANNUAL_ATTENDANCES_SC_ENTID" => idmap,
     "CHINESEMEDICINECLINICS_TEST_LIVE" => "FALSE",
     "CHINESEMEDICINECLINICS_TEST_EXPLAIN" => "FALSE",
-    "CHINESEMEDICINECLINICS_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def annual_attendances_sc_basic_setup(extra)
   if env["CHINESEMEDICINECLINICS_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["CHINESEMEDICINECLINICS_APIKEY"],
       },
       extra || {},
     ])

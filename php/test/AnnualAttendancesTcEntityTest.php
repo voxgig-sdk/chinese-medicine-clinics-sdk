@@ -50,8 +50,7 @@ class AnnualAttendancesTcEntityTest extends TestCase
         $annual_attendances_tc_ref01_ent = $client->AnnualAttendancesTc(null);
         $annual_attendances_tc_ref01_match = [];
 
-        [$annual_attendances_tc_ref01_list_result, $err] = $annual_attendances_tc_ref01_ent->list($annual_attendances_tc_ref01_match, null);
-        $this->assertNull($err);
+        $annual_attendances_tc_ref01_list_result = $annual_attendances_tc_ref01_ent->list($annual_attendances_tc_ref01_match, null);
         $this->assertIsArray($annual_attendances_tc_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function annual_attendances_tc_basic_setup($extra)
         "CHINESEMEDICINECLINICS_TEST_ANNUAL_ATTENDANCES_TC_ENTID" => $idmap,
         "CHINESEMEDICINECLINICS_TEST_LIVE" => "FALSE",
         "CHINESEMEDICINECLINICS_TEST_EXPLAIN" => "FALSE",
-        "CHINESEMEDICINECLINICS_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function annual_attendances_tc_basic_setup($extra)
     if ($env["CHINESEMEDICINECLINICS_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["CHINESEMEDICINECLINICS_APIKEY"],
             ],
             $extra ?? [],
         ]);

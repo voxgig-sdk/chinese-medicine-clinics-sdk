@@ -245,16 +245,25 @@ func (sdk *ChineseMedicineClinicsSDK) Direct(fetchargs map[string]any) (map[stri
 }
 
 
+// AnnualAttendancesEn returns a AnnualAttendancesEn entity bound to this client.
+// Idiomatic usage: client.AnnualAttendancesEn(nil).List(nil, nil) or
+// client.AnnualAttendancesEn(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *ChineseMedicineClinicsSDK) AnnualAttendancesEn(data map[string]any) ChineseMedicineClinicsEntity {
 	return NewAnnualAttendancesEnEntityFunc(sdk, data)
 }
 
 
+// AnnualAttendancesSc returns a AnnualAttendancesSc entity bound to this client.
+// Idiomatic usage: client.AnnualAttendancesSc(nil).List(nil, nil) or
+// client.AnnualAttendancesSc(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *ChineseMedicineClinicsSDK) AnnualAttendancesSc(data map[string]any) ChineseMedicineClinicsEntity {
 	return NewAnnualAttendancesScEntityFunc(sdk, data)
 }
 
 
+// AnnualAttendancesTc returns a AnnualAttendancesTc entity bound to this client.
+// Idiomatic usage: client.AnnualAttendancesTc(nil).List(nil, nil) or
+// client.AnnualAttendancesTc(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *ChineseMedicineClinicsSDK) AnnualAttendancesTc(data map[string]any) ChineseMedicineClinicsEntity {
 	return NewAnnualAttendancesTcEntityFunc(sdk, data)
 }

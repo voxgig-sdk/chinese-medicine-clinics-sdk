@@ -79,14 +79,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'CHINESEMEDICINECLINICS_TEST_ANNUAL_ATTENDANCES_SC_ENTID': {},
     'CHINESEMEDICINECLINICS_TEST_LIVE': 'FALSE',
-    'CHINESEMEDICINECLINICS_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.CHINESEMEDICINECLINICS_TEST_LIVE
 
   if (live) {
     const client = new ChineseMedicineClinicsSDK({
-      apikey: env.CHINESEMEDICINECLINICS_APIKEY,
     })
 
     let idmap: any = env['CHINESEMEDICINECLINICS_TEST_ANNUAL_ATTENDANCES_SC_ENTID']

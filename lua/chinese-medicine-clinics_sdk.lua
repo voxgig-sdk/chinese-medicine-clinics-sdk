@@ -244,18 +244,57 @@ end
 
 
 
+-- Idiomatic facade: client:annual_attendances_en():list() / client:annual_attendances_en():load({ id = ... })
+function ChineseMedicineClinicsSDK:annual_attendances_en(data)
+  local EntityMod = require("entity.annual_attendances_en_entity")
+  if data == nil then
+    if self._annual_attendances_en == nil then
+      self._annual_attendances_en = EntityMod.new(self, nil)
+    end
+    return self._annual_attendances_en
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:annual_attendances_en() instead.
 function ChineseMedicineClinicsSDK:AnnualAttendancesEn(data)
   local EntityMod = require("entity.annual_attendances_en_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:annual_attendances_sc():list() / client:annual_attendances_sc():load({ id = ... })
+function ChineseMedicineClinicsSDK:annual_attendances_sc(data)
+  local EntityMod = require("entity.annual_attendances_sc_entity")
+  if data == nil then
+    if self._annual_attendances_sc == nil then
+      self._annual_attendances_sc = EntityMod.new(self, nil)
+    end
+    return self._annual_attendances_sc
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:annual_attendances_sc() instead.
 function ChineseMedicineClinicsSDK:AnnualAttendancesSc(data)
   local EntityMod = require("entity.annual_attendances_sc_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:annual_attendances_tc():list() / client:annual_attendances_tc():load({ id = ... })
+function ChineseMedicineClinicsSDK:annual_attendances_tc(data)
+  local EntityMod = require("entity.annual_attendances_tc_entity")
+  if data == nil then
+    if self._annual_attendances_tc == nil then
+      self._annual_attendances_tc = EntityMod.new(self, nil)
+    end
+    return self._annual_attendances_tc
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:annual_attendances_tc() instead.
 function ChineseMedicineClinicsSDK:AnnualAttendancesTc(data)
   local EntityMod = require("entity.annual_attendances_tc_entity")
   return EntityMod.new(self, data)

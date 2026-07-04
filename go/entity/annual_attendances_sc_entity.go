@@ -85,6 +85,27 @@ func (e *AnnualAttendancesScEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an AnnualAttendancesSc; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *AnnualAttendancesScEntity) DataTyped(data ...AnnualAttendancesSc) AnnualAttendancesSc {
+	if len(data) > 0 {
+		return typedFrom[AnnualAttendancesSc](e.Data(asMap(data[0])))
+	}
+	return typedFrom[AnnualAttendancesSc](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through AnnualAttendancesSc (all fields
+// optional at the wire level).
+func (e *AnnualAttendancesScEntity) MatchTyped(match ...AnnualAttendancesSc) AnnualAttendancesSc {
+	if len(match) > 0 {
+		return typedFrom[AnnualAttendancesSc](e.Match(asMap(match[0])))
+	}
+	return typedFrom[AnnualAttendancesSc](e.Match())
+}
+
 func (e *AnnualAttendancesScEntity) Load(_ map[string]any, _ map[string]any) (any, error) {
 	return core.UnsupportedOp("load", e.name)
 }
@@ -108,6 +129,17 @@ func (e *AnnualAttendancesScEntity) List(reqmatch map[string]any, ctrl map[strin
 			}
 		}
 	})
+}
+
+// ListTyped is the statically-typed variant of List: it takes an
+// AnnualAttendancesScListMatch and returns []AnnualAttendancesSc. It delegates to the untyped
+// List (identical runtime) and converts at the typed boundary.
+func (e *AnnualAttendancesScEntity) ListTyped(reqmatch AnnualAttendancesScListMatch, ctrl map[string]any) ([]AnnualAttendancesSc, error) {
+	res, err := e.List(asMap(reqmatch), ctrl)
+	if err != nil {
+		return nil, err
+	}
+	return typedSliceFrom[AnnualAttendancesSc](res), nil
 }
 
 

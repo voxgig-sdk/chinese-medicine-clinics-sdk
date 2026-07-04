@@ -45,6 +45,7 @@ class AnnualAttendancesScEntity
     end
   end
 
+  # @return [AnnualAttendancesSc, Hash] the current AnnualAttendancesSc data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class AnnualAttendancesScEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of AnnualAttendancesSc fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -65,6 +67,11 @@ class AnnualAttendancesScEntity
   
 
   
+  # List AnnualAttendancesSc items matching the given filter.
+  #
+  # @param reqmatch [AnnualAttendancesScListMatch, Hash, nil] match filter (any subset of AnnualAttendancesSc fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<AnnualAttendancesSc>, Array] the matching AnnualAttendancesSc items; raises ChineseMedicineClinicsError on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

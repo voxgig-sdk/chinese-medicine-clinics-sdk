@@ -144,16 +144,23 @@ class ChineseMedicineClinicsSDK:
 
         _, err = utility.prepare_auth(ctx)
         if err is not None:
-            return None, err
+            raise err
 
-        return utility.make_fetch_def(ctx)
+        fetchdef, err = utility.make_fetch_def(ctx)
+        if err is not None:
+            raise err
+
+        return fetchdef
 
     def direct(self, fetchargs=None):
         utility = self._utility
 
-        fetchdef, err = self.prepare(fetchargs)
-        if err is not None:
-            return {"ok": False, "err": err}, None
+        try:
+            fetchdef = self.prepare(fetchargs)
+        except Exception as err:
+            # direct() is the raw-HTTP escape hatch: it never raises, it
+            # returns a result object callers branch on via result["ok"].
+            return {"ok": False, "err": err}
 
         if fetchargs is None:
             fetchargs = {}
@@ -170,13 +177,13 @@ class ChineseMedicineClinicsSDK:
         fetched, fetch_err = utility.fetcher(ctx, url, fetchdef)
 
         if fetch_err is not None:
-            return {"ok": False, "err": fetch_err}, None
+            return {"ok": False, "err": fetch_err}
 
         if fetched is None:
             return {
                 "ok": False,
                 "err": ctx.make_error("direct_no_response", "response: undefined"),
-            }, None
+            }
 
         if isinstance(fetched, dict):
             status = helpers.to_int(vs.getprop(fetched, "status"))
@@ -205,25 +212,58 @@ class ChineseMedicineClinicsSDK:
                 "status": status,
                 "headers": headers,
                 "data": json_data,
-            }, None
+            }
 
         return {
             "ok": False,
             "err": ctx.make_error("direct_invalid", "invalid response type"),
-        }, None
+        }
 
+
+    @property
+    def annual_attendances_en(self):
+        """Idiomatic facade: client.annual_attendances_en.list() / client.annual_attendances_en.load({"id": ...})."""
+        from entity.annual_attendances_en_entity import AnnualAttendancesEnEntity
+        cached = getattr(self, "_annual_attendances_en", None)
+        if cached is None:
+            cached = AnnualAttendancesEnEntity(self, None)
+            self._annual_attendances_en = cached
+        return cached
 
     def AnnualAttendancesEn(self, data=None):
+        # Deprecated: use client.annual_attendances_en instead.
         from entity.annual_attendances_en_entity import AnnualAttendancesEnEntity
         return AnnualAttendancesEnEntity(self, data)
 
 
+    @property
+    def annual_attendances_sc(self):
+        """Idiomatic facade: client.annual_attendances_sc.list() / client.annual_attendances_sc.load({"id": ...})."""
+        from entity.annual_attendances_sc_entity import AnnualAttendancesScEntity
+        cached = getattr(self, "_annual_attendances_sc", None)
+        if cached is None:
+            cached = AnnualAttendancesScEntity(self, None)
+            self._annual_attendances_sc = cached
+        return cached
+
     def AnnualAttendancesSc(self, data=None):
+        # Deprecated: use client.annual_attendances_sc instead.
         from entity.annual_attendances_sc_entity import AnnualAttendancesScEntity
         return AnnualAttendancesScEntity(self, data)
 
 
+    @property
+    def annual_attendances_tc(self):
+        """Idiomatic facade: client.annual_attendances_tc.list() / client.annual_attendances_tc.load({"id": ...})."""
+        from entity.annual_attendances_tc_entity import AnnualAttendancesTcEntity
+        cached = getattr(self, "_annual_attendances_tc", None)
+        if cached is None:
+            cached = AnnualAttendancesTcEntity(self, None)
+            self._annual_attendances_tc = cached
+        return cached
+
     def AnnualAttendancesTc(self, data=None):
+        # Deprecated: use client.annual_attendances_tc instead.
         from entity.annual_attendances_tc_entity import AnnualAttendancesTcEntity
         return AnnualAttendancesTcEntity(self, data)
 

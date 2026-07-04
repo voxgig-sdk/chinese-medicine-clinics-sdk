@@ -50,8 +50,7 @@ class TestAnnualAttendancesScEntity:
         annual_attendances_sc_ref01_ent = client.AnnualAttendancesSc(None)
         annual_attendances_sc_ref01_match = {}
 
-        annual_attendances_sc_ref01_list_result, err = annual_attendances_sc_ref01_ent.list(annual_attendances_sc_ref01_match, None)
-        assert err is None
+        annual_attendances_sc_ref01_list_result = annual_attendances_sc_ref01_ent.list(annual_attendances_sc_ref01_match, None)
         assert isinstance(annual_attendances_sc_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _annual_attendances_sc_basic_setup(extra):
         "CHINESEMEDICINECLINICS_TEST_ANNUAL_ATTENDANCES_SC_ENTID": idmap,
         "CHINESEMEDICINECLINICS_TEST_LIVE": "FALSE",
         "CHINESEMEDICINECLINICS_TEST_EXPLAIN": "FALSE",
-        "CHINESEMEDICINECLINICS_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _annual_attendances_sc_basic_setup(extra):
     if env.get("CHINESEMEDICINECLINICS_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("CHINESEMEDICINECLINICS_APIKEY"),
             },
             extra or {},
         ])

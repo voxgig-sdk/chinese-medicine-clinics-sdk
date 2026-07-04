@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch AnnualAttendancesEnListMatch
+---@param ctrl? table
+---@return AnnualAttendancesEn[]
+---@return string? err
 function AnnualAttendancesEnEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

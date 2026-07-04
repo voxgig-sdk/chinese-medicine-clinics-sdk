@@ -9,9 +9,12 @@ The TypeScript SDK for the ChineseMedicineClinics API — a type-safe, entity-or
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/chinese-medicine-clinics
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/chinese-medicine-clinics-sdk/releases](https://github.com/voxgig-sdk/chinese-medicine-clinics-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { ChineseMedicineClinicsSDK } from 'chinese-medicine-clinics'
+import { ChineseMedicineClinicsSDK } from '@voxgig-sdk/chinese-medicine-clinics'
 
-const client = new ChineseMedicineClinicsSDK({
-  apikey: process.env.CHINESE-MEDICINE-CLINICS_APIKEY,
-})
+const client = new ChineseMedicineClinicsSDK()
 ```
 
 ### 2. List annualattendancesens
 
 ```ts
-const result = await client.AnnualAttendancesEn().list()
+const result = await client.annualattendancesen.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -81,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = ChineseMedicineClinicsSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.annualattendancesen.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -89,7 +90,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new ChineseMedicineClinicsSDK({ apikey: '...' })
+const client = new ChineseMedicineClinicsSDK()
 const testClient = client.tester()
 ```
 
@@ -98,7 +99,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.annualattendancesen
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -125,7 +126,6 @@ const logger = {
 }
 
 const client = new ChineseMedicineClinicsSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -135,8 +135,7 @@ const client = new ChineseMedicineClinicsSDK({
 Create a `.env.local` file at the project root:
 
 ```
-CHINESE-MEDICINE-CLINICS_TEST_LIVE=TRUE
-CHINESE-MEDICINE-CLINICS_APIKEY=<your-key>
+CHINESE_MEDICINE_CLINICS_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -154,7 +153,6 @@ cd ts && npm test
 
 ```ts
 new ChineseMedicineClinicsSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -165,7 +163,6 @@ new ChineseMedicineClinicsSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -299,7 +296,7 @@ API path: `/cmctr/annual-attendances-tc.json`
 
 ### AnnualAttendancesEn
 
-Create an instance: `const annual_attendances_en = client.AnnualAttendancesEn()`
+Create an instance: `const annual_attendances_en = client.annual_attendances_en`
 
 #### Operations
 
@@ -319,13 +316,13 @@ Create an instance: `const annual_attendances_en = client.AnnualAttendancesEn()`
 #### Example: List
 
 ```ts
-const annual_attendances_ens = await client.AnnualAttendancesEn().list()
+const annual_attendances_ens = await client.annual_attendances_en.list()
 ```
 
 
 ### AnnualAttendancesSc
 
-Create an instance: `const annual_attendances_sc = client.AnnualAttendancesSc()`
+Create an instance: `const annual_attendances_sc = client.annual_attendances_sc`
 
 #### Operations
 
@@ -345,13 +342,13 @@ Create an instance: `const annual_attendances_sc = client.AnnualAttendancesSc()`
 #### Example: List
 
 ```ts
-const annual_attendances_scs = await client.AnnualAttendancesSc().list()
+const annual_attendances_scs = await client.annual_attendances_sc.list()
 ```
 
 
 ### AnnualAttendancesTc
 
-Create an instance: `const annual_attendances_tc = client.AnnualAttendancesTc()`
+Create an instance: `const annual_attendances_tc = client.annual_attendances_tc`
 
 #### Operations
 
@@ -371,7 +368,7 @@ Create an instance: `const annual_attendances_tc = client.AnnualAttendancesTc()`
 #### Example: List
 
 ```ts
-const annual_attendances_tcs = await client.AnnualAttendancesTc().list()
+const annual_attendances_tcs = await client.annual_attendances_tc.list()
 ```
 
 
@@ -432,7 +429,7 @@ chinese-medicine-clinics/
 Import the SDK from the package root:
 
 ```ts
-import { ChineseMedicineClinicsSDK } from 'chinese-medicine-clinics'
+import { ChineseMedicineClinicsSDK } from '@voxgig-sdk/chinese-medicine-clinics'
 ```
 
 ### Entity state
@@ -442,11 +439,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const annualattendancesen = client.annualattendancesen
+await annualattendancesen.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// annualattendancesen.data() now returns the loaded annualattendancesen data
+// annualattendancesen.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration
