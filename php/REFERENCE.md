@@ -93,7 +93,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## AnnualAttendancesEnEntity
 
 ```php
-$annual_attendances_en = $client->annual_attendances_en();
+$annual_attendances_en = $client->AnnualAttendancesEn();
 ```
 
 ### Fields
@@ -112,7 +112,7 @@ $annual_attendances_en = $client->annual_attendances_en();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->annual_attendances_en()->list([]);
+$results = $client->AnnualAttendancesEn()->list([]);
 ```
 
 ### Common Methods
@@ -148,7 +148,7 @@ Return the entity name.
 ## AnnualAttendancesScEntity
 
 ```php
-$annual_attendances_sc = $client->annual_attendances_sc();
+$annual_attendances_sc = $client->AnnualAttendancesSc();
 ```
 
 ### Fields
@@ -167,7 +167,7 @@ $annual_attendances_sc = $client->annual_attendances_sc();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->annual_attendances_sc()->list([]);
+$results = $client->AnnualAttendancesSc()->list([]);
 ```
 
 ### Common Methods
@@ -203,7 +203,7 @@ Return the entity name.
 ## AnnualAttendancesTcEntity
 
 ```php
-$annual_attendances_tc = $client->annual_attendances_tc();
+$annual_attendances_tc = $client->AnnualAttendancesTc();
 ```
 
 ### Fields
@@ -222,7 +222,7 @@ $annual_attendances_tc = $client->annual_attendances_tc();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->annual_attendances_tc()->list([]);
+$results = $client->AnnualAttendancesTc()->list([]);
 ```
 
 ### Common Methods

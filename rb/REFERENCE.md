@@ -94,7 +94,7 @@ same parameters as `direct()`. Raises on error.
 ## AnnualAttendancesEnEntity
 
 ```ruby
-annual_attendances_en = client.annual_attendances_en
+annual_attendances_en = client.AnnualAttendancesEn
 ```
 
 ### Fields
@@ -113,7 +113,7 @@ annual_attendances_en = client.annual_attendances_en
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.annual_attendances_en.list(nil)
+results = client.AnnualAttendancesEn.list(nil)
 ```
 
 ### Common Methods
@@ -149,7 +149,7 @@ Return the entity name.
 ## AnnualAttendancesScEntity
 
 ```ruby
-annual_attendances_sc = client.annual_attendances_sc
+annual_attendances_sc = client.AnnualAttendancesSc
 ```
 
 ### Fields
@@ -168,7 +168,7 @@ annual_attendances_sc = client.annual_attendances_sc
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.annual_attendances_sc.list(nil)
+results = client.AnnualAttendancesSc.list(nil)
 ```
 
 ### Common Methods
@@ -204,7 +204,7 @@ Return the entity name.
 ## AnnualAttendancesTcEntity
 
 ```ruby
-annual_attendances_tc = client.annual_attendances_tc
+annual_attendances_tc = client.AnnualAttendancesTc
 ```
 
 ### Fields
@@ -223,7 +223,7 @@ annual_attendances_tc = client.annual_attendances_tc
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.annual_attendances_tc.list(nil)
+results = client.AnnualAttendancesTc.list(nil)
 ```
 
 ### Common Methods

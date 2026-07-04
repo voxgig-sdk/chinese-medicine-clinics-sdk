@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:annual_attendances_en():list() / client:annual_attendances_en():load({ id = ... })
-function ChineseMedicineClinicsSDK:annual_attendances_en(data)
+-- Idiomatic facade: client:AnnualAttendancesEn():list() / client:AnnualAttendancesEn():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function ChineseMedicineClinicsSDK:AnnualAttendancesEn(data)
   local EntityMod = require("entity.annual_attendances_en_entity")
   if data == nil then
     if self._annual_attendances_en == nil then
@@ -256,15 +257,10 @@ function ChineseMedicineClinicsSDK:annual_attendances_en(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:annual_attendances_en() instead.
-function ChineseMedicineClinicsSDK:AnnualAttendancesEn(data)
-  local EntityMod = require("entity.annual_attendances_en_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:annual_attendances_sc():list() / client:annual_attendances_sc():load({ id = ... })
-function ChineseMedicineClinicsSDK:annual_attendances_sc(data)
+-- Idiomatic facade: client:AnnualAttendancesSc():list() / client:AnnualAttendancesSc():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function ChineseMedicineClinicsSDK:AnnualAttendancesSc(data)
   local EntityMod = require("entity.annual_attendances_sc_entity")
   if data == nil then
     if self._annual_attendances_sc == nil then
@@ -275,15 +271,10 @@ function ChineseMedicineClinicsSDK:annual_attendances_sc(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:annual_attendances_sc() instead.
-function ChineseMedicineClinicsSDK:AnnualAttendancesSc(data)
-  local EntityMod = require("entity.annual_attendances_sc_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:annual_attendances_tc():list() / client:annual_attendances_tc():load({ id = ... })
-function ChineseMedicineClinicsSDK:annual_attendances_tc(data)
+-- Idiomatic facade: client:AnnualAttendancesTc():list() / client:AnnualAttendancesTc():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function ChineseMedicineClinicsSDK:AnnualAttendancesTc(data)
   local EntityMod = require("entity.annual_attendances_tc_entity")
   if data == nil then
     if self._annual_attendances_tc == nil then
@@ -291,12 +282,6 @@ function ChineseMedicineClinicsSDK:annual_attendances_tc(data)
     end
     return self._annual_attendances_tc
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:annual_attendances_tc() instead.
-function ChineseMedicineClinicsSDK:AnnualAttendancesTc(data)
-  local EntityMod = require("entity.annual_attendances_tc_entity")
   return EntityMod.new(self, data)
 end
 

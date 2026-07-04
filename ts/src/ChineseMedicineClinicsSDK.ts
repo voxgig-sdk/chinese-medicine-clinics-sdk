@@ -206,42 +206,21 @@ class ChineseMedicineClinicsSDK {
 
 
 
-  _annual_attendances_en?: AnnualAttendancesEnEntity
-
-  // Idiomatic facade: `client.annual_attendances_en.list()` / `client.annual_attendances_en.load({ id })`.
-  get annual_attendances_en(): AnnualAttendancesEnEntity {
-    return (this._annual_attendances_en ??= new AnnualAttendancesEnEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.annual_attendances_en` instead. */
+  // Entity access: `client.AnnualAttendancesEn().list()` / `client.AnnualAttendancesEn().load({ id })`.
   AnnualAttendancesEn(data?: any) {
     const self = this
     return new AnnualAttendancesEnEntity(self,data)
   }
 
 
-  _annual_attendances_sc?: AnnualAttendancesScEntity
-
-  // Idiomatic facade: `client.annual_attendances_sc.list()` / `client.annual_attendances_sc.load({ id })`.
-  get annual_attendances_sc(): AnnualAttendancesScEntity {
-    return (this._annual_attendances_sc ??= new AnnualAttendancesScEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.annual_attendances_sc` instead. */
+  // Entity access: `client.AnnualAttendancesSc().list()` / `client.AnnualAttendancesSc().load({ id })`.
   AnnualAttendancesSc(data?: any) {
     const self = this
     return new AnnualAttendancesScEntity(self,data)
   }
 
 
-  _annual_attendances_tc?: AnnualAttendancesTcEntity
-
-  // Idiomatic facade: `client.annual_attendances_tc.list()` / `client.annual_attendances_tc.load({ id })`.
-  get annual_attendances_tc(): AnnualAttendancesTcEntity {
-    return (this._annual_attendances_tc ??= new AnnualAttendancesTcEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.annual_attendances_tc` instead. */
+  // Entity access: `client.AnnualAttendancesTc().list()` / `client.AnnualAttendancesTc().load({ id })`.
   AnnualAttendancesTc(data?: any) {
     const self = this
     return new AnnualAttendancesTcEntity(self,data)

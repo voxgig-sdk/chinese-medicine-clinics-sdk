@@ -220,57 +220,27 @@ class ChineseMedicineClinicsSDK:
         }
 
 
-    @property
-    def annual_attendances_en(self):
-        """Idiomatic facade: client.annual_attendances_en.list() / client.annual_attendances_en.load({"id": ...})."""
-        from entity.annual_attendances_en_entity import AnnualAttendancesEnEntity
-        cached = getattr(self, "_annual_attendances_en", None)
-        if cached is None:
-            cached = AnnualAttendancesEnEntity(self, None)
-            self._annual_attendances_en = cached
-        return cached
-
-    def AnnualAttendancesEn(self, data=None):
-        # Deprecated: use client.annual_attendances_en instead.
+    def AnnualAttendancesEn(self, data=None) -> "AnnualAttendancesEnEntity":
+        """Entity factory: client.AnnualAttendancesEn().list({}) / client.AnnualAttendancesEn().load({"id": ...})."""
         from entity.annual_attendances_en_entity import AnnualAttendancesEnEntity
         return AnnualAttendancesEnEntity(self, data)
 
 
-    @property
-    def annual_attendances_sc(self):
-        """Idiomatic facade: client.annual_attendances_sc.list() / client.annual_attendances_sc.load({"id": ...})."""
-        from entity.annual_attendances_sc_entity import AnnualAttendancesScEntity
-        cached = getattr(self, "_annual_attendances_sc", None)
-        if cached is None:
-            cached = AnnualAttendancesScEntity(self, None)
-            self._annual_attendances_sc = cached
-        return cached
-
-    def AnnualAttendancesSc(self, data=None):
-        # Deprecated: use client.annual_attendances_sc instead.
+    def AnnualAttendancesSc(self, data=None) -> "AnnualAttendancesScEntity":
+        """Entity factory: client.AnnualAttendancesSc().list({}) / client.AnnualAttendancesSc().load({"id": ...})."""
         from entity.annual_attendances_sc_entity import AnnualAttendancesScEntity
         return AnnualAttendancesScEntity(self, data)
 
 
-    @property
-    def annual_attendances_tc(self):
-        """Idiomatic facade: client.annual_attendances_tc.list() / client.annual_attendances_tc.load({"id": ...})."""
-        from entity.annual_attendances_tc_entity import AnnualAttendancesTcEntity
-        cached = getattr(self, "_annual_attendances_tc", None)
-        if cached is None:
-            cached = AnnualAttendancesTcEntity(self, None)
-            self._annual_attendances_tc = cached
-        return cached
-
-    def AnnualAttendancesTc(self, data=None):
-        # Deprecated: use client.annual_attendances_tc instead.
+    def AnnualAttendancesTc(self, data=None) -> "AnnualAttendancesTcEntity":
+        """Entity factory: client.AnnualAttendancesTc().list({}) / client.AnnualAttendancesTc().load({"id": ...})."""
         from entity.annual_attendances_tc_entity import AnnualAttendancesTcEntity
         return AnnualAttendancesTcEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "ChineseMedicineClinicsSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -290,3 +260,11 @@ class ChineseMedicineClinicsSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.annual_attendances_en_entity import AnnualAttendancesEnEntity
+    from entity.annual_attendances_sc_entity import AnnualAttendancesScEntity
+    from entity.annual_attendances_tc_entity import AnnualAttendancesTcEntity

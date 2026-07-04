@@ -208,39 +208,21 @@ class ChineseMedicineClinicsSDK
   end
 
 
-  # Idiomatic facade: client.annual_attendances_en.list / client.annual_attendances_en.load({ "id" => ... })
-  def annual_attendances_en
-    require_relative 'entity/annual_attendances_en_entity'
-    @annual_attendances_en ||= AnnualAttendancesEnEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.annual_attendances_en instead.
+  # Canonical facade: client.AnnualAttendancesEn.list / client.AnnualAttendancesEn.load({ "id" => ... })
   def AnnualAttendancesEn(data = nil)
     require_relative 'entity/annual_attendances_en_entity'
     AnnualAttendancesEnEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.annual_attendances_sc.list / client.annual_attendances_sc.load({ "id" => ... })
-  def annual_attendances_sc
-    require_relative 'entity/annual_attendances_sc_entity'
-    @annual_attendances_sc ||= AnnualAttendancesScEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.annual_attendances_sc instead.
+  # Canonical facade: client.AnnualAttendancesSc.list / client.AnnualAttendancesSc.load({ "id" => ... })
   def AnnualAttendancesSc(data = nil)
     require_relative 'entity/annual_attendances_sc_entity'
     AnnualAttendancesScEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.annual_attendances_tc.list / client.annual_attendances_tc.load({ "id" => ... })
-  def annual_attendances_tc
-    require_relative 'entity/annual_attendances_tc_entity'
-    @annual_attendances_tc ||= AnnualAttendancesTcEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.annual_attendances_tc instead.
+  # Canonical facade: client.AnnualAttendancesTc.list / client.AnnualAttendancesTc.load({ "id" => ... })
   def AnnualAttendancesTc(data = nil)
     require_relative 'entity/annual_attendances_tc_entity'
     AnnualAttendancesTcEntity.new(self, data)

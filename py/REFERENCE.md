@@ -88,7 +88,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## AnnualAttendancesEnEntity
 
 ```python
-annual_attendances_en = client.annual_attendances_en
+annual_attendances_en = client.AnnualAttendancesEn()
 ```
 
 ### Fields
@@ -107,7 +107,9 @@ annual_attendances_en = client.annual_attendances_en
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.annual_attendances_en.list({})
+results = client.AnnualAttendancesEn().list({})
+for annual_attendances_en in results:
+    print(annual_attendances_en)
 ```
 
 ### Common Methods
@@ -142,7 +144,7 @@ Return the entity name.
 ## AnnualAttendancesScEntity
 
 ```python
-annual_attendances_sc = client.annual_attendances_sc
+annual_attendances_sc = client.AnnualAttendancesSc()
 ```
 
 ### Fields
@@ -161,7 +163,9 @@ annual_attendances_sc = client.annual_attendances_sc
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.annual_attendances_sc.list({})
+results = client.AnnualAttendancesSc().list({})
+for annual_attendances_sc in results:
+    print(annual_attendances_sc)
 ```
 
 ### Common Methods
@@ -196,7 +200,7 @@ Return the entity name.
 ## AnnualAttendancesTcEntity
 
 ```python
-annual_attendances_tc = client.annual_attendances_tc
+annual_attendances_tc = client.AnnualAttendancesTc()
 ```
 
 ### Fields
@@ -215,7 +219,9 @@ annual_attendances_tc = client.annual_attendances_tc
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.annual_attendances_tc.list({})
+results = client.AnnualAttendancesTc().list({})
+for annual_attendances_tc in results:
+    print(annual_attendances_tc)
 ```
 
 ### Common Methods

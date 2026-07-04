@@ -91,7 +91,7 @@ same parameters as `direct()`.
 ## AnnualAttendancesEnEntity
 
 ```lua
-local annual_attendances_en = client:annual_attendances_en(nil)
+local annual_attendances_en = client:AnnualAttendancesEn(nil)
 ```
 
 ### Fields
@@ -110,7 +110,7 @@ local annual_attendances_en = client:annual_attendances_en(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:annual_attendances_en():list()
+local results, err = client:AnnualAttendancesEn():list()
 ```
 
 ### Common Methods
@@ -146,7 +146,7 @@ Return the entity name.
 ## AnnualAttendancesScEntity
 
 ```lua
-local annual_attendances_sc = client:annual_attendances_sc(nil)
+local annual_attendances_sc = client:AnnualAttendancesSc(nil)
 ```
 
 ### Fields
@@ -165,7 +165,7 @@ local annual_attendances_sc = client:annual_attendances_sc(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:annual_attendances_sc():list()
+local results, err = client:AnnualAttendancesSc():list()
 ```
 
 ### Common Methods
@@ -201,7 +201,7 @@ Return the entity name.
 ## AnnualAttendancesTcEntity
 
 ```lua
-local annual_attendances_tc = client:annual_attendances_tc(nil)
+local annual_attendances_tc = client:AnnualAttendancesTc(nil)
 ```
 
 ### Fields
@@ -220,7 +220,7 @@ local annual_attendances_tc = client:annual_attendances_tc(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:annual_attendances_tc():list()
+local results, err = client:AnnualAttendancesTc():list()
 ```
 
 ### Common Methods

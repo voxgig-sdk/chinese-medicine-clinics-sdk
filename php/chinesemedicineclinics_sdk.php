@@ -233,10 +233,10 @@ class ChineseMedicineClinicsSDK
 
     private $_annual_attendances_en = null;
 
-    // Idiomatic facade: $client->annual_attendances_en()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias AnnualAttendancesEn() (PHP method
-    // names are case-insensitive).
-    public function annual_attendances_en($data = null)
+    // Canonical facade: $client->AnnualAttendancesEn()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->annual_attendances_en()
+    // resolves here too.
+    public function AnnualAttendancesEn($data = null)
     {
         require_once __DIR__ . '/entity/annual_attendances_en_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class ChineseMedicineClinicsSDK
 
     private $_annual_attendances_sc = null;
 
-    // Idiomatic facade: $client->annual_attendances_sc()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias AnnualAttendancesSc() (PHP method
-    // names are case-insensitive).
-    public function annual_attendances_sc($data = null)
+    // Canonical facade: $client->AnnualAttendancesSc()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->annual_attendances_sc()
+    // resolves here too.
+    public function AnnualAttendancesSc($data = null)
     {
         require_once __DIR__ . '/entity/annual_attendances_sc_entity.php';
         if ($data === null) {
@@ -269,10 +269,10 @@ class ChineseMedicineClinicsSDK
 
     private $_annual_attendances_tc = null;
 
-    // Idiomatic facade: $client->annual_attendances_tc()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias AnnualAttendancesTc() (PHP method
-    // names are case-insensitive).
-    public function annual_attendances_tc($data = null)
+    // Canonical facade: $client->AnnualAttendancesTc()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->annual_attendances_tc()
+    // resolves here too.
+    public function AnnualAttendancesTc($data = null)
     {
         require_once __DIR__ . '/entity/annual_attendances_tc_entity.php';
         if ($data === null) {

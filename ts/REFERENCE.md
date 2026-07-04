@@ -133,7 +133,7 @@ Alias for `ChineseMedicineClinicsSDK.test()`.
 ## AnnualAttendancesEnEntity
 
 ```ts
-const annual_attendances_en = client.annual_attendances_en
+const annual_attendances_en = client.AnnualAttendancesEn()
 ```
 
 ### Fields
@@ -152,7 +152,7 @@ const annual_attendances_en = client.annual_attendances_en
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.annual_attendances_en.list()
+const results = await client.AnnualAttendancesEn().list()
 ```
 
 ### Common Methods
@@ -186,7 +186,7 @@ Return a copy of the entity options.
 ## AnnualAttendancesScEntity
 
 ```ts
-const annual_attendances_sc = client.annual_attendances_sc
+const annual_attendances_sc = client.AnnualAttendancesSc()
 ```
 
 ### Fields
@@ -205,7 +205,7 @@ const annual_attendances_sc = client.annual_attendances_sc
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.annual_attendances_sc.list()
+const results = await client.AnnualAttendancesSc().list()
 ```
 
 ### Common Methods
@@ -239,7 +239,7 @@ Return a copy of the entity options.
 ## AnnualAttendancesTcEntity
 
 ```ts
-const annual_attendances_tc = client.annual_attendances_tc
+const annual_attendances_tc = client.AnnualAttendancesTc()
 ```
 
 ### Fields
@@ -258,7 +258,7 @@ const annual_attendances_tc = client.annual_attendances_tc
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.annual_attendances_tc.list()
+const results = await client.AnnualAttendancesTc().list()
 ```
 
 ### Common Methods

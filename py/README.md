@@ -31,14 +31,16 @@ from chinesemedicineclinics_sdk import ChineseMedicineClinicsSDK
 client = ChineseMedicineClinicsSDK()
 ```
 
-### 2. List annualattendancesens
+### 2. List annualattendancesen records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.annualattendancesen.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    annualattendancesens = client.AnnualAttendancesEn().list({})
+    for annualattendancesen in annualattendancesens:
+        print(annualattendancesen)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = ChineseMedicineClinicsSDK.test()
 
-result = client.annualattendancesen.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+annualattendancesen = client.AnnualAttendancesEn().load({"id": "test01"})
+# annualattendancesen contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -163,9 +166,9 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> dict` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> dict` | Build and send an HTTP request. Returns a result dict (branch on `ok`). |
-| `AnnualAttendancesEn` | `(data) -> AnnualAttendancesEnEntity` | Create a AnnualAttendancesEn entity instance. |
-| `AnnualAttendancesSc` | `(data) -> AnnualAttendancesScEntity` | Create a AnnualAttendancesSc entity instance. |
-| `AnnualAttendancesTc` | `(data) -> AnnualAttendancesTcEntity` | Create a AnnualAttendancesTc entity instance. |
+| `AnnualAttendancesEn` | `(data) -> AnnualAttendancesEnEntity` | Create an AnnualAttendancesEn entity instance. |
+| `AnnualAttendancesSc` | `(data) -> AnnualAttendancesScEntity` | Create an AnnualAttendancesSc entity instance. |
+| `AnnualAttendancesTc` | `(data) -> AnnualAttendancesTcEntity` | Create an AnnualAttendancesTc entity instance. |
 
 ### Entity interface
 
@@ -251,7 +254,7 @@ API path: `/cmctr/annual-attendances-tc.json`
 
 ### AnnualAttendancesEn
 
-Create an instance: `const annual_attendances_en = client.annual_attendances_en`
+Create an instance: `annual_attendances_en = client.AnnualAttendancesEn()`
 
 #### Operations
 
@@ -270,14 +273,14 @@ Create an instance: `const annual_attendances_en = client.annual_attendances_en`
 
 #### Example: List
 
-```ts
-const annual_attendances_ens = await client.annual_attendances_en.list()
+```python
+annual_attendances_ens = client.AnnualAttendancesEn().list({})
 ```
 
 
 ### AnnualAttendancesSc
 
-Create an instance: `const annual_attendances_sc = client.annual_attendances_sc`
+Create an instance: `annual_attendances_sc = client.AnnualAttendancesSc()`
 
 #### Operations
 
@@ -296,14 +299,14 @@ Create an instance: `const annual_attendances_sc = client.annual_attendances_sc`
 
 #### Example: List
 
-```ts
-const annual_attendances_scs = await client.annual_attendances_sc.list()
+```python
+annual_attendances_scs = client.AnnualAttendancesSc().list({})
 ```
 
 
 ### AnnualAttendancesTc
 
-Create an instance: `const annual_attendances_tc = client.annual_attendances_tc`
+Create an instance: `annual_attendances_tc = client.AnnualAttendancesTc()`
 
 #### Operations
 
@@ -322,8 +325,8 @@ Create an instance: `const annual_attendances_tc = client.annual_attendances_tc`
 
 #### Example: List
 
-```ts
-const annual_attendances_tcs = await client.annual_attendances_tc.list()
+```python
+annual_attendances_tcs = client.AnnualAttendancesTc().list({})
 ```
 
 
@@ -397,7 +400,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-annualattendancesen = client.annualattendancesen
+annualattendancesen = client.AnnualAttendancesEn()
 annualattendancesen.load({"id": "example_id"})
 
 # annualattendancesen.data_get() now returns the loaded annualattendancesen data

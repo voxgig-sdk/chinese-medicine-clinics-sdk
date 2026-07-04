@@ -29,18 +29,16 @@ require_once 'chinesemedicineclinics_sdk.php';
 $client = new ChineseMedicineClinicsSDK();
 ```
 
-### 2. List annualattendancesens
+### 2. List annualattendancesen records
 
 ```php
 try {
-    $result = $client->annualattendancesen()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of AnnualAttendancesEn records — iterate directly.
+    $annualattendancesens = $client->AnnualAttendancesEn()->list();
+    foreach ($annualattendancesens as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -86,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = ChineseMedicineClinicsSDK::test();
+$client = ChineseMedicineClinicsSDK::test([
+    "entity" => ["annualattendancesen" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->annualattendancesen()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$annualattendancesen = $client->AnnualAttendancesEn()->load(["id" => "test01"]);
+print_r($annualattendancesen);
 ```
 
 ### Use a custom fetch function
@@ -171,9 +173,9 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `get_utility` | `(): Utility` | Copy of the SDK utility object. |
 | `prepare` | `(array $fetchargs): array` | Build an HTTP request definition without sending. |
 | `direct` | `(array $fetchargs): array` | Build and send an HTTP request. |
-| `AnnualAttendancesEn` | `($data): AnnualAttendancesEnEntity` | Create a AnnualAttendancesEn entity instance. |
-| `AnnualAttendancesSc` | `($data): AnnualAttendancesScEntity` | Create a AnnualAttendancesSc entity instance. |
-| `AnnualAttendancesTc` | `($data): AnnualAttendancesTcEntity` | Create a AnnualAttendancesTc entity instance. |
+| `AnnualAttendancesEn` | `($data): AnnualAttendancesEnEntity` | Create an AnnualAttendancesEn entity instance. |
+| `AnnualAttendancesSc` | `($data): AnnualAttendancesScEntity` | Create an AnnualAttendancesSc entity instance. |
+| `AnnualAttendancesTc` | `($data): AnnualAttendancesTcEntity` | Create an AnnualAttendancesTc entity instance. |
 
 ### Entity interface
 
@@ -259,7 +261,7 @@ API path: `/cmctr/annual-attendances-tc.json`
 
 ### AnnualAttendancesEn
 
-Create an instance: `const annual_attendances_en = client.annual_attendances_en`
+Create an instance: `$annual_attendances_en = $client->AnnualAttendancesEn();`
 
 #### Operations
 
@@ -278,14 +280,15 @@ Create an instance: `const annual_attendances_en = client.annual_attendances_en`
 
 #### Example: List
 
-```ts
-const annual_attendances_ens = await client.annual_attendances_en.list()
+```php
+// list() returns an array of AnnualAttendancesEn records (throws on error).
+$annual_attendances_ens = $client->AnnualAttendancesEn()->list();
 ```
 
 
 ### AnnualAttendancesSc
 
-Create an instance: `const annual_attendances_sc = client.annual_attendances_sc`
+Create an instance: `$annual_attendances_sc = $client->AnnualAttendancesSc();`
 
 #### Operations
 
@@ -304,14 +307,15 @@ Create an instance: `const annual_attendances_sc = client.annual_attendances_sc`
 
 #### Example: List
 
-```ts
-const annual_attendances_scs = await client.annual_attendances_sc.list()
+```php
+// list() returns an array of AnnualAttendancesSc records (throws on error).
+$annual_attendances_scs = $client->AnnualAttendancesSc()->list();
 ```
 
 
 ### AnnualAttendancesTc
 
-Create an instance: `const annual_attendances_tc = client.annual_attendances_tc`
+Create an instance: `$annual_attendances_tc = $client->AnnualAttendancesTc();`
 
 #### Operations
 
@@ -330,8 +334,9 @@ Create an instance: `const annual_attendances_tc = client.annual_attendances_tc`
 
 #### Example: List
 
-```ts
-const annual_attendances_tcs = await client.annual_attendances_tc.list()
+```php
+// list() returns an array of AnnualAttendancesTc records (throws on error).
+$annual_attendances_tcs = $client->AnnualAttendancesTc()->list();
 ```
 
 
@@ -406,7 +411,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$annualattendancesen = $client->annualattendancesen();
+$annualattendancesen = $client->AnnualAttendancesEn();
 $annualattendancesen->load(["id" => "example_id"]);
 
 // $annualattendancesen->dataGet() now returns the loaded annualattendancesen data

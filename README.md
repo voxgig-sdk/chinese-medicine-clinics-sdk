@@ -26,9 +26,11 @@ import { ChineseMedicineClinicsSDK } from '@voxgig-sdk/chinese-medicine-clinics'
 
 const client = new ChineseMedicineClinicsSDK()
 
-// List all annualattendancesens
-const annualattendancesens = await client.annualattendancesen.list()
-console.log(annualattendancesens.data)
+// List all annualattendancesens (returns AnnualAttendancesEn[])
+const annualattendancesens = await client.AnnualAttendancesEn().list()
+for (const annualattendancesen of annualattendancesens) {
+  console.log(annualattendancesen)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -85,9 +87,10 @@ from chinesemedicineclinics_sdk import ChineseMedicineClinicsSDK
 
 client = ChineseMedicineClinicsSDK()
 
-# List all annualattendancesens
-annualattendancesens = client.annualattendancesen.list()
-print(annualattendancesens)
+# List all annualattendancesens (returns a list, raises on error)
+annualattendancesens = client.AnnualAttendancesEn().list({})
+for annualattendancesen in annualattendancesens:
+    print(annualattendancesen)
 ```
 
 ### PHP
@@ -98,8 +101,8 @@ require_once 'chinesemedicineclinics_sdk.php';
 
 $client = new ChineseMedicineClinicsSDK();
 
-// List all annualattendancesens (throws on error)
-$annualattendancesens = $client->annualattendancesen()->list();
+// List all annualattendancesens (returns an array; throws on error)
+$annualattendancesens = $client->AnnualAttendancesEn()->list();
 print_r($annualattendancesens);
 ```
 
@@ -122,8 +125,8 @@ require_relative "ChineseMedicineClinics_sdk"
 
 client = ChineseMedicineClinicsSDK.new
 
-# List all annualattendancesens
-annualattendancesens = client.annualattendancesen.list
+# List all annualattendancesens (returns an Array; raises on error)
+annualattendancesens = client.AnnualAttendancesEn.list
 puts annualattendancesens
 ```
 
@@ -135,7 +138,7 @@ local sdk = require("chinese-medicine-clinics_sdk")
 local client = sdk.new()
 
 -- List all annualattendancesens
-local annualattendancesens, err = client:annualattendancesen():list()
+local annualattendancesens, err = client:AnnualAttendancesEn():list()
 print(annualattendancesens)
 ```
 
@@ -148,22 +151,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = ChineseMedicineClinicsSDK.test()
-const result = await client.annualattendancesen.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const annualattendancesen = await client.AnnualAttendancesEn().load({ id: 'test01' })
+// annualattendancesen is a bare AnnualAttendancesEn populated with mock data
+console.log(annualattendancesen)
 ```
 
 ### Python
 
 ```python
 client = ChineseMedicineClinicsSDK.test()
-result = client.annualattendancesen.load({"id": "test01"})
+annualattendancesen = client.AnnualAttendancesEn().load({"id": "test01"})
+print(annualattendancesen)
 ```
 
 ### PHP
 
 ```php
-$client = ChineseMedicineClinicsSDK::test();
-$result = $client->annualattendancesen()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = ChineseMedicineClinicsSDK::test([
+    "entity" => ["annualattendancesen" => ["test01" => ["id" => "test01"]]],
+]);
+$annualattendancesen = $client->AnnualAttendancesEn()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -178,15 +186,18 @@ result, err := client.AnnualAttendancesEn(nil).Load(
 ### Ruby
 
 ```ruby
-client = ChineseMedicineClinicsSDK.test
-result = client.annualattendancesen.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = ChineseMedicineClinicsSDK.test({
+  "entity" => { "annualattendancesen" => { "test01" => { "id" => "test01" } } },
+})
+annualattendancesen = client.AnnualAttendancesEn.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:annualattendancesen():load({ id = "test01" })
+local result, err = client:AnnualAttendancesEn():load({ id = "test01" })
 ```
 
 ## How it works
@@ -234,6 +245,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

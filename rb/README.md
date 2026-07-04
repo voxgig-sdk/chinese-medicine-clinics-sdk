@@ -28,16 +28,14 @@ require_relative "ChineseMedicineClinics_sdk"
 client = ChineseMedicineClinicsSDK.new
 ```
 
-### 2. List annualattendancesens
+### 2. List annualattendancesen records
 
 ```ruby
 begin
-  result = client.annualattendancesen.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of AnnualAttendancesEn records — iterate directly.
+  annualattendancesens = client.AnnualAttendancesEn.list
+  annualattendancesens.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -85,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = ChineseMedicineClinicsSDK.test
+client = ChineseMedicineClinicsSDK.test({
+  "entity" => { "annualattendancesen" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.annualattendancesen.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+annualattendancesen = client.AnnualAttendancesEn.load({ "id" => "test01" })
+puts annualattendancesen
 ```
 
 ### Use a custom fetch function
@@ -167,9 +169,9 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> Hash` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> Hash` | Build and send an HTTP request. Returns a result hash (`result["ok"]`); does not raise. |
-| `AnnualAttendancesEn` | `(data) -> AnnualAttendancesEnEntity` | Create a AnnualAttendancesEn entity instance. |
-| `AnnualAttendancesSc` | `(data) -> AnnualAttendancesScEntity` | Create a AnnualAttendancesSc entity instance. |
-| `AnnualAttendancesTc` | `(data) -> AnnualAttendancesTcEntity` | Create a AnnualAttendancesTc entity instance. |
+| `AnnualAttendancesEn` | `(data) -> AnnualAttendancesEnEntity` | Create an AnnualAttendancesEn entity instance. |
+| `AnnualAttendancesSc` | `(data) -> AnnualAttendancesScEntity` | Create an AnnualAttendancesSc entity instance. |
+| `AnnualAttendancesTc` | `(data) -> AnnualAttendancesTcEntity` | Create an AnnualAttendancesTc entity instance. |
 
 ### Entity interface
 
@@ -254,7 +256,7 @@ API path: `/cmctr/annual-attendances-tc.json`
 
 ### AnnualAttendancesEn
 
-Create an instance: `const annual_attendances_en = client.annual_attendances_en`
+Create an instance: `annual_attendances_en = client.AnnualAttendancesEn`
 
 #### Operations
 
@@ -273,14 +275,15 @@ Create an instance: `const annual_attendances_en = client.annual_attendances_en`
 
 #### Example: List
 
-```ts
-const annual_attendances_ens = await client.annual_attendances_en.list()
+```ruby
+# list returns an Array of AnnualAttendancesEn records (raises on error).
+annual_attendances_ens = client.AnnualAttendancesEn.list
 ```
 
 
 ### AnnualAttendancesSc
 
-Create an instance: `const annual_attendances_sc = client.annual_attendances_sc`
+Create an instance: `annual_attendances_sc = client.AnnualAttendancesSc`
 
 #### Operations
 
@@ -299,14 +302,15 @@ Create an instance: `const annual_attendances_sc = client.annual_attendances_sc`
 
 #### Example: List
 
-```ts
-const annual_attendances_scs = await client.annual_attendances_sc.list()
+```ruby
+# list returns an Array of AnnualAttendancesSc records (raises on error).
+annual_attendances_scs = client.AnnualAttendancesSc.list
 ```
 
 
 ### AnnualAttendancesTc
 
-Create an instance: `const annual_attendances_tc = client.annual_attendances_tc`
+Create an instance: `annual_attendances_tc = client.AnnualAttendancesTc`
 
 #### Operations
 
@@ -325,8 +329,9 @@ Create an instance: `const annual_attendances_tc = client.annual_attendances_tc`
 
 #### Example: List
 
-```ts
-const annual_attendances_tcs = await client.annual_attendances_tc.list()
+```ruby
+# list returns an Array of AnnualAttendancesTc records (raises on error).
+annual_attendances_tcs = client.AnnualAttendancesTc.list
 ```
 
 
@@ -401,7 +406,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-annualattendancesen = client.annualattendancesen
+annualattendancesen = client.AnnualAttendancesEn
 annualattendancesen.load({ "id" => "example_id" })
 
 # annualattendancesen.data_get now returns the loaded annualattendancesen data

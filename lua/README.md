@@ -31,17 +31,17 @@ local sdk = require("chinese-medicine-clinics_sdk")
 local client = sdk.new()
 ```
 
-### 2. List annualattendancesens
+### 2. List annualattendancesen records
+
+Entity operations return `(value, err)`. For `list`, `value` is the
+array of records itself — iterate it directly (there is no wrapper).
 
 ```lua
-local result, err = client:annualattendancesen():list()
+local annualattendancesens, err = client:AnnualAttendancesEn():list()
 if err then error(err) end
 
-if type(result) == "table" then
-  for _, item in ipairs(result) do
-    local d = item:data_get()
-    print(d["id"], d["name"])
-  end
+for _, item in ipairs(annualattendancesens) do
+  print(item["id"], item["name"])
 end
 ```
 
@@ -88,8 +88,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:annualattendancesen():load({ id = "test01" })
--- result contains mock response data
+local result, err = client:AnnualAttendancesEn():load({ id = "test01" })
+-- result is the loaded data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -167,9 +167,9 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> table, err` | Build an HTTP request definition without sending. |
 | `direct` | `(fetchargs) -> table, err` | Build and send an HTTP request. |
-| `AnnualAttendancesEn` | `(data) -> AnnualAttendancesEnEntity` | Create a AnnualAttendancesEn entity instance. |
-| `AnnualAttendancesSc` | `(data) -> AnnualAttendancesScEntity` | Create a AnnualAttendancesSc entity instance. |
-| `AnnualAttendancesTc` | `(data) -> AnnualAttendancesTcEntity` | Create a AnnualAttendancesTc entity instance. |
+| `AnnualAttendancesEn` | `(data) -> AnnualAttendancesEnEntity` | Create an AnnualAttendancesEn entity instance. |
+| `AnnualAttendancesSc` | `(data) -> AnnualAttendancesScEntity` | Create an AnnualAttendancesSc entity instance. |
+| `AnnualAttendancesTc` | `(data) -> AnnualAttendancesTcEntity` | Create an AnnualAttendancesTc entity instance. |
 
 ### Entity interface
 
@@ -191,17 +191,22 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`table` with these keys:
+Entity operations return `(value, err)`. The `value` is the operation's
+data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `ok` | `boolean` | `true` if the HTTP status is 2xx. |
-| `status` | `number` | HTTP status code. |
-| `headers` | `table` | Response headers. |
-| `data` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `list` | an array (`table`) of entity records |
 
-On error, `ok` is `false` and `err` contains the error value.
+Check `err` first (it is non-`nil` on failure), then use `value`:
+
+    local annual_attendances_en, err = client:AnnualAttendancesEn():load({ id = "example_id" })
+    if err then error(err) end
+    -- annual_attendances_en is the loaded record
+
+Only `direct()` returns a response envelope — a `table` with `ok`,
+`status`, `headers`, and `data` keys.
 
 ### Entities
 
@@ -251,7 +256,7 @@ API path: `/cmctr/annual-attendances-tc.json`
 
 ### AnnualAttendancesEn
 
-Create an instance: `const annual_attendances_en = client.annual_attendances_en`
+Create an instance: `local annual_attendances_en = client:AnnualAttendancesEn(nil)`
 
 #### Operations
 
@@ -270,14 +275,14 @@ Create an instance: `const annual_attendances_en = client.annual_attendances_en`
 
 #### Example: List
 
-```ts
-const annual_attendances_ens = await client.annual_attendances_en.list()
+```lua
+local annual_attendances_ens, err = client:AnnualAttendancesEn():list()
 ```
 
 
 ### AnnualAttendancesSc
 
-Create an instance: `const annual_attendances_sc = client.annual_attendances_sc`
+Create an instance: `local annual_attendances_sc = client:AnnualAttendancesSc(nil)`
 
 #### Operations
 
@@ -296,14 +301,14 @@ Create an instance: `const annual_attendances_sc = client.annual_attendances_sc`
 
 #### Example: List
 
-```ts
-const annual_attendances_scs = await client.annual_attendances_sc.list()
+```lua
+local annual_attendances_scs, err = client:AnnualAttendancesSc():list()
 ```
 
 
 ### AnnualAttendancesTc
 
-Create an instance: `const annual_attendances_tc = client.annual_attendances_tc`
+Create an instance: `local annual_attendances_tc = client:AnnualAttendancesTc(nil)`
 
 #### Operations
 
@@ -322,8 +327,8 @@ Create an instance: `const annual_attendances_tc = client.annual_attendances_tc`
 
 #### Example: List
 
-```ts
-const annual_attendances_tcs = await client.annual_attendances_tc.list()
+```lua
+local annual_attendances_tcs, err = client:AnnualAttendancesTc():list()
 ```
 
 
@@ -398,7 +403,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local annualattendancesen = client:annualattendancesen()
+local annualattendancesen = client:AnnualAttendancesEn()
 annualattendancesen:load({ id = "example_id" })
 
 -- annualattendancesen:data_get() now returns the loaded annualattendancesen data

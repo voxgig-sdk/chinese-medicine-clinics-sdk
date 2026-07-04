@@ -28,15 +28,15 @@ import { ChineseMedicineClinicsSDK } from '@voxgig-sdk/chinese-medicine-clinics'
 const client = new ChineseMedicineClinicsSDK()
 ```
 
-### 2. List annualattendancesens
+### 2. List annualattendancesen records
+
+`list()` resolves to an array of AnnualAttendancesEn objects — iterate it directly:
 
 ```ts
-const result = await client.annualattendancesen.list()
+const annualattendancesens = await client.AnnualAttendancesEn().list()
 
-if (result.ok) {
-  for (const item of result.data) {
-    console.log(item.id, item.name)
-  }
+for (const annualattendancesen of annualattendancesens) {
+  console.log(annualattendancesen)
 }
 ```
 
@@ -54,6 +54,9 @@ const result = await client.direct({
   params: { id: 'example' },
 })
 
+if (result instanceof Error) {
+  throw result
+}
 if (result.ok) {
   console.log(result.status)  // 200
   console.log(result.data)    // response body
@@ -82,9 +85,9 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = ChineseMedicineClinicsSDK.test()
 
-const result = await client.annualattendancesen.load({ id: 'test01' })
-// result.ok === true
-// result.data contains mock response data
+const annualattendancesen = await client.AnnualAttendancesEn().load({ id: 'test01' })
+// annualattendancesen is a bare entity populated with mock response data
+console.log(annualattendancesen)
 ```
 
 You can also use the instance method:
@@ -99,7 +102,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.annualattendancesen
+const entity = client.AnnualAttendancesEn()
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -177,9 +180,9 @@ new ChineseMedicineClinicsSDK(options?: {
 | `utility()` | `Utility` | Deep copy of the SDK utility object. |
 | `prepare(fetchargs?)` | `Promise<FetchDef>` | Build an HTTP request definition without sending it. |
 | `direct(fetchargs?)` | `Promise<DirectResult>` | Build and send an HTTP request. |
-| `AnnualAttendancesEn(data?)` | `AnnualAttendancesEnEntity` | Create a AnnualAttendancesEn entity instance. |
-| `AnnualAttendancesSc(data?)` | `AnnualAttendancesScEntity` | Create a AnnualAttendancesSc entity instance. |
-| `AnnualAttendancesTc(data?)` | `AnnualAttendancesTcEntity` | Create a AnnualAttendancesTc entity instance. |
+| `AnnualAttendancesEn(data?)` | `AnnualAttendancesEnEntity` | Create an AnnualAttendancesEn entity instance. |
+| `AnnualAttendancesSc(data?)` | `AnnualAttendancesScEntity` | Create an AnnualAttendancesSc entity instance. |
+| `AnnualAttendancesTc(data?)` | `AnnualAttendancesTcEntity` | Create an AnnualAttendancesTc entity instance. |
 | `tester(testopts?, sdkopts?)` | `ChineseMedicineClinicsSDK` | Create a test-mode client instance. |
 
 #### Static methods
@@ -196,29 +199,30 @@ All entities share the same interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
-| `load` | `load(reqmatch?, ctrl?): Promise<Result>` | Load a single entity by match criteria. |
-| `list` | `list(reqmatch?, ctrl?): Promise<Result>` | List entities matching the criteria. |
-| `create` | `create(reqdata?, ctrl?): Promise<Result>` | Create a new entity. |
-| `update` | `update(reqdata?, ctrl?): Promise<Result>` | Update an existing entity. |
-| `remove` | `remove(reqmatch?, ctrl?): Promise<Result>` | Remove an entity. |
+| `load` | `load(reqmatch?, ctrl?): Promise<Entity>` | Load a single entity by match criteria. |
+| `list` | `list(reqmatch?, ctrl?): Promise<Entity[]>` | List entities matching the criteria. |
+| `create` | `create(reqdata?, ctrl?): Promise<Entity>` | Create a new entity. |
+| `update` | `update(reqdata?, ctrl?): Promise<Entity>` | Update an existing entity. |
+| `remove` | `remove(reqmatch?, ctrl?): Promise<void>` | Remove an entity. |
 | `data` | `data(data?): any` | Get or set entity data. |
 | `match` | `match(match?): any` | Get or set entity match criteria. |
 | `make` | `make(): Entity` | Create a new instance with the same options. |
 | `client` | `client(): ChineseMedicineClinicsSDK` | Return the parent SDK client. |
 | `entopts` | `entopts(): object` | Return a copy of the entity options. |
 
-#### Result shape
+#### Return values
 
-All entity operations return a Result object:
+Entity operations resolve to the entity data directly — there is no
+result envelope:
 
-```ts
-{
-  ok: boolean      // true if the HTTP status is 2xx
-  status: number   // HTTP status code
-  headers: object  // response headers
-  data: any        // parsed JSON response body
-}
-```
+- `load`, `create` and `update` resolve to a single entity object.
+- `list` resolves to an **array** of entity objects (iterate it directly;
+  there is no `.data` and no `.ok`).
+- `remove` resolves to `void`.
+
+On a failed request these methods **throw**, so wrap calls in
+`try`/`catch` to handle errors. Only `direct()` returns the result
+envelope described below.
 
 ### DirectResult shape
 
@@ -296,7 +300,7 @@ API path: `/cmctr/annual-attendances-tc.json`
 
 ### AnnualAttendancesEn
 
-Create an instance: `const annual_attendances_en = client.annual_attendances_en`
+Create an instance: `const annual_attendances_en = client.AnnualAttendancesEn()`
 
 #### Operations
 
@@ -316,13 +320,13 @@ Create an instance: `const annual_attendances_en = client.annual_attendances_en`
 #### Example: List
 
 ```ts
-const annual_attendances_ens = await client.annual_attendances_en.list()
+const annual_attendances_ens = await client.AnnualAttendancesEn().list()
 ```
 
 
 ### AnnualAttendancesSc
 
-Create an instance: `const annual_attendances_sc = client.annual_attendances_sc`
+Create an instance: `const annual_attendances_sc = client.AnnualAttendancesSc()`
 
 #### Operations
 
@@ -342,13 +346,13 @@ Create an instance: `const annual_attendances_sc = client.annual_attendances_sc`
 #### Example: List
 
 ```ts
-const annual_attendances_scs = await client.annual_attendances_sc.list()
+const annual_attendances_scs = await client.AnnualAttendancesSc().list()
 ```
 
 
 ### AnnualAttendancesTc
 
-Create an instance: `const annual_attendances_tc = client.annual_attendances_tc`
+Create an instance: `const annual_attendances_tc = client.AnnualAttendancesTc()`
 
 #### Operations
 
@@ -368,7 +372,7 @@ Create an instance: `const annual_attendances_tc = client.annual_attendances_tc`
 #### Example: List
 
 ```ts
-const annual_attendances_tcs = await client.annual_attendances_tc.list()
+const annual_attendances_tcs = await client.AnnualAttendancesTc().list()
 ```
 
 
@@ -439,7 +443,7 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const annualattendancesen = client.annualattendancesen
+const annualattendancesen = client.AnnualAttendancesEn()
 await annualattendancesen.load({ id: "example_id" })
 
 // annualattendancesen.data() now returns the loaded annualattendancesen data
