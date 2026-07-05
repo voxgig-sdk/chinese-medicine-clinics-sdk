@@ -8,7 +8,7 @@ Complete API reference for the ChineseMedicineClinics Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'chinese-medicine-clinics_sdk'
+require_relative 'ChineseMedicineClinics_sdk'
 
 client = ChineseMedicineClinicsSDK.new(options)
 ```
@@ -101,19 +101,19 @@ annual_attendances_en = client.AnnualAttendancesEn
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendance` | ``$INTEGER`` | No |  |
-| `clinic_name` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `year` | ``$STRING`` | No |  |
+| `attendance` | `Integer` | No |  |
+| `clinic_name` | `String` | No |  |
+| `location` | `String` | No |  |
+| `year` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.AnnualAttendancesEn.list(nil)
+results = client.AnnualAttendancesEn.list
 ```
 
 ### Common Methods
@@ -156,19 +156,19 @@ annual_attendances_sc = client.AnnualAttendancesSc
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendance` | ``$INTEGER`` | No |  |
-| `clinic_name` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `year` | ``$STRING`` | No |  |
+| `attendance` | `Integer` | No |  |
+| `clinic_name` | `String` | No |  |
+| `location` | `String` | No |  |
+| `year` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.AnnualAttendancesSc.list(nil)
+results = client.AnnualAttendancesSc.list
 ```
 
 ### Common Methods
@@ -211,19 +211,19 @@ annual_attendances_tc = client.AnnualAttendancesTc
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendance` | ``$INTEGER`` | No |  |
-| `clinic_name` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `year` | ``$STRING`` | No |  |
+| `attendance` | `Integer` | No |  |
+| `clinic_name` | `String` | No |  |
+| `location` | `String` | No |  |
+| `year` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.AnnualAttendancesTc.list(nil)
+results = client.AnnualAttendancesTc.list
 ```
 
 ### Common Methods

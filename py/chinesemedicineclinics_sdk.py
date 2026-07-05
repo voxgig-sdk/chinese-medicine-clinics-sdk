@@ -221,19 +221,19 @@ class ChineseMedicineClinicsSDK:
 
 
     def AnnualAttendancesEn(self, data=None) -> "AnnualAttendancesEnEntity":
-        """Entity factory: client.AnnualAttendancesEn().list({}) / client.AnnualAttendancesEn().load({"id": ...})."""
+        """Entity factory: client.AnnualAttendancesEn().list() / client.AnnualAttendancesEn().load({"id": ...})."""
         from entity.annual_attendances_en_entity import AnnualAttendancesEnEntity
         return AnnualAttendancesEnEntity(self, data)
 
 
     def AnnualAttendancesSc(self, data=None) -> "AnnualAttendancesScEntity":
-        """Entity factory: client.AnnualAttendancesSc().list({}) / client.AnnualAttendancesSc().load({"id": ...})."""
+        """Entity factory: client.AnnualAttendancesSc().list() / client.AnnualAttendancesSc().load({"id": ...})."""
         from entity.annual_attendances_sc_entity import AnnualAttendancesScEntity
         return AnnualAttendancesScEntity(self, data)
 
 
     def AnnualAttendancesTc(self, data=None) -> "AnnualAttendancesTcEntity":
-        """Entity factory: client.AnnualAttendancesTc().list({}) / client.AnnualAttendancesTc().load({"id": ...})."""
+        """Entity factory: client.AnnualAttendancesTc().list() / client.AnnualAttendancesTc().load({"id": ...})."""
         from entity.annual_attendances_tc_entity import AnnualAttendancesTcEntity
         return AnnualAttendancesTcEntity(self, data)
 

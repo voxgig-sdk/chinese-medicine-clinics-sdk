@@ -12,7 +12,12 @@ export interface AnnualAttendancesEn {
   year?: string
 }
 
-export type AnnualAttendancesEnListMatch = Partial<AnnualAttendancesEn>
+export interface AnnualAttendancesEnListMatch {
+  attendance?: number
+  clinic_name?: string
+  location?: string
+  year?: string
+}
 
 export interface AnnualAttendancesSc {
   attendance?: number
@@ -21,7 +26,12 @@ export interface AnnualAttendancesSc {
   year?: string
 }
 
-export type AnnualAttendancesScListMatch = Partial<AnnualAttendancesSc>
+export interface AnnualAttendancesScListMatch {
+  attendance?: number
+  clinic_name?: string
+  location?: string
+  year?: string
+}
 
 export interface AnnualAttendancesTc {
   attendance?: number
@@ -30,5 +40,10 @@ export interface AnnualAttendancesTc {
   year?: string
 }
 
-export type AnnualAttendancesTcListMatch = Partial<AnnualAttendancesTc>
+export interface AnnualAttendancesTcListMatch {
+  attendance?: number
+  clinic_name?: string
+  location?: string
+  year?: string
+}
 

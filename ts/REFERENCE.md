@@ -140,10 +140,10 @@ const annual_attendances_en = client.AnnualAttendancesEn()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendance` | ``$INTEGER`` | No |  |
-| `clinic_name` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `year` | ``$STRING`` | No |  |
+| `attendance` | `number` | No |  |
+| `clinic_name` | `string` | No |  |
+| `location` | `string` | No |  |
+| `year` | `string` | No |  |
 
 ### Operations
 
@@ -193,10 +193,10 @@ const annual_attendances_sc = client.AnnualAttendancesSc()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendance` | ``$INTEGER`` | No |  |
-| `clinic_name` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `year` | ``$STRING`` | No |  |
+| `attendance` | `number` | No |  |
+| `clinic_name` | `string` | No |  |
+| `location` | `string` | No |  |
+| `year` | `string` | No |  |
 
 ### Operations
 
@@ -246,10 +246,10 @@ const annual_attendances_tc = client.AnnualAttendancesTc()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendance` | ``$INTEGER`` | No |  |
-| `clinic_name` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `year` | ``$STRING`` | No |  |
+| `attendance` | `number` | No |  |
+| `clinic_name` | `string` | No |  |
+| `location` | `string` | No |  |
+| `year` | `string` | No |  |
 
 ### Operations
 

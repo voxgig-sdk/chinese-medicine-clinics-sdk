@@ -8,7 +8,7 @@ Complete API reference for the ChineseMedicineClinics PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/chinese-medicine-clinics_sdk.php';
+require_once __DIR__ . '/chinesemedicineclinics_sdk.php';
 
 $client = new ChineseMedicineClinicsSDK($options);
 ```
@@ -53,11 +53,11 @@ Create a new `AnnualAttendancesScEntity` instance. Pass `null` for no initial da
 
 Create a new `AnnualAttendancesTcEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): ChineseMedicineClinicsUtility`
 
 Return a copy of the SDK utility object.
 
@@ -100,36 +100,36 @@ $annual_attendances_en = $client->AnnualAttendancesEn();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendance` | ``$INTEGER`` | No |  |
-| `clinic_name` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `year` | ``$STRING`` | No |  |
+| `attendance` | `int` | No |  |
+| `clinic_name` | `string` | No |  |
+| `location` | `string` | No |  |
+| `year` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->AnnualAttendancesEn()->list([]);
+$results = $client->AnnualAttendancesEn()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -138,7 +138,7 @@ Set the entity match criteria.
 Create a new `AnnualAttendancesEnEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -155,36 +155,36 @@ $annual_attendances_sc = $client->AnnualAttendancesSc();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendance` | ``$INTEGER`` | No |  |
-| `clinic_name` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `year` | ``$STRING`` | No |  |
+| `attendance` | `int` | No |  |
+| `clinic_name` | `string` | No |  |
+| `location` | `string` | No |  |
+| `year` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->AnnualAttendancesSc()->list([]);
+$results = $client->AnnualAttendancesSc()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -193,7 +193,7 @@ Set the entity match criteria.
 Create a new `AnnualAttendancesScEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -210,36 +210,36 @@ $annual_attendances_tc = $client->AnnualAttendancesTc();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendance` | ``$INTEGER`` | No |  |
-| `clinic_name` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `year` | ``$STRING`` | No |  |
+| `attendance` | `int` | No |  |
+| `clinic_name` | `string` | No |  |
+| `location` | `string` | No |  |
+| `year` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->AnnualAttendancesTc()->list([]);
+$results = $client->AnnualAttendancesTc()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -248,7 +248,7 @@ Set the entity match criteria.
 Create a new `AnnualAttendancesTcEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

@@ -8,7 +8,7 @@ Complete API reference for the ChineseMedicineClinics Python SDK.
 ### Constructor
 
 ```python
-from chinese-medicine-clinics_sdk import ChineseMedicineClinicsSDK
+from chinesemedicineclinics_sdk import ChineseMedicineClinicsSDK
 
 client = ChineseMedicineClinicsSDK(options)
 ```
@@ -95,19 +95,19 @@ annual_attendances_en = client.AnnualAttendancesEn()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendance` | ``$INTEGER`` | No |  |
-| `clinic_name` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `year` | ``$STRING`` | No |  |
+| `attendance` | `int` | No |  |
+| `clinic_name` | `str` | No |  |
+| `location` | `str` | No |  |
+| `year` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.AnnualAttendancesEn().list({})
+results = client.AnnualAttendancesEn().list()
 for annual_attendances_en in results:
     print(annual_attendances_en)
 ```
@@ -151,19 +151,19 @@ annual_attendances_sc = client.AnnualAttendancesSc()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendance` | ``$INTEGER`` | No |  |
-| `clinic_name` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `year` | ``$STRING`` | No |  |
+| `attendance` | `int` | No |  |
+| `clinic_name` | `str` | No |  |
+| `location` | `str` | No |  |
+| `year` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.AnnualAttendancesSc().list({})
+results = client.AnnualAttendancesSc().list()
 for annual_attendances_sc in results:
     print(annual_attendances_sc)
 ```
@@ -207,19 +207,19 @@ annual_attendances_tc = client.AnnualAttendancesTc()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendance` | ``$INTEGER`` | No |  |
-| `clinic_name` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `year` | ``$STRING`` | No |  |
+| `attendance` | `int` | No |  |
+| `clinic_name` | `str` | No |  |
+| `location` | `str` | No |  |
+| `year` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.AnnualAttendancesTc().list({})
+results = client.AnnualAttendancesTc().list()
 for annual_attendances_tc in results:
     print(annual_attendances_tc)
 ```

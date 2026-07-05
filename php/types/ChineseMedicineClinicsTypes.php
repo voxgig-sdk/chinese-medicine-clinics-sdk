@@ -21,7 +21,7 @@ class AnnualAttendancesEn
     public ?string $year = null;
 }
 
-/** Match filter for AnnualAttendancesEn#list (any subset of AnnualAttendancesEn fields). */
+/** Request payload for AnnualAttendancesEn#list. */
 class AnnualAttendancesEnListMatch
 {
     public ?int $attendance = null;
@@ -39,7 +39,7 @@ class AnnualAttendancesSc
     public ?string $year = null;
 }
 
-/** Match filter for AnnualAttendancesSc#list (any subset of AnnualAttendancesSc fields). */
+/** Request payload for AnnualAttendancesSc#list. */
 class AnnualAttendancesScListMatch
 {
     public ?int $attendance = null;
@@ -57,7 +57,7 @@ class AnnualAttendancesTc
     public ?string $year = null;
 }
 
-/** Match filter for AnnualAttendancesTc#list (any subset of AnnualAttendancesTc fields). */
+/** Request payload for AnnualAttendancesTc#list. */
 class AnnualAttendancesTcListMatch
 {
     public ?int $attendance = null;

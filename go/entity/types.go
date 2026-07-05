@@ -16,8 +16,7 @@ type AnnualAttendancesEn struct {
 	Year *string `json:"year,omitempty"`
 }
 
-// AnnualAttendancesEnListMatch mirrors the annual_attendances_en fields as an all-optional match
-// filter (Go analog of Partial<AnnualAttendancesEn>).
+// AnnualAttendancesEnListMatch is the typed request payload for AnnualAttendancesEn.ListTyped.
 type AnnualAttendancesEnListMatch struct {
 	Attendance *int `json:"attendance,omitempty"`
 	ClinicName *string `json:"clinic_name,omitempty"`
@@ -33,8 +32,7 @@ type AnnualAttendancesSc struct {
 	Year *string `json:"year,omitempty"`
 }
 
-// AnnualAttendancesScListMatch mirrors the annual_attendances_sc fields as an all-optional match
-// filter (Go analog of Partial<AnnualAttendancesSc>).
+// AnnualAttendancesScListMatch is the typed request payload for AnnualAttendancesSc.ListTyped.
 type AnnualAttendancesScListMatch struct {
 	Attendance *int `json:"attendance,omitempty"`
 	ClinicName *string `json:"clinic_name,omitempty"`
@@ -50,8 +48,7 @@ type AnnualAttendancesTc struct {
 	Year *string `json:"year,omitempty"`
 }
 
-// AnnualAttendancesTcListMatch mirrors the annual_attendances_tc fields as an all-optional match
-// filter (Go analog of Partial<AnnualAttendancesTc>).
+// AnnualAttendancesTcListMatch is the typed request payload for AnnualAttendancesTc.ListTyped.
 type AnnualAttendancesTcListMatch struct {
 	Attendance *int `json:"attendance,omitempty"`
 	ClinicName *string `json:"clinic_name,omitempty"`

@@ -6,6 +6,21 @@ This is an unofficial SDK for the Chinese Medicine Clinics public API, generated
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
 
+## Entities, not endpoints
+
+This SDK exposes the API as a small set of **semantic entities** — AnnualAttendancesEn, AnnualAttendancesSc and AnnualAttendancesTc — that you
+call directly, instead of assembling URL paths and query strings. Entities are
+**Capitalised** to mark them as the primary surface, each with the operations they
+support (`list`):
+
+```ts
+const client = new ChineseMedicineClinicsSDK()
+const items = await client.AnnualAttendancesEn().list()
+```
+
+Thinking in entities keeps the mental model small — for people and AI agents alike —
+rather than reasoning about raw HTTP routes and query parameters.
+
 ## Packages
 
 | Language | Package | Install |
@@ -75,8 +90,8 @@ The API exposes 3 entities:
 | **AnnualAttendancesSc** | The AnnualAttendancesSc entity (list). | `/cmctr/annual-attendances-sc.json` |
 | **AnnualAttendancesTc** | The AnnualAttendancesTc entity (list). | `/cmctr/annual-attendances-tc.json` |
 
-Each entity supports the following operations where available: **load**,
-**list**, **create**, **update**, and **remove**.
+The operations available across these entities are **list** — see each entity's
+own list above for exactly which it supports.
 
 ## Quickstart in other languages
 
@@ -88,7 +103,7 @@ from chinesemedicineclinics_sdk import ChineseMedicineClinicsSDK
 client = ChineseMedicineClinicsSDK()
 
 # List all annualattendancesens (returns a list, raises on error)
-annualattendancesens = client.AnnualAttendancesEn().list({})
+annualattendancesens = client.AnnualAttendancesEn().list()
 for annualattendancesen in annualattendancesens:
     print(annualattendancesen)
 ```
@@ -151,7 +166,7 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = ChineseMedicineClinicsSDK.test()
-const annualattendancesen = await client.AnnualAttendancesEn().load({ id: 'test01' })
+const annualattendancesen = await client.AnnualAttendancesEn().list()
 // annualattendancesen is a bare AnnualAttendancesEn populated with mock data
 console.log(annualattendancesen)
 ```
@@ -160,7 +175,7 @@ console.log(annualattendancesen)
 
 ```python
 client = ChineseMedicineClinicsSDK.test()
-annualattendancesen = client.AnnualAttendancesEn().load({"id": "test01"})
+annualattendancesen = client.AnnualAttendancesEn().list()
 print(annualattendancesen)
 ```
 
@@ -169,17 +184,17 @@ print(annualattendancesen)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = ChineseMedicineClinicsSDK::test([
-    "entity" => ["annualattendancesen" => ["test01" => ["id" => "test01"]]],
+    "entity" => ["annualattendancesen" => ["test01" => []]],
 ]);
-$annualattendancesen = $client->AnnualAttendancesEn()->load(["id" => "test01"]);
+$annualattendancesen = $client->AnnualAttendancesEn()->list();
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.AnnualAttendancesEn(nil).Load(
-    map[string]any{"id": "test01"}, nil,
+result, err := client.AnnualAttendancesEn(nil).List(
+    nil, nil,
 )
 ```
 
@@ -188,41 +203,19 @@ result, err := client.AnnualAttendancesEn(nil).Load(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = ChineseMedicineClinicsSDK.test({
-  "entity" => { "annualattendancesen" => { "test01" => { "id" => "test01" } } },
+  "entity" => { "annualattendancesen" => { "test01" => {} } },
 })
-annualattendancesen = client.AnnualAttendancesEn.load({ "id" => "test01" })
+annualattendancesen = client.AnnualAttendancesEn.list()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:AnnualAttendancesEn():load({ id = "test01" })
+local result, err = client:AnnualAttendancesEn():list()
 ```
 
-## How it works
-
-Every SDK call runs the same five-stage pipeline:
-
-1. **Point** — resolve the API endpoint from the operation definition.
-2. **Spec** — build the HTTP specification (URL, method, headers, body).
-3. **Request** — send the HTTP request.
-4. **Response** — receive and parse the response.
-5. **Result** — extract the result data for the caller.
-
-A feature hook fires at each stage (e.g. `PrePoint`, `PreSpec`,
-`PreRequest`), so features can inspect or modify the pipeline without
-forking the SDK.
-
-### Features
-
-| Feature | Purpose |
-| --- | --- |
-| **TestFeature** | In-memory mock transport for testing without a live server |
-
-Pass custom features via the `extend` option at construction time.
-
-### Direct and Prepare
+## Direct and prepare
 
 For endpoints the entity model doesn't cover, use the low-level methods:
 
@@ -295,6 +288,31 @@ local result, err = client:direct({
   params = { id = "example" },
 })
 ```
+
+## Advanced
+
+> Everyday use only needs the sections above. This explains the internals
+> behind every call — relevant when writing custom features.
+
+Every SDK call runs the same five-stage pipeline:
+
+1. **Point** — resolve the API endpoint from the operation definition.
+2. **Spec** — build the HTTP specification (URL, method, headers, body).
+3. **Request** — send the HTTP request.
+4. **Response** — receive and parse the response.
+5. **Result** — extract the result data for the caller.
+
+A feature hook fires at each stage (e.g. `PrePoint`, `PreSpec`,
+`PreRequest`), so features can inspect or modify the pipeline without
+forking the SDK.
+
+### Features
+
+| Feature | Purpose |
+| --- | --- |
+| **TestFeature** | In-memory mock transport for testing without a live server |
+
+Pass custom features via the `extend` option at construction time.
 
 ## Per-language documentation
 

@@ -98,10 +98,10 @@ local annual_attendances_en = client:AnnualAttendancesEn(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendance` | ``$INTEGER`` | No |  |
-| `clinic_name` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `year` | ``$STRING`` | No |  |
+| `attendance` | `number` | No |  |
+| `clinic_name` | `string` | No |  |
+| `location` | `string` | No |  |
+| `year` | `string` | No |  |
 
 ### Operations
 
@@ -153,10 +153,10 @@ local annual_attendances_sc = client:AnnualAttendancesSc(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendance` | ``$INTEGER`` | No |  |
-| `clinic_name` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `year` | ``$STRING`` | No |  |
+| `attendance` | `number` | No |  |
+| `clinic_name` | `string` | No |  |
+| `location` | `string` | No |  |
+| `year` | `string` | No |  |
 
 ### Operations
 
@@ -208,10 +208,10 @@ local annual_attendances_tc = client:AnnualAttendancesTc(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendance` | ``$INTEGER`` | No |  |
-| `clinic_name` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `year` | ``$STRING`` | No |  |
+| `attendance` | `number` | No |  |
+| `clinic_name` | `string` | No |  |
+| `location` | `string` | No |  |
+| `year` | `string` | No |  |
 
 ### Operations
 

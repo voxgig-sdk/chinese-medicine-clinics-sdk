@@ -13,6 +13,10 @@
 ---@field year? string
 
 ---@class AnnualAttendancesEnListMatch
+---@field attendance? number
+---@field clinic_name? string
+---@field location? string
+---@field year? string
 
 ---@class AnnualAttendancesSc
 ---@field attendance? number
@@ -21,6 +25,10 @@
 ---@field year? string
 
 ---@class AnnualAttendancesScListMatch
+---@field attendance? number
+---@field clinic_name? string
+---@field location? string
+---@field year? string
 
 ---@class AnnualAttendancesTc
 ---@field attendance? number
@@ -29,6 +37,10 @@
 ---@field year? string
 
 ---@class AnnualAttendancesTcListMatch
+---@field attendance? number
+---@field clinic_name? string
+---@field location? string
+---@field year? string
 
 local M = {}
 

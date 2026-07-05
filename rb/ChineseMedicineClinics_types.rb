@@ -29,7 +29,7 @@ AnnualAttendancesEn = Struct.new(
   keyword_init: true
 )
 
-# Match filter for AnnualAttendancesEn#list (any subset of AnnualAttendancesEn fields).
+# Request payload for AnnualAttendancesEn#list.
 #
 # @!attribute [rw] attendance
 #   @return [Integer, nil]
@@ -71,7 +71,7 @@ AnnualAttendancesSc = Struct.new(
   keyword_init: true
 )
 
-# Match filter for AnnualAttendancesSc#list (any subset of AnnualAttendancesSc fields).
+# Request payload for AnnualAttendancesSc#list.
 #
 # @!attribute [rw] attendance
 #   @return [Integer, nil]
@@ -113,7 +113,7 @@ AnnualAttendancesTc = Struct.new(
   keyword_init: true
 )
 
-# Match filter for AnnualAttendancesTc#list (any subset of AnnualAttendancesTc fields).
+# Request payload for AnnualAttendancesTc#list.
 #
 # @!attribute [rw] attendance
 #   @return [Integer, nil]
