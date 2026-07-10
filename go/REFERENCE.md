@@ -98,7 +98,8 @@ same parameters as `Direct()`.
 ## AnnualAttendancesEnEntity
 
 ```go
-annual_attendances_en := client.AnnualAttendancesEn(nil)
+annualAttendancesEn := client.AnnualAttendancesEn(nil)
+fmt.Println(annualAttendancesEn.GetName()) // "annual_attendances_en"
 ```
 
 ### Fields
@@ -118,6 +119,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.AnnualAttendancesEn(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
@@ -147,7 +152,8 @@ Return the entity name.
 ## AnnualAttendancesScEntity
 
 ```go
-annual_attendances_sc := client.AnnualAttendancesSc(nil)
+annualAttendancesSc := client.AnnualAttendancesSc(nil)
+fmt.Println(annualAttendancesSc.GetName()) // "annual_attendances_sc"
 ```
 
 ### Fields
@@ -167,6 +173,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.AnnualAttendancesSc(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
@@ -196,7 +206,8 @@ Return the entity name.
 ## AnnualAttendancesTcEntity
 
 ```go
-annual_attendances_tc := client.AnnualAttendancesTc(nil)
+annualAttendancesTc := client.AnnualAttendancesTc(nil)
+fmt.Println(annualAttendancesTc.GetName()) // "annual_attendances_tc"
 ```
 
 ### Fields
@@ -216,6 +227,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.AnnualAttendancesTc(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods

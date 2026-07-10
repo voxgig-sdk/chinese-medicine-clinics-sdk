@@ -50,12 +50,12 @@ import (
 func main() {
     client := sdk.New()
 
-    // List annualattendancesen records — the value is the array of records itself.
-    annualattendancesens, err := client.AnnualAttendancesEn(nil).List(nil, nil)
+    // List annualAttendancesEn records — the value is the array of records itself.
+    annualAttendancesEns, err := client.AnnualAttendancesEn(nil).List(nil, nil)
     if err != nil {
         panic(err)
     }
-    for _, item := range annualattendancesens.([]any) {
+    for _, item := range annualAttendancesEns.([]any) {
         fmt.Println(item)
     }
 }
@@ -137,13 +137,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-annualattendancesen, err := client.AnnualAttendancesEn(nil).List(
+annualAttendancesEn, err := client.AnnualAttendancesEn(nil).List(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(annualattendancesen) // the returned mock data
+fmt.Println(annualAttendancesEn) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -249,9 +249,9 @@ Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    annualattendancesen, err := client.AnnualAttendancesEn(nil).List(map[string]any{/* fields */}, nil)
+    annualAttendancesEn, err := client.AnnualAttendancesEn(nil).List(map[string]any{/* fields */}, nil)
     if err != nil { /* handle */ }
-    // annualattendancesen is the returned record
+    // annualAttendancesEn is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -304,7 +304,7 @@ API path: `/cmctr/annual-attendances-tc.json`
 
 ### AnnualAttendancesEn
 
-Create an instance: `annual_attendances_en := client.AnnualAttendancesEn(nil)`
+Create an instance: `annualAttendancesEn := client.AnnualAttendancesEn(nil)`
 
 #### Operations
 
@@ -324,17 +324,17 @@ Create an instance: `annual_attendances_en := client.AnnualAttendancesEn(nil)`
 #### Example: List
 
 ```go
-annual_attendances_ens, err := client.AnnualAttendancesEn(nil).List(nil, nil)
+annualAttendancesEns, err := client.AnnualAttendancesEn(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(annual_attendances_ens) // the array of records
+fmt.Println(annualAttendancesEns) // the array of records
 ```
 
 
 ### AnnualAttendancesSc
 
-Create an instance: `annual_attendances_sc := client.AnnualAttendancesSc(nil)`
+Create an instance: `annualAttendancesSc := client.AnnualAttendancesSc(nil)`
 
 #### Operations
 
@@ -354,17 +354,17 @@ Create an instance: `annual_attendances_sc := client.AnnualAttendancesSc(nil)`
 #### Example: List
 
 ```go
-annual_attendances_scs, err := client.AnnualAttendancesSc(nil).List(nil, nil)
+annualAttendancesScs, err := client.AnnualAttendancesSc(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(annual_attendances_scs) // the array of records
+fmt.Println(annualAttendancesScs) // the array of records
 ```
 
 
 ### AnnualAttendancesTc
 
-Create an instance: `annual_attendances_tc := client.AnnualAttendancesTc(nil)`
+Create an instance: `annualAttendancesTc := client.AnnualAttendancesTc(nil)`
 
 #### Operations
 
@@ -384,11 +384,11 @@ Create an instance: `annual_attendances_tc := client.AnnualAttendancesTc(nil)`
 #### Example: List
 
 ```go
-annual_attendances_tcs, err := client.AnnualAttendancesTc(nil).List(nil, nil)
+annualAttendancesTcs, err := client.AnnualAttendancesTc(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(annual_attendances_tcs) // the array of records
+fmt.Println(annualAttendancesTcs) // the array of records
 ```
 
 

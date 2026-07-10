@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -385,14 +382,17 @@
           "name": "Hospital Authority",
           "url": "https://data.gov.hk"
         },
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Hospital Authority Open Data Server",
             "url": "https://www.ha.org.hk/opendata"
           }
         ],
+        "summary": "This API provides access to the attendance data of Chinese medicine clinics and training and research centers.",
         "title": "Chinese Medicine Clinics",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://www.ha.org.hk/opendata/cmctr/Data-Specification-for-CMCTR-attnd-en.pdf"
       },
       "option": {},
       "target": {
@@ -445,6 +445,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -495,6 +498,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

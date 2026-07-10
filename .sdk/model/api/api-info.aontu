@@ -21,9 +21,9 @@ main: {
           url: "https://www.ha.org.hk/opendata"
         }
       ]
+      summary: "This API provides access to the attendance data of Chinese medicine clinics and training and research centers."
       title: "Chinese Medicine Clinics"
       version: "1.0.0"
+      website: "https://www.ha.org.hk/opendata/cmctr/Data-Specification-for-CMCTR-attnd-en.pdf"
     }
   }
-}
-
