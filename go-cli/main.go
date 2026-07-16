@@ -27,7 +27,20 @@ func main() {
 }
 
 func run(args []string, in io.Reader, out, errOut io.Writer) int {
-	client := sdk.NewChineseMedicineClinicsSDK(nil)
+	// Configure from the environment: CHINESE_MEDICINE_CLINICS_APIKEY carries the API key and
+	// CHINESE_MEDICINE_CLINICS_BASE optionally overrides the API base URL (e.g. production).
+	// Both injectable by a secrets vault. Unset -> nil config defaults.
+	var opts map[string]any
+	if apikey := os.Getenv("CHINESE_MEDICINE_CLINICS_APIKEY"); apikey != "" {
+		opts = map[string]any{"apikey": apikey}
+	}
+	if base := os.Getenv("CHINESE_MEDICINE_CLINICS_BASE"); base != "" {
+		if opts == nil {
+			opts = map[string]any{}
+		}
+		opts["base"] = base
+	}
+	client := sdk.NewChineseMedicineClinicsSDK(opts)
 
 	r, err := eng.NewRegistry()
 	if err != nil {
