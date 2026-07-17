@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- ChineseMedicineClinics SDK exists test
 
 local sdk = require("chinese-medicine-clinics_sdk")
 
