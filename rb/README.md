@@ -37,7 +37,7 @@ begin
   # list returns an Array of AnnualAttendancesEn records — iterate directly.
   annualattendancesens = client.AnnualAttendancesEn.list
   annualattendancesens.each do |item|
-    puts "#{item["attendance"]}"
+    puts "#{item["attendances"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = ChineseMedicineClinicsSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 annualattendancesen = client.AnnualAttendancesEn.list()
 puts annualattendancesen
 ```
@@ -238,8 +239,8 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `attendance` |  |
-| `clinic_name` |  |
+| `attendances` |  |
+| `clinicName` |  |
 | `location` |  |
 | `year` |  |
 
@@ -251,8 +252,8 @@ API path: `/cmctr/annual-attendances-en.json`
 
 | Field | Description |
 | --- | --- |
-| `attendance` |  |
-| `clinic_name` |  |
+| `attendances` |  |
+| `clinicName` |  |
 | `location` |  |
 | `year` |  |
 
@@ -264,8 +265,8 @@ API path: `/cmctr/annual-attendances-sc.json`
 
 | Field | Description |
 | --- | --- |
-| `attendance` |  |
-| `clinic_name` |  |
+| `attendances` |  |
+| `clinicName` |  |
 | `location` |  |
 | `year` |  |
 
@@ -292,8 +293,8 @@ Create an instance: `annual_attendances_en = client.AnnualAttendancesEn`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attendance` | `Integer` |  |
-| `clinic_name` | `String` |  |
+| `attendances` | `Integer` |  |
+| `clinicName` | `String` |  |
 | `location` | `String` |  |
 | `year` | `String` |  |
 
@@ -319,8 +320,8 @@ Create an instance: `annual_attendances_sc = client.AnnualAttendancesSc`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attendance` | `Integer` |  |
-| `clinic_name` | `String` |  |
+| `attendances` | `Integer` |  |
+| `clinicName` | `String` |  |
 | `location` | `String` |  |
 | `year` | `String` |  |
 
@@ -346,8 +347,8 @@ Create an instance: `annual_attendances_tc = client.AnnualAttendancesTc`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attendance` | `Integer` |  |
-| `clinic_name` | `String` |  |
+| `attendances` | `Integer` |  |
+| `clinicName` | `String` |  |
 | `location` | `String` |  |
 | `year` | `String` |  |
 

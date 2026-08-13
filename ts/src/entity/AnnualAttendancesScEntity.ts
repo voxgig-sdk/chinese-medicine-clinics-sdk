@@ -37,7 +37,7 @@ class AnnualAttendancesScEntity extends ChineseMedicineClinicsEntityBase<AnnualA
 
 
 
-  async list(this: any, reqmatch?: AnnualAttendancesScListMatch, ctrl?: Control): Promise<AnnualAttendancesSc[]> {
+  async list(this: any, reqmatch?: AnnualAttendancesScListMatch, ctrl?: Control): Promise<AnnualAttendancesScEntity[]> {
 
     const utility = this._utility
 

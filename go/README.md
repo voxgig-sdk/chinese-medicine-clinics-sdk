@@ -262,8 +262,8 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"attendance"` |  |
-| `"clinic_name"` |  |
+| `"attendances"` |  |
+| `"clinicName"` |  |
 | `"location"` |  |
 | `"year"` |  |
 
@@ -275,8 +275,8 @@ API path: `/cmctr/annual-attendances-en.json`
 
 | Field | Description |
 | --- | --- |
-| `"attendance"` |  |
-| `"clinic_name"` |  |
+| `"attendances"` |  |
+| `"clinicName"` |  |
 | `"location"` |  |
 | `"year"` |  |
 
@@ -288,8 +288,8 @@ API path: `/cmctr/annual-attendances-sc.json`
 
 | Field | Description |
 | --- | --- |
-| `"attendance"` |  |
-| `"clinic_name"` |  |
+| `"attendances"` |  |
+| `"clinicName"` |  |
 | `"location"` |  |
 | `"year"` |  |
 
@@ -316,8 +316,8 @@ Create an instance: `annualAttendancesEn := client.AnnualAttendancesEn(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attendance` | `int` |  |
-| `clinic_name` | `string` |  |
+| `attendances` | `int` |  |
+| `clinicName` | `string` |  |
 | `location` | `string` |  |
 | `year` | `string` |  |
 
@@ -346,8 +346,8 @@ Create an instance: `annualAttendancesSc := client.AnnualAttendancesSc(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attendance` | `int` |  |
-| `clinic_name` | `string` |  |
+| `attendances` | `int` |  |
+| `clinicName` | `string` |  |
 | `location` | `string` |  |
 | `year` | `string` |  |
 
@@ -376,8 +376,8 @@ Create an instance: `annualAttendancesTc := client.AnnualAttendancesTc(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attendance` | `int` |  |
-| `clinic_name` | `string` |  |
+| `attendances` | `int` |  |
+| `clinicName` | `string` |  |
 | `location` | `string` |  |
 | `year` | `string` |  |
 

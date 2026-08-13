@@ -124,7 +124,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = ChineseMedicineClinicsSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 annualattendancesen = client.AnnualAttendancesEn().list()
 # annualattendancesen contains the mock response record
 ```
@@ -222,7 +223,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -244,8 +245,8 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `attendance` |  |
-| `clinic_name` |  |
+| `attendances` |  |
+| `clinicName` |  |
 | `location` |  |
 | `year` |  |
 
@@ -257,8 +258,8 @@ API path: `/cmctr/annual-attendances-en.json`
 
 | Field | Description |
 | --- | --- |
-| `attendance` |  |
-| `clinic_name` |  |
+| `attendances` |  |
+| `clinicName` |  |
 | `location` |  |
 | `year` |  |
 
@@ -270,8 +271,8 @@ API path: `/cmctr/annual-attendances-sc.json`
 
 | Field | Description |
 | --- | --- |
-| `attendance` |  |
-| `clinic_name` |  |
+| `attendances` |  |
+| `clinicName` |  |
 | `location` |  |
 | `year` |  |
 
@@ -298,8 +299,8 @@ Create an instance: `annual_attendances_en = client.AnnualAttendancesEn()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attendance` | `int` |  |
-| `clinic_name` | `str` |  |
+| `attendances` | `int` |  |
+| `clinicName` | `str` |  |
 | `location` | `str` |  |
 | `year` | `str` |  |
 
@@ -324,8 +325,8 @@ Create an instance: `annual_attendances_sc = client.AnnualAttendancesSc()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attendance` | `int` |  |
-| `clinic_name` | `str` |  |
+| `attendances` | `int` |  |
+| `clinicName` | `str` |  |
 | `location` | `str` |  |
 | `year` | `str` |  |
 
@@ -350,8 +351,8 @@ Create an instance: `annual_attendances_tc = client.AnnualAttendancesTc()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attendance` | `int` |  |
-| `clinic_name` | `str` |  |
+| `attendances` | `int` |  |
+| `clinicName` | `str` |  |
 | `location` | `str` |  |
 | `year` | `str` |  |
 

@@ -100,8 +100,8 @@ $annual_attendances_en = $client->AnnualAttendancesEn();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendance` | `int` | No |  |
-| `clinic_name` | `string` | No |  |
+| `attendances` | `int` | No |  |
+| `clinicName` | `string` | No |  |
 | `location` | `string` | No |  |
 | `year` | `string` | No |  |
 
@@ -155,8 +155,8 @@ $annual_attendances_sc = $client->AnnualAttendancesSc();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendance` | `int` | No |  |
-| `clinic_name` | `string` | No |  |
+| `attendances` | `int` | No |  |
+| `clinicName` | `string` | No |  |
 | `location` | `string` | No |  |
 | `year` | `string` | No |  |
 
@@ -210,8 +210,8 @@ $annual_attendances_tc = $client->AnnualAttendancesTc();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendance` | `int` | No |  |
-| `clinic_name` | `string` | No |  |
+| `attendances` | `int` | No |  |
+| `clinicName` | `string` | No |  |
 | `location` | `string` | No |  |
 | `year` | `string` | No |  |
 

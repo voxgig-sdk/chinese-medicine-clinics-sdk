@@ -43,8 +43,8 @@ class ChineseMedicineClinicsTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('CHINESEMEDICINECLINICS_TEST_LIVE');
-        $override = self::getenv('CHINESEMEDICINECLINICS_TEST_OVERRIDE');
+        $live = self::getenv('CHINESE_MEDICINE_CLINICS_TEST_LIVE');
+        $override = self::getenv('CHINESE_MEDICINE_CLINICS_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class ChineseMedicineClinicsTestRunner
             }
         }
 
-        $explain = self::getenv('CHINESEMEDICINECLINICS_TEST_EXPLAIN');
+        $explain = self::getenv('CHINESE_MEDICINE_CLINICS_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['CHINESEMEDICINECLINICS_TEST_EXPLAIN'] = $explain;
+            $m['CHINESE_MEDICINE_CLINICS_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

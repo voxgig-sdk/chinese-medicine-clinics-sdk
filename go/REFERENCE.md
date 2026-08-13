@@ -106,8 +106,8 @@ fmt.Println(annualAttendancesEn.GetName()) // "annual_attendances_en"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendance` | `int` | No |  |
-| `clinic_name` | `string` | No |  |
+| `attendances` | `int` | No |  |
+| `clinicName` | `string` | No |  |
 | `location` | `string` | No |  |
 | `year` | `string` | No |  |
 
@@ -160,8 +160,8 @@ fmt.Println(annualAttendancesSc.GetName()) // "annual_attendances_sc"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendance` | `int` | No |  |
-| `clinic_name` | `string` | No |  |
+| `attendances` | `int` | No |  |
+| `clinicName` | `string` | No |  |
 | `location` | `string` | No |  |
 | `year` | `string` | No |  |
 
@@ -214,8 +214,8 @@ fmt.Println(annualAttendancesTc.GetName()) // "annual_attendances_tc"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendance` | `int` | No |  |
-| `clinic_name` | `string` | No |  |
+| `attendances` | `int` | No |  |
+| `clinicName` | `string` | No |  |
 | `location` | `string` | No |  |
 | `year` | `string` | No |  |
 

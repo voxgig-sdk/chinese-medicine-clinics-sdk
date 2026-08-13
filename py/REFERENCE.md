@@ -95,8 +95,8 @@ annual_attendances_en = client.AnnualAttendancesEn()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendance` | `int` | No |  |
-| `clinic_name` | `str` | No |  |
+| `attendances` | `int` | No |  |
+| `clinicName` | `str` | No |  |
 | `location` | `str` | No |  |
 | `year` | `str` | No |  |
 
@@ -151,8 +151,8 @@ annual_attendances_sc = client.AnnualAttendancesSc()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendance` | `int` | No |  |
-| `clinic_name` | `str` | No |  |
+| `attendances` | `int` | No |  |
+| `clinicName` | `str` | No |  |
 | `location` | `str` | No |  |
 | `year` | `str` | No |  |
 
@@ -207,8 +207,8 @@ annual_attendances_tc = client.AnnualAttendancesTc()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendance` | `int` | No |  |
-| `clinic_name` | `str` | No |  |
+| `attendances` | `int` | No |  |
+| `clinicName` | `str` | No |  |
 | `location` | `str` | No |  |
 | `year` | `str` | No |  |
 

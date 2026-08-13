@@ -37,7 +37,7 @@ class AnnualAttendancesTcEntity extends ChineseMedicineClinicsEntityBase<AnnualA
 
 
 
-  async list(this: any, reqmatch?: AnnualAttendancesTcListMatch, ctrl?: Control): Promise<AnnualAttendancesTc[]> {
+  async list(this: any, reqmatch?: AnnualAttendancesTcListMatch, ctrl?: Control): Promise<AnnualAttendancesTcEntity[]> {
 
     const utility = this._utility
 

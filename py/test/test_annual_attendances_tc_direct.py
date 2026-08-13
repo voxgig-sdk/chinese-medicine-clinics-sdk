@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from chinesemedicineclinics_sdk.utility.voxgig_struct import voxgig_struct as vs
 from chinesemedicineclinics_sdk import ChineseMedicineClinicsSDK
-from core import helpers
+from chinesemedicineclinics_sdk.core import helpers
 from test import runner
 
 
@@ -58,11 +58,11 @@ def _annual_attendances_tc_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "CHINESEMEDICINECLINICS_TEST_ANNUAL_ATTENDANCES_TC_ENTID": {},
-        "CHINESEMEDICINECLINICS_TEST_LIVE": "FALSE",
+        "CHINESE_MEDICINE_CLINICS_TEST_ANNUAL_ATTENDANCES_TC_ENTID": {},
+        "CHINESE_MEDICINE_CLINICS_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("CHINESEMEDICINECLINICS_TEST_LIVE") == "TRUE"
+    live = env.get("CHINESE_MEDICINE_CLINICS_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

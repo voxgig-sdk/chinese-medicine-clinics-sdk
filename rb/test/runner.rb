@@ -23,8 +23,8 @@ module ChineseMedicineClinicsTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("CHINESEMEDICINECLINICS_TEST_LIVE")
-    override = getenv("CHINESEMEDICINECLINICS_TEST_OVERRIDE")
+    live = getenv("CHINESE_MEDICINE_CLINICS_TEST_LIVE")
+    override = getenv("CHINESE_MEDICINE_CLINICS_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module ChineseMedicineClinicsTestRunner
       end
     end
 
-    explain = getenv("CHINESEMEDICINECLINICS_TEST_EXPLAIN")
-    m["CHINESEMEDICINECLINICS_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("CHINESE_MEDICINE_CLINICS_TEST_EXPLAIN")
+    m["CHINESE_MEDICINE_CLINICS_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

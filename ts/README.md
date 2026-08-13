@@ -35,7 +35,9 @@ const client = new ChineseMedicineClinicsSDK()
 
 ### 2. List annualattendancesen records
 
-`list()` resolves to an array of AnnualAttendancesEn objects — iterate it directly:
+`list()` resolves to an array of AnnualAttendancesEn ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const annualattendancesens = await client.AnnualAttendancesEn().list()
@@ -120,7 +122,8 @@ Create a mock client for unit testing — no server required:
 const client = ChineseMedicineClinicsSDK.test()
 
 const annualattendancesen = await client.AnnualAttendancesEn().list()
-// annualattendancesen is a bare entity populated with mock response data
+// annualattendancesen is the entity, populated with mock response data
+// — call annualattendancesen.data() for the record itself
 console.log(annualattendancesen)
 ```
 
@@ -286,8 +289,8 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `attendance` |  |
-| `clinic_name` |  |
+| `attendances` |  |
+| `clinicName` |  |
 | `location` |  |
 | `year` |  |
 
@@ -299,8 +302,8 @@ API path: `/cmctr/annual-attendances-en.json`
 
 | Field | Description |
 | --- | --- |
-| `attendance` |  |
-| `clinic_name` |  |
+| `attendances` |  |
+| `clinicName` |  |
 | `location` |  |
 | `year` |  |
 
@@ -312,8 +315,8 @@ API path: `/cmctr/annual-attendances-sc.json`
 
 | Field | Description |
 | --- | --- |
-| `attendance` |  |
-| `clinic_name` |  |
+| `attendances` |  |
+| `clinicName` |  |
 | `location` |  |
 | `year` |  |
 
@@ -340,8 +343,8 @@ Create an instance: `const annual_attendances_en = client.AnnualAttendancesEn()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attendance` | `number` |  |
-| `clinic_name` | `string` |  |
+| `attendances` | `number` |  |
+| `clinicName` | `string` |  |
 | `location` | `string` |  |
 | `year` | `string` |  |
 
@@ -366,8 +369,8 @@ Create an instance: `const annual_attendances_sc = client.AnnualAttendancesSc()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attendance` | `number` |  |
-| `clinic_name` | `string` |  |
+| `attendances` | `number` |  |
+| `clinicName` | `string` |  |
 | `location` | `string` |  |
 | `year` | `string` |  |
 
@@ -392,8 +395,8 @@ Create an instance: `const annual_attendances_tc = client.AnnualAttendancesTc()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attendance` | `number` |  |
-| `clinic_name` | `string` |  |
+| `attendances` | `number` |  |
+| `clinicName` | `string` |  |
 | `location` | `string` |  |
 | `year` | `string` |  |
 

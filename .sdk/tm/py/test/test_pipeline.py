@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import ChineseMedicineClinicsSDK
-from core.error import ChineseMedicineClinicsError
-from core.result import ChineseMedicineClinicsResult
-from core.response import ChineseMedicineClinicsResponse
-from core.spec import ChineseMedicineClinicsSpec
-from feature.base_feature import ChineseMedicineClinicsBaseFeature
+from projectname_sdk.core.error import ChineseMedicineClinicsError
+from projectname_sdk.core.result import ChineseMedicineClinicsResult
+from projectname_sdk.core.response import ChineseMedicineClinicsResponse
+from projectname_sdk.core.spec import ChineseMedicineClinicsSpec
+from projectname_sdk.feature.base_feature import ChineseMedicineClinicsBaseFeature
 
 
 def _client():

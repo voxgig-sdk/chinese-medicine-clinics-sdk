@@ -43,7 +43,7 @@ local annualattendancesens, err = client:AnnualAttendancesEn():list()
 if err then error(err) end
 
 for _, item in ipairs(annualattendancesens) do
-  print(item["clinic_name"])
+  print(item["clinicName"])
 end
 ```
 
@@ -220,9 +220,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local annual_attendances_en, err = client:AnnualAttendancesEn():load()
+    local annual_attendances_en, err = client:AnnualAttendancesEn():list()
     if err then error(err) end
-    -- annual_attendances_en is the loaded record
+    -- annual_attendances_en is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -233,8 +233,8 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `attendance` |  |
-| `clinic_name` |  |
+| `attendances` |  |
+| `clinicName` |  |
 | `location` |  |
 | `year` |  |
 
@@ -246,8 +246,8 @@ API path: `/cmctr/annual-attendances-en.json`
 
 | Field | Description |
 | --- | --- |
-| `attendance` |  |
-| `clinic_name` |  |
+| `attendances` |  |
+| `clinicName` |  |
 | `location` |  |
 | `year` |  |
 
@@ -259,8 +259,8 @@ API path: `/cmctr/annual-attendances-sc.json`
 
 | Field | Description |
 | --- | --- |
-| `attendance` |  |
-| `clinic_name` |  |
+| `attendances` |  |
+| `clinicName` |  |
 | `location` |  |
 | `year` |  |
 
@@ -287,8 +287,8 @@ Create an instance: `local annual_attendances_en = client:AnnualAttendancesEn(ni
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attendance` | `number` |  |
-| `clinic_name` | `string` |  |
+| `attendances` | `number` |  |
+| `clinicName` | `string` |  |
 | `location` | `string` |  |
 | `year` | `string` |  |
 
@@ -313,8 +313,8 @@ Create an instance: `local annual_attendances_sc = client:AnnualAttendancesSc(ni
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attendance` | `number` |  |
-| `clinic_name` | `string` |  |
+| `attendances` | `number` |  |
+| `clinicName` | `string` |  |
 | `location` | `string` |  |
 | `year` | `string` |  |
 
@@ -339,8 +339,8 @@ Create an instance: `local annual_attendances_tc = client:AnnualAttendancesTc(ni
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attendance` | `number` |  |
-| `clinic_name` | `string` |  |
+| `attendances` | `number` |  |
+| `clinicName` | `string` |  |
 | `location` | `string` |  |
 | `year` | `string` |  |
 

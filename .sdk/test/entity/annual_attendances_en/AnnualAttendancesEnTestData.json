@@ -2,20 +2,20 @@
   "existing": {
     "annual_attendances_en": {
       "ANNUAL_ATTENDANCES_EN00": {
-        "attendance": "s28",
-        "clinic_name": "s29",
+        "attendances": "s28",
+        "clinicName": "s29",
         "location": "s2a",
         "year": "s2b"
       },
       "ANNUAL_ATTENDANCES_EN01": {
-        "attendance": "s50",
-        "clinic_name": "s51",
+        "attendances": "s50",
+        "clinicName": "s51",
         "location": "s52",
         "year": "s53"
       },
       "ANNUAL_ATTENDANCES_EN02": {
-        "attendance": "s78",
-        "clinic_name": "s79",
+        "attendances": "s78",
+        "clinicName": "s79",
         "location": "s7a",
         "year": "s7b"
       }
@@ -24,8 +24,8 @@
   "new": {
     "annual_attendances_en": {
       "annual_attendances_en_ref01": {
-        "attendance": "sa0",
-        "clinic_name": "sa1",
+        "attendances": "sa0",
+        "clinicName": "sa1",
         "location": "sa2",
         "year": "sa3"
       }

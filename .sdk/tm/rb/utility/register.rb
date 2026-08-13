@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ ChineseMedicineClinicsUtility.registrar = ->(u) {
   u.prepare_params = ChineseMedicineClinicsUtilities::PrepareParams
   u.prepare_path = ChineseMedicineClinicsUtilities::PreparePath
   u.prepare_query = ChineseMedicineClinicsUtilities::PrepareQuery
+  u.graphql_body = ChineseMedicineClinicsUtilities::GraphqlBody
+  u.graphql_errors = ChineseMedicineClinicsUtilities::GraphqlErrors
   u.result_basic = ChineseMedicineClinicsUtilities::ResultBasic
   u.result_body = ChineseMedicineClinicsUtilities::ResultBody
   u.result_headers = ChineseMedicineClinicsUtilities::ResultHeaders

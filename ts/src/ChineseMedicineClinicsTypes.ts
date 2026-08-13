@@ -6,43 +6,43 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface AnnualAttendancesEn {
-  attendance?: number
-  clinic_name?: string
+  attendances?: number
+  clinicName?: string
   location?: string
   year?: string
 }
 
 export interface AnnualAttendancesEnListMatch {
-  attendance?: number
-  clinic_name?: string
+  attendances?: number
+  clinicName?: string
   location?: string
   year?: string
 }
 
 export interface AnnualAttendancesSc {
-  attendance?: number
-  clinic_name?: string
+  attendances?: number
+  clinicName?: string
   location?: string
   year?: string
 }
 
 export interface AnnualAttendancesScListMatch {
-  attendance?: number
-  clinic_name?: string
+  attendances?: number
+  clinicName?: string
   location?: string
   year?: string
 }
 
 export interface AnnualAttendancesTc {
-  attendance?: number
-  clinic_name?: string
+  attendances?: number
+  clinicName?: string
   location?: string
   year?: string
 }
 
 export interface AnnualAttendancesTcListMatch {
-  attendance?: number
-  clinic_name?: string
+  attendances?: number
+  clinicName?: string
   location?: string
   year?: string
 }

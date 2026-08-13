@@ -19,11 +19,15 @@ import {
 describe('AnnualAttendancesTcDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when CHINESEMEDICINECLINICS_TEST_LIVE=TRUE.
-  afterEach(liveDelay('CHINESEMEDICINECLINICS_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when CHINESE_MEDICINE_CLINICS_TEST_LIVE=TRUE.
+  afterEach(liveDelay('CHINESE_MEDICINE_CLINICS_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new ChineseMedicineClinicsSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -77,17 +81,17 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'CHINESEMEDICINECLINICS_TEST_ANNUAL_ATTENDANCES_TC_ENTID': {},
-    'CHINESEMEDICINECLINICS_TEST_LIVE': 'FALSE',
+    'CHINESE_MEDICINE_CLINICS_TEST_ANNUAL_ATTENDANCES_TC_ENTID': {},
+    'CHINESE_MEDICINE_CLINICS_TEST_LIVE': 'FALSE',
   })
 
-  const live = 'TRUE' === env.CHINESEMEDICINECLINICS_TEST_LIVE
+  const live = 'TRUE' === env.CHINESE_MEDICINE_CLINICS_TEST_LIVE
 
   if (live) {
     const client = new ChineseMedicineClinicsSDK({
     })
 
-    let idmap: any = env['CHINESEMEDICINECLINICS_TEST_ANNUAL_ATTENDANCES_TC_ENTID']
+    let idmap: any = env['CHINESE_MEDICINE_CLINICS_TEST_ANNUAL_ATTENDANCES_TC_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

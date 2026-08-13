@@ -15,8 +15,8 @@ declare(strict_types=1);
 /** AnnualAttendancesEn entity data model. */
 class AnnualAttendancesEn
 {
-    public ?int $attendance = null;
-    public ?string $clinic_name = null;
+    public ?int $attendances = null;
+    public ?string $clinicName = null;
     public ?string $location = null;
     public ?string $year = null;
 }
@@ -24,8 +24,8 @@ class AnnualAttendancesEn
 /** Request payload for AnnualAttendancesEn#list. */
 class AnnualAttendancesEnListMatch
 {
-    public ?int $attendance = null;
-    public ?string $clinic_name = null;
+    public ?int $attendances = null;
+    public ?string $clinicName = null;
     public ?string $location = null;
     public ?string $year = null;
 }
@@ -33,8 +33,8 @@ class AnnualAttendancesEnListMatch
 /** AnnualAttendancesSc entity data model. */
 class AnnualAttendancesSc
 {
-    public ?int $attendance = null;
-    public ?string $clinic_name = null;
+    public ?int $attendances = null;
+    public ?string $clinicName = null;
     public ?string $location = null;
     public ?string $year = null;
 }
@@ -42,8 +42,8 @@ class AnnualAttendancesSc
 /** Request payload for AnnualAttendancesSc#list. */
 class AnnualAttendancesScListMatch
 {
-    public ?int $attendance = null;
-    public ?string $clinic_name = null;
+    public ?int $attendances = null;
+    public ?string $clinicName = null;
     public ?string $location = null;
     public ?string $year = null;
 }
@@ -51,8 +51,8 @@ class AnnualAttendancesScListMatch
 /** AnnualAttendancesTc entity data model. */
 class AnnualAttendancesTc
 {
-    public ?int $attendance = null;
-    public ?string $clinic_name = null;
+    public ?int $attendances = null;
+    public ?string $clinicName = null;
     public ?string $location = null;
     public ?string $year = null;
 }
@@ -60,8 +60,8 @@ class AnnualAttendancesTc
 /** Request payload for AnnualAttendancesTc#list. */
 class AnnualAttendancesTcListMatch
 {
-    public ?int $attendance = null;
-    public ?string $clinic_name = null;
+    public ?int $attendances = null;
+    public ?string $clinicName = null;
     public ?string $location = null;
     public ?string $year = null;
 }

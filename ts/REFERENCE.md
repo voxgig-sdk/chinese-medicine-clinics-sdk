@@ -140,8 +140,8 @@ const annual_attendances_en = client.AnnualAttendancesEn()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendance` | `number` | No |  |
-| `clinic_name` | `string` | No |  |
+| `attendances` | `number` | No |  |
+| `clinicName` | `string` | No |  |
 | `location` | `string` | No |  |
 | `year` | `string` | No |  |
 
@@ -193,8 +193,8 @@ const annual_attendances_sc = client.AnnualAttendancesSc()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendance` | `number` | No |  |
-| `clinic_name` | `string` | No |  |
+| `attendances` | `number` | No |  |
+| `clinicName` | `string` | No |  |
 | `location` | `string` | No |  |
 | `year` | `string` | No |  |
 
@@ -246,8 +246,8 @@ const annual_attendances_tc = client.AnnualAttendancesTc()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendance` | `number` | No |  |
-| `clinic_name` | `string` | No |  |
+| `attendances` | `number` | No |  |
+| `clinicName` | `string` | No |  |
 | `location` | `string` | No |  |
 | `year` | `string` | No |  |
 

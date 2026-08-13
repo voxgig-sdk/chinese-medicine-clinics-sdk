@@ -26,8 +26,8 @@ import {
 describe('AnnualAttendancesEnEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when CHINESEMEDICINECLINICS_TEST_LIVE=TRUE.
-  afterEach(liveDelay('CHINESEMEDICINECLINICS_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when CHINESE_MEDICINE_CLINICS_TEST_LIVE=TRUE.
+  afterEach(liveDelay('CHINESE_MEDICINE_CLINICS_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = ChineseMedicineClinicsSDK.test()
@@ -63,7 +63,7 @@ describe('AnnualAttendancesEnEntity', async () => {
     const annual_attendances_en_ref01_ent = client.AnnualAttendancesEn()
     const annual_attendances_en_ref01_match: any = {}
 
-    const annual_attendances_en_ref01_list = await annual_attendances_en_ref01_ent.list(annual_attendances_en_ref01_match)
+    const annual_attendances_en_ref01_list = (await annual_attendances_en_ref01_ent.list(annual_attendances_en_ref01_match)).map((e: any) => e.data())
 
 
   })

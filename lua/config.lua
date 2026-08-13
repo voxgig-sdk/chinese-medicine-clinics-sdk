@@ -28,14 +28,14 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "attendance",
+            ["name"] = "attendances",
             ["req"] = false,
             ["type"] = "`$INTEGER`",
             ["index$"] = 0,
           },
           {
             ["active"] = true,
-            ["name"] = "clinic_name",
+            ["name"] = "clinicName",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 1,
@@ -64,6 +64,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cmctr/annual-attendances-en.json",
                 ["parts"] = {
@@ -89,14 +90,14 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "attendance",
+            ["name"] = "attendances",
             ["req"] = false,
             ["type"] = "`$INTEGER`",
             ["index$"] = 0,
           },
           {
             ["active"] = true,
-            ["name"] = "clinic_name",
+            ["name"] = "clinicName",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 1,
@@ -125,6 +126,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cmctr/annual-attendances-sc.json",
                 ["parts"] = {
@@ -150,14 +152,14 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "attendance",
+            ["name"] = "attendances",
             ["req"] = false,
             ["type"] = "`$INTEGER`",
             ["index$"] = 0,
           },
           {
             ["active"] = true,
-            ["name"] = "clinic_name",
+            ["name"] = "clinicName",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 1,
@@ -186,6 +188,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cmctr/annual-attendances-tc.json",
                 ["parts"] = {

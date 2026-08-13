@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'ChineseMedicineClinics',
   }
 
 
@@ -62,14 +62,14 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "attendance",
+          "name": "attendances",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "clinic_name",
+          "name": "clinicName",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
@@ -98,6 +98,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/cmctr/annual-attendances-en.json",
               "parts": [
@@ -123,14 +124,14 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "attendance",
+          "name": "attendances",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "clinic_name",
+          "name": "clinicName",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
@@ -159,6 +160,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/cmctr/annual-attendances-sc.json",
               "parts": [
@@ -184,14 +186,14 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "attendance",
+          "name": "attendances",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "clinic_name",
+          "name": "clinicName",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
@@ -220,6 +222,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/cmctr/annual-attendances-tc.json",
               "parts": [

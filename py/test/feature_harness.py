@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import ChineseMedicineClinicsControl
-from core.error import ChineseMedicineClinicsError
-from core.result import ChineseMedicineClinicsResult
-from core.spec import ChineseMedicineClinicsSpec
+from chinesemedicineclinics_sdk.config import make_config
+from chinesemedicineclinics_sdk.features import _make_feature
+from chinesemedicineclinics_sdk.core.control import ChineseMedicineClinicsControl
+from chinesemedicineclinics_sdk.core.error import ChineseMedicineClinicsError
+from chinesemedicineclinics_sdk.core.result import ChineseMedicineClinicsResult
+from chinesemedicineclinics_sdk.core.spec import ChineseMedicineClinicsSpec
 
 
 # True when this SDK was generated with the named feature.

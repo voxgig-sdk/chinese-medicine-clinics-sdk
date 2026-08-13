@@ -10,10 +10,10 @@
 
 # AnnualAttendancesEn entity data model.
 #
-# @!attribute [rw] attendance
+# @!attribute [rw] attendances
 #   @return [Integer, nil]
 #
-# @!attribute [rw] clinic_name
+# @!attribute [rw] clinicName
 #   @return [String, nil]
 #
 # @!attribute [rw] location
@@ -22,8 +22,8 @@
 # @!attribute [rw] year
 #   @return [String, nil]
 AnnualAttendancesEn = Struct.new(
-  :attendance,
-  :clinic_name,
+  :attendances,
+  :clinicName,
   :location,
   :year,
   keyword_init: true
@@ -31,10 +31,10 @@ AnnualAttendancesEn = Struct.new(
 
 # Request payload for AnnualAttendancesEn#list.
 #
-# @!attribute [rw] attendance
+# @!attribute [rw] attendances
 #   @return [Integer, nil]
 #
-# @!attribute [rw] clinic_name
+# @!attribute [rw] clinicName
 #   @return [String, nil]
 #
 # @!attribute [rw] location
@@ -43,8 +43,8 @@ AnnualAttendancesEn = Struct.new(
 # @!attribute [rw] year
 #   @return [String, nil]
 AnnualAttendancesEnListMatch = Struct.new(
-  :attendance,
-  :clinic_name,
+  :attendances,
+  :clinicName,
   :location,
   :year,
   keyword_init: true
@@ -52,10 +52,10 @@ AnnualAttendancesEnListMatch = Struct.new(
 
 # AnnualAttendancesSc entity data model.
 #
-# @!attribute [rw] attendance
+# @!attribute [rw] attendances
 #   @return [Integer, nil]
 #
-# @!attribute [rw] clinic_name
+# @!attribute [rw] clinicName
 #   @return [String, nil]
 #
 # @!attribute [rw] location
@@ -64,8 +64,8 @@ AnnualAttendancesEnListMatch = Struct.new(
 # @!attribute [rw] year
 #   @return [String, nil]
 AnnualAttendancesSc = Struct.new(
-  :attendance,
-  :clinic_name,
+  :attendances,
+  :clinicName,
   :location,
   :year,
   keyword_init: true
@@ -73,10 +73,10 @@ AnnualAttendancesSc = Struct.new(
 
 # Request payload for AnnualAttendancesSc#list.
 #
-# @!attribute [rw] attendance
+# @!attribute [rw] attendances
 #   @return [Integer, nil]
 #
-# @!attribute [rw] clinic_name
+# @!attribute [rw] clinicName
 #   @return [String, nil]
 #
 # @!attribute [rw] location
@@ -85,8 +85,8 @@ AnnualAttendancesSc = Struct.new(
 # @!attribute [rw] year
 #   @return [String, nil]
 AnnualAttendancesScListMatch = Struct.new(
-  :attendance,
-  :clinic_name,
+  :attendances,
+  :clinicName,
   :location,
   :year,
   keyword_init: true
@@ -94,10 +94,10 @@ AnnualAttendancesScListMatch = Struct.new(
 
 # AnnualAttendancesTc entity data model.
 #
-# @!attribute [rw] attendance
+# @!attribute [rw] attendances
 #   @return [Integer, nil]
 #
-# @!attribute [rw] clinic_name
+# @!attribute [rw] clinicName
 #   @return [String, nil]
 #
 # @!attribute [rw] location
@@ -106,8 +106,8 @@ AnnualAttendancesScListMatch = Struct.new(
 # @!attribute [rw] year
 #   @return [String, nil]
 AnnualAttendancesTc = Struct.new(
-  :attendance,
-  :clinic_name,
+  :attendances,
+  :clinicName,
   :location,
   :year,
   keyword_init: true
@@ -115,10 +115,10 @@ AnnualAttendancesTc = Struct.new(
 
 # Request payload for AnnualAttendancesTc#list.
 #
-# @!attribute [rw] attendance
+# @!attribute [rw] attendances
 #   @return [Integer, nil]
 #
-# @!attribute [rw] clinic_name
+# @!attribute [rw] clinicName
 #   @return [String, nil]
 #
 # @!attribute [rw] location
@@ -127,8 +127,8 @@ AnnualAttendancesTc = Struct.new(
 # @!attribute [rw] year
 #   @return [String, nil]
 AnnualAttendancesTcListMatch = Struct.new(
-  :attendance,
-  :clinic_name,
+  :attendances,
+  :clinicName,
   :location,
   :year,
   keyword_init: true

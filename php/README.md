@@ -38,7 +38,7 @@ try {
     // list() returns an array of AnnualAttendancesEn records — iterate directly.
     $annualattendancesens = $client->AnnualAttendancesEn()->list();
     foreach ($annualattendancesens as $item) {
-        echo $item["attendance"] . "\n";
+        echo $item["attendances"] . "\n";
     }
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -125,7 +125,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = ChineseMedicineClinicsSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $annualattendancesen = $client->AnnualAttendancesEn()->list();
 print_r($annualattendancesen);
 ```
@@ -226,7 +227,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -248,8 +249,8 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `attendance` |  |
-| `clinic_name` |  |
+| `attendances` |  |
+| `clinicName` |  |
 | `location` |  |
 | `year` |  |
 
@@ -261,8 +262,8 @@ API path: `/cmctr/annual-attendances-en.json`
 
 | Field | Description |
 | --- | --- |
-| `attendance` |  |
-| `clinic_name` |  |
+| `attendances` |  |
+| `clinicName` |  |
 | `location` |  |
 | `year` |  |
 
@@ -274,8 +275,8 @@ API path: `/cmctr/annual-attendances-sc.json`
 
 | Field | Description |
 | --- | --- |
-| `attendance` |  |
-| `clinic_name` |  |
+| `attendances` |  |
+| `clinicName` |  |
 | `location` |  |
 | `year` |  |
 
@@ -302,8 +303,8 @@ Create an instance: `$annual_attendances_en = $client->AnnualAttendancesEn();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attendance` | `int` |  |
-| `clinic_name` | `string` |  |
+| `attendances` | `int` |  |
+| `clinicName` | `string` |  |
 | `location` | `string` |  |
 | `year` | `string` |  |
 
@@ -329,8 +330,8 @@ Create an instance: `$annual_attendances_sc = $client->AnnualAttendancesSc();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attendance` | `int` |  |
-| `clinic_name` | `string` |  |
+| `attendances` | `int` |  |
+| `clinicName` | `string` |  |
 | `location` | `string` |  |
 | `year` | `string` |  |
 
@@ -356,8 +357,8 @@ Create an instance: `$annual_attendances_tc = $client->AnnualAttendancesTc();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attendance` | `int` |  |
-| `clinic_name` | `string` |  |
+| `attendances` | `int` |  |
+| `clinicName` | `string` |  |
 | `location` | `string` |  |
 | `year` | `string` |  |
 

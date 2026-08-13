@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# ChineseMedicineClinics SDK exists test
 
 import pytest
 from chinesemedicineclinics_sdk import ChineseMedicineClinicsSDK

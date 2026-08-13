@@ -66,11 +66,11 @@ function annual_attendances_sc_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "CHINESEMEDICINECLINICS_TEST_ANNUAL_ATTENDANCES_SC_ENTID" => [],
-        "CHINESEMEDICINECLINICS_TEST_LIVE" => "FALSE",
+        "CHINESE_MEDICINE_CLINICS_TEST_ANNUAL_ATTENDANCES_SC_ENTID" => [],
+        "CHINESE_MEDICINE_CLINICS_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["CHINESEMEDICINECLINICS_TEST_LIVE"] === "TRUE";
+    $live = $env["CHINESE_MEDICINE_CLINICS_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

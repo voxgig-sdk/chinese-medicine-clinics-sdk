@@ -28,14 +28,14 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "attendance",
+						"name": "attendances",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 0,
 					},
 					map[string]any{
 						"active": true,
-						"name": "clinic_name",
+						"name": "clinicName",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 1,
@@ -64,6 +64,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/cmctr/annual-attendances-en.json",
 								"parts": []any{
@@ -78,7 +79,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{
@@ -89,14 +89,14 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "attendance",
+						"name": "attendances",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 0,
 					},
 					map[string]any{
 						"active": true,
-						"name": "clinic_name",
+						"name": "clinicName",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 1,
@@ -125,6 +125,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/cmctr/annual-attendances-sc.json",
 								"parts": []any{
@@ -139,7 +140,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{
@@ -150,14 +150,14 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "attendance",
+						"name": "attendances",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 0,
 					},
 					map[string]any{
 						"active": true,
-						"name": "clinic_name",
+						"name": "clinicName",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 1,
@@ -186,6 +186,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/cmctr/annual-attendances-tc.json",
 								"parts": []any{
@@ -200,7 +201,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{

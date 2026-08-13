@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = ChineseMedicineClinicsSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = ChineseMedicineClinicsSDK.test({
+  entity: {
+    annual_attendances_en: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const annualattendancesens = await client.AnnualAttendancesEn().list()
-// annualattendancesens is an array of bare AnnualAttendancesEn records populated with mock data
+// annualattendancesens is an array of AnnualAttendancesEn entities, populated with mock data
+// — call annualattendancesens[0].data() for the record itself
 console.log(annualattendancesens)
 ```
 
@@ -110,7 +119,7 @@ import { ChineseMedicineClinicsSDK } from '@voxgig-sdk/chinese-medicine-clinics'
 
 const client = new ChineseMedicineClinicsSDK()
 
-// List all annualattendancesens (returns AnnualAttendancesEn[])
+// List all annualattendancesens (returns AnnualAttendancesEnEntity[] — .data() for the record)
 const annualattendancesens = await client.AnnualAttendancesEn().list()
 for (const annualattendancesen of annualattendancesens) {
   console.log(annualattendancesen)
@@ -345,6 +354,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://data.gov.hk/en-data/dataset/hospital-hadata-service-cmctr](https://data.gov.hk/en-data/dataset/hospital-hadata-service-cmctr)
 

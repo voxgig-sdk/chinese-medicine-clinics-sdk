@@ -6,12 +6,12 @@ main: kit: entity: annual_attendances_en: {
 
   fields: [
     {
-      name: "attendance"
+      name: "attendances"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "clinic_name"
+      name: "clinicName"
       req: false
       type: "`$STRING`"
     }
