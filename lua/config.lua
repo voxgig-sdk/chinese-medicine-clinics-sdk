@@ -1,5 +1,8 @@
 -- ChineseMedicineClinics SDK configuration
 
+-- Build a fresh, fully materialised config table. Every call rebuilds the
+-- whole structure, so prefer require("config_shared") unless you need a
+-- private copy you intend to mutate.
 local function make_config()
   return {
     main = {
@@ -27,32 +30,20 @@ local function make_config()
       ["annual_attendances_en"] = {
         ["fields"] = {
           {
-            ["active"] = true,
             ["name"] = "attendances",
-            ["req"] = false,
             ["type"] = "`$INTEGER`",
-            ["index$"] = 0,
           },
           {
-            ["active"] = true,
             ["name"] = "clinicName",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 1,
           },
           {
-            ["active"] = true,
             ["name"] = "location",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 2,
           },
           {
-            ["active"] = true,
             ["name"] = "year",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 3,
           },
         },
         ["name"] = "annual_attendances_en",
@@ -62,7 +53,6 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["active"] = true,
                 ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
@@ -76,10 +66,8 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["index$"] = 0,
               },
             },
-            ["key$"] = "list",
           },
         },
         ["relations"] = {
@@ -89,32 +77,20 @@ local function make_config()
       ["annual_attendances_sc"] = {
         ["fields"] = {
           {
-            ["active"] = true,
             ["name"] = "attendances",
-            ["req"] = false,
             ["type"] = "`$INTEGER`",
-            ["index$"] = 0,
           },
           {
-            ["active"] = true,
             ["name"] = "clinicName",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 1,
           },
           {
-            ["active"] = true,
             ["name"] = "location",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 2,
           },
           {
-            ["active"] = true,
             ["name"] = "year",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 3,
           },
         },
         ["name"] = "annual_attendances_sc",
@@ -124,7 +100,6 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["active"] = true,
                 ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
@@ -138,10 +113,8 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["index$"] = 0,
               },
             },
-            ["key$"] = "list",
           },
         },
         ["relations"] = {
@@ -151,32 +124,20 @@ local function make_config()
       ["annual_attendances_tc"] = {
         ["fields"] = {
           {
-            ["active"] = true,
             ["name"] = "attendances",
-            ["req"] = false,
             ["type"] = "`$INTEGER`",
-            ["index$"] = 0,
           },
           {
-            ["active"] = true,
             ["name"] = "clinicName",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 1,
           },
           {
-            ["active"] = true,
             ["name"] = "location",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 2,
           },
           {
-            ["active"] = true,
             ["name"] = "year",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 3,
           },
         },
         ["name"] = "annual_attendances_tc",
@@ -186,7 +147,6 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["active"] = true,
                 ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
@@ -200,10 +160,8 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["index$"] = 0,
               },
             },
-            ["key$"] = "list",
           },
         },
         ["relations"] = {

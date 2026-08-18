@@ -15,7 +15,7 @@ require_relative "../ChineseMedicineClinics_sdk"
 module ChineseMedicineClinicsFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = ChineseMedicineClinicsConfig.make_config["feature"]
+    f = ChineseMedicineClinicsConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

@@ -40,7 +40,7 @@ class ChineseMedicineClinicsSDK
         $utility = new ChineseMedicineClinicsUtility();
         $this->_utility = $utility;
 
-        $config = ChineseMedicineClinicsConfig::make_config();
+        $config = ChineseMedicineClinicsConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

@@ -28,7 +28,7 @@ class ChineseMedicineClinicsSDK
     utility = ChineseMedicineClinicsUtility.new
     @_utility = utility
 
-    config = ChineseMedicineClinicsConfig.make_config
+    config = ChineseMedicineClinicsConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
