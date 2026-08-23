@@ -245,10 +245,10 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `attendances` |  |
-| `clinicName` |  |
-| `location` |  |
-| `year` |  |
+| `attendances` | Number of attendances for the specified year |
+| `clinicName` | Name of the Chinese Medicine Clinic cum Training and Research Centre |
+| `location` | Location or district of the clinic |
+| `year` | Year of the attendance record |
 
 Operations: List.
 
@@ -258,10 +258,10 @@ API path: `/cmctr/annual-attendances-en.json`
 
 | Field | Description |
 | --- | --- |
-| `attendances` |  |
-| `clinicName` |  |
-| `location` |  |
-| `year` |  |
+| `attendances` | Number of attendances for the specified year |
+| `clinicName` | Name of the Chinese Medicine Clinic cum Training and Research Centre |
+| `location` | Location or district of the clinic |
+| `year` | Year of the attendance record |
 
 Operations: List.
 
@@ -271,10 +271,10 @@ API path: `/cmctr/annual-attendances-sc.json`
 
 | Field | Description |
 | --- | --- |
-| `attendances` |  |
-| `clinicName` |  |
-| `location` |  |
-| `year` |  |
+| `attendances` | Number of attendances for the specified year |
+| `clinicName` | Name of the Chinese Medicine Clinic cum Training and Research Centre |
+| `location` | Location or district of the clinic |
+| `year` | Year of the attendance record |
 
 Operations: List.
 
@@ -299,10 +299,10 @@ Create an instance: `annual_attendances_en = client.AnnualAttendancesEn()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attendances` | `int` |  |
-| `clinicName` | `str` |  |
-| `location` | `str` |  |
-| `year` | `str` |  |
+| `attendances` | `int` | Number of attendances for the specified year |
+| `clinicName` | `str` | Name of the Chinese Medicine Clinic cum Training and Research Centre |
+| `location` | `str` | Location or district of the clinic |
+| `year` | `str` | Year of the attendance record |
 
 #### Example: List
 
@@ -325,10 +325,10 @@ Create an instance: `annual_attendances_sc = client.AnnualAttendancesSc()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attendances` | `int` |  |
-| `clinicName` | `str` |  |
-| `location` | `str` |  |
-| `year` | `str` |  |
+| `attendances` | `int` | Number of attendances for the specified year |
+| `clinicName` | `str` | Name of the Chinese Medicine Clinic cum Training and Research Centre |
+| `location` | `str` | Location or district of the clinic |
+| `year` | `str` | Year of the attendance record |
 
 #### Example: List
 
@@ -351,10 +351,10 @@ Create an instance: `annual_attendances_tc = client.AnnualAttendancesTc()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attendances` | `int` |  |
-| `clinicName` | `str` |  |
-| `location` | `str` |  |
-| `year` | `str` |  |
+| `attendances` | `int` | Number of attendances for the specified year |
+| `clinicName` | `str` | Name of the Chinese Medicine Clinic cum Training and Research Centre |
+| `location` | `str` | Location or district of the clinic |
+| `year` | `str` | Year of the attendance record |
 
 #### Example: List
 

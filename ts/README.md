@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -289,10 +289,10 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `attendances` |  |
-| `clinicName` |  |
-| `location` |  |
-| `year` |  |
+| `attendances` | Number of attendances for the specified year |
+| `clinicName` | Name of the Chinese Medicine Clinic cum Training and Research Centre |
+| `location` | Location or district of the clinic |
+| `year` | Year of the attendance record |
 
 Operations: list.
 
@@ -302,10 +302,10 @@ API path: `/cmctr/annual-attendances-en.json`
 
 | Field | Description |
 | --- | --- |
-| `attendances` |  |
-| `clinicName` |  |
-| `location` |  |
-| `year` |  |
+| `attendances` | Number of attendances for the specified year |
+| `clinicName` | Name of the Chinese Medicine Clinic cum Training and Research Centre |
+| `location` | Location or district of the clinic |
+| `year` | Year of the attendance record |
 
 Operations: list.
 
@@ -315,10 +315,10 @@ API path: `/cmctr/annual-attendances-sc.json`
 
 | Field | Description |
 | --- | --- |
-| `attendances` |  |
-| `clinicName` |  |
-| `location` |  |
-| `year` |  |
+| `attendances` | Number of attendances for the specified year |
+| `clinicName` | Name of the Chinese Medicine Clinic cum Training and Research Centre |
+| `location` | Location or district of the clinic |
+| `year` | Year of the attendance record |
 
 Operations: list.
 
@@ -343,10 +343,10 @@ Create an instance: `const annual_attendances_en = client.AnnualAttendancesEn()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attendances` | `number` |  |
-| `clinicName` | `string` |  |
-| `location` | `string` |  |
-| `year` | `string` |  |
+| `attendances` | `number` | Number of attendances for the specified year |
+| `clinicName` | `string` | Name of the Chinese Medicine Clinic cum Training and Research Centre |
+| `location` | `string` | Location or district of the clinic |
+| `year` | `string` | Year of the attendance record |
 
 #### Example: List
 
@@ -369,10 +369,10 @@ Create an instance: `const annual_attendances_sc = client.AnnualAttendancesSc()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attendances` | `number` |  |
-| `clinicName` | `string` |  |
-| `location` | `string` |  |
-| `year` | `string` |  |
+| `attendances` | `number` | Number of attendances for the specified year |
+| `clinicName` | `string` | Name of the Chinese Medicine Clinic cum Training and Research Centre |
+| `location` | `string` | Location or district of the clinic |
+| `year` | `string` | Year of the attendance record |
 
 #### Example: List
 
@@ -395,10 +395,10 @@ Create an instance: `const annual_attendances_tc = client.AnnualAttendancesTc()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attendances` | `number` |  |
-| `clinicName` | `string` |  |
-| `location` | `string` |  |
-| `year` | `string` |  |
+| `attendances` | `number` | Number of attendances for the specified year |
+| `clinicName` | `string` | Name of the Chinese Medicine Clinic cum Training and Research Centre |
+| `location` | `string` | Location or district of the clinic |
+| `year` | `string` | Year of the attendance record |
 
 #### Example: List
 

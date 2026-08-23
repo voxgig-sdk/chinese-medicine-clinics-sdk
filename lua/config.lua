@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "ChineseMedicineClinics",
+      slug = "chinese-medicine-clinics",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -31,18 +34,22 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "attendances",
+            ["short"] = "Number of attendances for the specified year",
             ["type"] = "`$INTEGER`",
           },
           {
             ["name"] = "clinicName",
+            ["short"] = "Name of the Chinese Medicine Clinic cum Training and Research Centre",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "location",
+            ["short"] = "Location or district of the clinic",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "year",
+            ["short"] = "Year of the attendance record",
             ["type"] = "`$STRING`",
           },
         },
@@ -78,18 +85,22 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "attendances",
+            ["short"] = "Number of attendances for the specified year",
             ["type"] = "`$INTEGER`",
           },
           {
             ["name"] = "clinicName",
+            ["short"] = "Name of the Chinese Medicine Clinic cum Training and Research Centre",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "location",
+            ["short"] = "Location or district of the clinic",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "year",
+            ["short"] = "Year of the attendance record",
             ["type"] = "`$STRING`",
           },
         },
@@ -125,18 +136,22 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "attendances",
+            ["short"] = "Number of attendances for the specified year",
             ["type"] = "`$INTEGER`",
           },
           {
             ["name"] = "clinicName",
+            ["short"] = "Name of the Chinese Medicine Clinic cum Training and Research Centre",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "location",
+            ["short"] = "Location or district of the clinic",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "year",
+            ["short"] = "Year of the attendance record",
             ["type"] = "`$STRING`",
           },
         },

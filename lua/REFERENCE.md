@@ -98,10 +98,10 @@ local annual_attendances_en = client:AnnualAttendancesEn(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendances` | `number` | No |  |
-| `clinicName` | `string` | No |  |
-| `location` | `string` | No |  |
-| `year` | `string` | No |  |
+| `attendances` | `number` | No | Number of attendances for the specified year |
+| `clinicName` | `string` | No | Name of the Chinese Medicine Clinic cum Training and Research Centre |
+| `location` | `string` | No | Location or district of the clinic |
+| `year` | `string` | No | Year of the attendance record |
 
 ### Operations
 
@@ -153,10 +153,10 @@ local annual_attendances_sc = client:AnnualAttendancesSc(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendances` | `number` | No |  |
-| `clinicName` | `string` | No |  |
-| `location` | `string` | No |  |
-| `year` | `string` | No |  |
+| `attendances` | `number` | No | Number of attendances for the specified year |
+| `clinicName` | `string` | No | Name of the Chinese Medicine Clinic cum Training and Research Centre |
+| `location` | `string` | No | Location or district of the clinic |
+| `year` | `string` | No | Year of the attendance record |
 
 ### Operations
 
@@ -208,10 +208,10 @@ local annual_attendances_tc = client:AnnualAttendancesTc(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendances` | `number` | No |  |
-| `clinicName` | `string` | No |  |
-| `location` | `string` | No |  |
-| `year` | `string` | No |  |
+| `attendances` | `number` | No | Number of attendances for the specified year |
+| `clinicName` | `string` | No | Name of the Chinese Medicine Clinic cum Training and Research Centre |
+| `location` | `string` | No | Location or district of the clinic |
+| `year` | `string` | No | Year of the attendance record |
 
 ### Operations
 

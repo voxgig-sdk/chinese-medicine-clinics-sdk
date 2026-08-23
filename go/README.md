@@ -6,7 +6,7 @@ The Golang SDK for the ChineseMedicineClinics API — an entity-oriented client 
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.AnnualAttendancesEn(nil)` — each with the same small set of operations (`List`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -262,10 +262,10 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"attendances"` |  |
-| `"clinicName"` |  |
-| `"location"` |  |
-| `"year"` |  |
+| `"attendances"` | Number of attendances for the specified year |
+| `"clinicName"` | Name of the Chinese Medicine Clinic cum Training and Research Centre |
+| `"location"` | Location or district of the clinic |
+| `"year"` | Year of the attendance record |
 
 Operations: List.
 
@@ -275,10 +275,10 @@ API path: `/cmctr/annual-attendances-en.json`
 
 | Field | Description |
 | --- | --- |
-| `"attendances"` |  |
-| `"clinicName"` |  |
-| `"location"` |  |
-| `"year"` |  |
+| `"attendances"` | Number of attendances for the specified year |
+| `"clinicName"` | Name of the Chinese Medicine Clinic cum Training and Research Centre |
+| `"location"` | Location or district of the clinic |
+| `"year"` | Year of the attendance record |
 
 Operations: List.
 
@@ -288,10 +288,10 @@ API path: `/cmctr/annual-attendances-sc.json`
 
 | Field | Description |
 | --- | --- |
-| `"attendances"` |  |
-| `"clinicName"` |  |
-| `"location"` |  |
-| `"year"` |  |
+| `"attendances"` | Number of attendances for the specified year |
+| `"clinicName"` | Name of the Chinese Medicine Clinic cum Training and Research Centre |
+| `"location"` | Location or district of the clinic |
+| `"year"` | Year of the attendance record |
 
 Operations: List.
 
@@ -316,10 +316,10 @@ Create an instance: `annualAttendancesEn := client.AnnualAttendancesEn(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attendances` | `int` |  |
-| `clinicName` | `string` |  |
-| `location` | `string` |  |
-| `year` | `string` |  |
+| `attendances` | `int` | Number of attendances for the specified year |
+| `clinicName` | `string` | Name of the Chinese Medicine Clinic cum Training and Research Centre |
+| `location` | `string` | Location or district of the clinic |
+| `year` | `string` | Year of the attendance record |
 
 #### Example: List
 
@@ -346,10 +346,10 @@ Create an instance: `annualAttendancesSc := client.AnnualAttendancesSc(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attendances` | `int` |  |
-| `clinicName` | `string` |  |
-| `location` | `string` |  |
-| `year` | `string` |  |
+| `attendances` | `int` | Number of attendances for the specified year |
+| `clinicName` | `string` | Name of the Chinese Medicine Clinic cum Training and Research Centre |
+| `location` | `string` | Location or district of the clinic |
+| `year` | `string` | Year of the attendance record |
 
 #### Example: List
 
@@ -376,10 +376,10 @@ Create an instance: `annualAttendancesTc := client.AnnualAttendancesTc(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attendances` | `int` |  |
-| `clinicName` | `string` |  |
-| `location` | `string` |  |
-| `year` | `string` |  |
+| `attendances` | `int` | Number of attendances for the specified year |
+| `clinicName` | `string` | Name of the Chinese Medicine Clinic cum Training and Research Centre |
+| `location` | `string` | Location or district of the clinic |
+| `year` | `string` | Year of the attendance record |
 
 #### Example: List
 

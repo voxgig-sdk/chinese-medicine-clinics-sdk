@@ -33,6 +33,9 @@ class ChineseMedicineClinicsConfig
         return [
             "main" => [
                 "name" => "ChineseMedicineClinics",
+                "slug" => "chinese-medicine-clinics",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -57,18 +60,22 @@ class ChineseMedicineClinicsConfig
           'fields' => [
             [
               'name' => 'attendances',
+              'short' => 'Number of attendances for the specified year',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'clinicName',
+              'short' => 'Name of the Chinese Medicine Clinic cum Training and Research Centre',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'location',
+              'short' => 'Location or district of the clinic',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'year',
+              'short' => 'Year of the attendance record',
               'type' => '`$STRING`',
             ],
           ],
@@ -104,18 +111,22 @@ class ChineseMedicineClinicsConfig
           'fields' => [
             [
               'name' => 'attendances',
+              'short' => 'Number of attendances for the specified year',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'clinicName',
+              'short' => 'Name of the Chinese Medicine Clinic cum Training and Research Centre',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'location',
+              'short' => 'Location or district of the clinic',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'year',
+              'short' => 'Year of the attendance record',
               'type' => '`$STRING`',
             ],
           ],
@@ -151,18 +162,22 @@ class ChineseMedicineClinicsConfig
           'fields' => [
             [
               'name' => 'attendances',
+              'short' => 'Number of attendances for the specified year',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'clinicName',
+              'short' => 'Name of the Chinese Medicine Clinic cum Training and Research Centre',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'location',
+              'short' => 'Location or district of the clinic',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'year',
+              'short' => 'Year of the attendance record',
               'type' => '`$STRING`',
             ],
           ],

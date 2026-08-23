@@ -1,6 +1,6 @@
-# Entity: annual_attendances_tc
+# Entity: annual_attendances_en
 
-main: kit: entity: annual_attendances_tc: {
+main: kit: entity: annual_attendances_en: {
 
   alias: field: {}
 
@@ -8,36 +8,40 @@ main: kit: entity: annual_attendances_tc: {
     {
       name: "attendances"
       req: false
+      short: "Number of attendances for the specified year"
       type: "`$INTEGER`"
     }
     {
       name: "clinicName"
       req: false
+      short: "Name of the Chinese Medicine Clinic cum Training and Research Centre"
       type: "`$STRING`"
     }
     {
       name: "location"
       req: false
+      short: "Location or district of the clinic"
       type: "`$STRING`"
     }
     {
       name: "year"
       req: false
+      short: "Year of the attendance record"
       type: "`$STRING`"
     }
   ]
 
-  name: "annual_attendances_tc"
+  name: "annual_attendances_en"
   op: {
     list: {
       name: "list"
       points: [
         {
           method: "GET"
-          orig: "/cmctr/annual-attendances-tc.json"
+          orig: "/cmctr/annual-attendances-en.json"
           parts: [
             "cmctr"
-            "annual-attendances-tc.json"
+            "annual-attendances-en.json"
           ]
           transform: {
             req: "`reqdata`"

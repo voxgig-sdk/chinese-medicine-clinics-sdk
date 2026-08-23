@@ -101,10 +101,10 @@ annual_attendances_en = client.AnnualAttendancesEn
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendances` | `Integer` | No |  |
-| `clinicName` | `String` | No |  |
-| `location` | `String` | No |  |
-| `year` | `String` | No |  |
+| `attendances` | `Integer` | No | Number of attendances for the specified year |
+| `clinicName` | `String` | No | Name of the Chinese Medicine Clinic cum Training and Research Centre |
+| `location` | `String` | No | Location or district of the clinic |
+| `year` | `String` | No | Year of the attendance record |
 
 ### Operations
 
@@ -156,10 +156,10 @@ annual_attendances_sc = client.AnnualAttendancesSc
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendances` | `Integer` | No |  |
-| `clinicName` | `String` | No |  |
-| `location` | `String` | No |  |
-| `year` | `String` | No |  |
+| `attendances` | `Integer` | No | Number of attendances for the specified year |
+| `clinicName` | `String` | No | Name of the Chinese Medicine Clinic cum Training and Research Centre |
+| `location` | `String` | No | Location or district of the clinic |
+| `year` | `String` | No | Year of the attendance record |
 
 ### Operations
 
@@ -211,10 +211,10 @@ annual_attendances_tc = client.AnnualAttendancesTc
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attendances` | `Integer` | No |  |
-| `clinicName` | `String` | No |  |
-| `location` | `String` | No |  |
-| `year` | `String` | No |  |
+| `attendances` | `Integer` | No | Number of attendances for the specified year |
+| `clinicName` | `String` | No | Name of the Chinese Medicine Clinic cum Training and Research Centre |
+| `location` | `String` | No | Location or district of the clinic |
+| `year` | `String` | No | Year of the attendance record |
 
 ### Operations
 

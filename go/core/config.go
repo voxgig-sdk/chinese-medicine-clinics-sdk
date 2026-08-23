@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "ChineseMedicineClinics",
+			"slug": "chinese-medicine-clinics",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -35,18 +38,22 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "attendances",
+						"short": "Number of attendances for the specified year",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "clinicName",
+						"short": "Name of the Chinese Medicine Clinic cum Training and Research Centre",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "location",
+						"short": "Location or district of the clinic",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "year",
+						"short": "Year of the attendance record",
 						"type": "`$STRING`",
 					},
 				},
@@ -82,18 +89,22 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "attendances",
+						"short": "Number of attendances for the specified year",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "clinicName",
+						"short": "Name of the Chinese Medicine Clinic cum Training and Research Centre",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "location",
+						"short": "Location or district of the clinic",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "year",
+						"short": "Year of the attendance record",
 						"type": "`$STRING`",
 					},
 				},
@@ -129,18 +140,22 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "attendances",
+						"short": "Number of attendances for the specified year",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "clinicName",
+						"short": "Name of the Chinese Medicine Clinic cum Training and Research Centre",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "location",
+						"short": "Location or district of the clinic",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "year",
+						"short": "Year of the attendance record",
 						"type": "`$STRING`",
 					},
 				},

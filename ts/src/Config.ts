@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'ChineseMedicineClinics',
+        slug: "chinese-medicine-clinics",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -62,18 +73,22 @@ class Config {
       "fields": [
         {
           "name": "attendances",
+          "short": "Number of attendances for the specified year",
           "type": "`$INTEGER`"
         },
         {
           "name": "clinicName",
+          "short": "Name of the Chinese Medicine Clinic cum Training and Research Centre",
           "type": "`$STRING`"
         },
         {
           "name": "location",
+          "short": "Location or district of the clinic",
           "type": "`$STRING`"
         },
         {
           "name": "year",
+          "short": "Year of the attendance record",
           "type": "`$STRING`"
         }
       ],
@@ -109,18 +124,22 @@ class Config {
       "fields": [
         {
           "name": "attendances",
+          "short": "Number of attendances for the specified year",
           "type": "`$INTEGER`"
         },
         {
           "name": "clinicName",
+          "short": "Name of the Chinese Medicine Clinic cum Training and Research Centre",
           "type": "`$STRING`"
         },
         {
           "name": "location",
+          "short": "Location or district of the clinic",
           "type": "`$STRING`"
         },
         {
           "name": "year",
+          "short": "Year of the attendance record",
           "type": "`$STRING`"
         }
       ],
@@ -156,18 +175,22 @@ class Config {
       "fields": [
         {
           "name": "attendances",
+          "short": "Number of attendances for the specified year",
           "type": "`$INTEGER`"
         },
         {
           "name": "clinicName",
+          "short": "Name of the Chinese Medicine Clinic cum Training and Research Centre",
           "type": "`$STRING`"
         },
         {
           "name": "location",
+          "short": "Location or district of the clinic",
           "type": "`$STRING`"
         },
         {
           "name": "year",
+          "short": "Year of the attendance record",
           "type": "`$STRING`"
         }
       ],
