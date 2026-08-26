@@ -28,6 +28,7 @@ module ChineseMedicineClinicsConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
