@@ -65,14 +65,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cmctr/annual-attendances-en.json",
-                ["parts"] = {
-                  "cmctr",
-                  "annual-attendances-en.json",
+                ["segments"] = {
+                  {
+                    ["lit"] = "cmctr",
+                  },
+                  {
+                    ["lit"] = "annual-attendances-en.json",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "cmctr",
+                  "annual-attendances-en.json",
                 },
               },
             },
@@ -116,14 +124,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cmctr/annual-attendances-sc.json",
-                ["parts"] = {
-                  "cmctr",
-                  "annual-attendances-sc.json",
+                ["segments"] = {
+                  {
+                    ["lit"] = "cmctr",
+                  },
+                  {
+                    ["lit"] = "annual-attendances-sc.json",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "cmctr",
+                  "annual-attendances-sc.json",
                 },
               },
             },
@@ -167,14 +183,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cmctr/annual-attendances-tc.json",
-                ["parts"] = {
-                  "cmctr",
-                  "annual-attendances-tc.json",
+                ["segments"] = {
+                  {
+                    ["lit"] = "cmctr",
+                  },
+                  {
+                    ["lit"] = "annual-attendances-tc.json",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "cmctr",
+                  "annual-attendances-tc.json",
                 },
               },
             },

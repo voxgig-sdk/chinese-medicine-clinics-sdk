@@ -69,14 +69,22 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/cmctr/annual-attendances-en.json",
-								"parts": []any{
-									"cmctr",
-									"annual-attendances-en.json",
+								"segments": []any{
+									map[string]any{
+										"lit": "cmctr",
+									},
+									map[string]any{
+										"lit": "annual-attendances-en.json",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"cmctr",
+									"annual-attendances-en.json",
 								},
 							},
 						},
@@ -120,14 +128,22 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/cmctr/annual-attendances-sc.json",
-								"parts": []any{
-									"cmctr",
-									"annual-attendances-sc.json",
+								"segments": []any{
+									map[string]any{
+										"lit": "cmctr",
+									},
+									map[string]any{
+										"lit": "annual-attendances-sc.json",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"cmctr",
+									"annual-attendances-sc.json",
 								},
 							},
 						},
@@ -171,14 +187,22 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/cmctr/annual-attendances-tc.json",
-								"parts": []any{
-									"cmctr",
-									"annual-attendances-tc.json",
+								"segments": []any{
+									map[string]any{
+										"lit": "cmctr",
+									},
+									map[string]any{
+										"lit": "annual-attendances-tc.json",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"cmctr",
+									"annual-attendances-tc.json",
 								},
 							},
 						},
@@ -190,6 +214,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (

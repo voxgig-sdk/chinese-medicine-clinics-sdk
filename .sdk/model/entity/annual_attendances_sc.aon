@@ -39,9 +39,13 @@ main: kit: entity: annual_attendances_sc: {
         {
           method: "GET"
           orig: "/cmctr/annual-attendances-sc.json"
-          parts: [
-            "cmctr"
-            "annual-attendances-sc.json"
+          segments: [
+            {
+              lit: "cmctr"
+            }
+            {
+              lit: "annual-attendances-sc.json"
+            }
           ]
           transform: {
             req: "`reqdata`"
