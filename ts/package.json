@@ -1,5 +1,5 @@
 {
-  "name": "@voxgig-sdk/chinese-medicine-clinics",
+  "name": "@voxgig-sdk/chinese-medicine-clinics-sdk",
   "version": "0.0.1",
   "description": "Unofficial generated TypeScript SDK for the Chinese Medicine Clinics public API. Not affiliated with or endorsed by the upstream API provider.",
   "keywords": [

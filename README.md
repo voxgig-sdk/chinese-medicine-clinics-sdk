@@ -105,7 +105,7 @@ local results, err = client:AnnualAttendancesEn():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/chinese-medicine-clinics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/chinese-medicine-clinics-sdk/releases) |
+| TypeScript | `@voxgig-sdk/chinese-medicine-clinics-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/chinese-medicine-clinics-sdk/releases) |
 | Python | `voxgig-sdk-chinese-medicine-clinics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/chinese-medicine-clinics-sdk/releases) |
 | PHP | `voxgig-sdk/chinese-medicine-clinics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/chinese-medicine-clinics-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/chinese-medicine-clinics-sdk/go` | `go get github.com/voxgig-sdk/chinese-medicine-clinics-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:AnnualAttendancesEn():list()
 ### TypeScript
 
 ```ts
-import { ChineseMedicineClinicsSDK } from '@voxgig-sdk/chinese-medicine-clinics'
+import { ChineseMedicineClinicsSDK } from '@voxgig-sdk/chinese-medicine-clinics-sdk'
 
 const client = new ChineseMedicineClinicsSDK()
 

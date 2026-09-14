@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { ChineseMedicineClinicsSDK } from '@voxgig-sdk/chinese-medicine-clinics'
+import { ChineseMedicineClinicsSDK } from '@voxgig-sdk/chinese-medicine-clinics-sdk'
 
 const client = new ChineseMedicineClinicsSDK()
 ```
@@ -489,7 +489,7 @@ chinese-medicine-clinics/
 Import the SDK from the package root:
 
 ```ts
-import { ChineseMedicineClinicsSDK } from '@voxgig-sdk/chinese-medicine-clinics'
+import { ChineseMedicineClinicsSDK } from '@voxgig-sdk/chinese-medicine-clinics-sdk'
 ```
 
 ### Entity state
