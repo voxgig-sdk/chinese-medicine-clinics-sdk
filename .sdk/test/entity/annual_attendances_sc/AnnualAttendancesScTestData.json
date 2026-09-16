@@ -2,19 +2,19 @@
   "existing": {
     "annual_attendances_sc": {
       "ANNUAL_ATTENDANCES_SC00": {
-        "attendances": "s28",
+        "attendances": 40,
         "clinicName": "s29",
         "location": "s2a",
         "year": "s2b"
       },
       "ANNUAL_ATTENDANCES_SC01": {
-        "attendances": "s50",
+        "attendances": 80,
         "clinicName": "s51",
         "location": "s52",
         "year": "s53"
       },
       "ANNUAL_ATTENDANCES_SC02": {
-        "attendances": "s78",
+        "attendances": 120,
         "clinicName": "s79",
         "location": "s7a",
         "year": "s7b"
@@ -24,10 +24,137 @@
   "new": {
     "annual_attendances_sc": {
       "annual_attendances_sc_ref01": {
-        "attendances": "sa0",
+        "attendances": 160,
         "clinicName": "sa1",
         "location": "sa2",
         "year": "sa3"
+      }
+    }
+  },
+  "requests": {
+    "GET /cmctr/annual-attendances-sc.json": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getAnnualAttendancesSimplifiedChinese",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Response containing annual attendance data for Chinese Medicine Clinics cum Training and Research Centres",
+                  "properties": {
+                    "data": {
+                      "description": "Array of attendance records",
+                      "items": {
+                        "description": "A single attendance record for a Chinese Medicine Clinic",
+                        "properties": {
+                          "attendances": {
+                            "description": "Number of attendances for the specified year",
+                            "example": 15000,
+                            "type": "integer"
+                          },
+                          "clinicName": {
+                            "description": "Name of the Chinese Medicine Clinic cum Training and Research Centre",
+                            "type": "string"
+                          },
+                          "location": {
+                            "description": "Location or district of the clinic",
+                            "type": "string"
+                          },
+                          "year": {
+                            "description": "Year of the attendance record",
+                            "example": "2023",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "metadata": {
+                      "description": "Metadata about the dataset",
+                      "properties": {
+                        "dataProvider": {
+                          "description": "Provider of the data",
+                          "example": "Hospital Authority",
+                          "type": "string"
+                        },
+                        "lastUpdated": {
+                          "description": "Last update timestamp of the dataset",
+                          "format": "date-time",
+                          "type": "string"
+                        },
+                        "updateFrequency": {
+                          "description": "Frequency of dataset updates",
+                          "example": "Annually",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with annual attendance data in Simplified Chinese"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Error response object",
+                  "properties": {
+                    "error": {
+                      "properties": {
+                        "code": {
+                          "description": "Error code",
+                          "type": "string"
+                        },
+                        "message": {
+                          "description": "Error message describing what went wrong",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bad request"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Error response object",
+                  "properties": {
+                    "error": {
+                      "properties": {
+                        "code": {
+                          "description": "Error code",
+                          "type": "string"
+                        },
+                        "message": {
+                          "description": "Error message describing what went wrong",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
       }
     }
   }

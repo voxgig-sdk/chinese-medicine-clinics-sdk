@@ -4,7 +4,10 @@ declare(strict_types=1);
 // ChineseMedicineClinics SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class ChineseMedicineClinicsFeatures
@@ -14,8 +17,14 @@ class ChineseMedicineClinicsFeatures
         switch ($name) {
             case "base":
                 return new ChineseMedicineClinicsBaseFeature();
+            case "ratelimit":
+                return new ChineseMedicineClinicsRatelimitFeature();
+            case "retry":
+                return new ChineseMedicineClinicsRetryFeature();
             case "test":
                 return new ChineseMedicineClinicsTestFeature();
+            case "timeout":
+                return new ChineseMedicineClinicsTimeoutFeature();
             default:
                 return new ChineseMedicineClinicsBaseFeature();
         }
@@ -31,7 +40,10 @@ class ChineseMedicineClinicsFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

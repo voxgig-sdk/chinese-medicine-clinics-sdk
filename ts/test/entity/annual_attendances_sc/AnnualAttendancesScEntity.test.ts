@@ -5,6 +5,8 @@ import * as Fs from 'node:fs'
 
 import { test, describe, afterEach } from 'node:test'
 import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
 
 
 import { ChineseMedicineClinicsSDK, BaseFeature, stdutil } from '../../..'
@@ -47,16 +49,13 @@ describe('AnnualAttendancesScEntity', async () => {
 
     const live = 'TRUE' === process.env.CHINESE_MEDICINE_CLINICS_TEST_LIVE
     for (const op of ['list']) {
-      if (maybeSkipControl(t, 'entityOp', 'annual_attendances_sc.' + op, live)) return
+      if (!live && maybeSkipControl(t, 'entityOp', 'annual_attendances_sc.' + op, live)) return
     }
 
+    
     const setup = basicSetup()
-    // The basic flow consumes synthetic IDs and field values from the
-    // fixture (entity TestData.json). Those don't exist on the live API.
-    // Skip live runs unless the user provided a real ENTID env override.
-    if (setup.syntheticOnly) {
-      t.skip('live entity test uses synthetic IDs from fixture — set CHINESE_MEDICINE_CLINICS_TEST_ANNUAL_ATTENDANCES_SC_ENTID JSON to run live')
-      return
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":[{"active":true,"name":"attendances","req":false,"short":"Number of attendances for the specified year","type":"`$INTEGER`","index$":0},{"active":true,"name":"clinicName","req":false,"short":"Name of the Chinese Medicine Clinic cum Training and Research Centre","type":"`$STRING`","index$":1},{"active":true,"name":"location","req":false,"short":"Location or district of the clinic","type":"`$STRING`","index$":2},{"active":true,"name":"year","req":false,"short":"Year of the attendance record","type":"`$STRING`","index$":3}],"name":"annual_attendances_sc","op":{"list":{"input":"data","name":"list","points":[{"active":true,"args":{},"contract":{"id":"GET /cmctr/annual-attendances-sc.json","json":"{\"operationId\":\"getAnnualAttendancesSimplifiedChinese\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"description\":\"Response containing annual attendance data for Chinese Medicine Clinics cum Training and Research Centres\",\"properties\":{\"data\":{\"description\":\"Array of attendance records\",\"items\":{\"description\":\"A single attendance record for a Chinese Medicine Clinic\",\"properties\":{\"attendances\":{\"description\":\"Number of attendances for the specified year\",\"example\":15000,\"type\":\"integer\"},\"clinicName\":{\"description\":\"Name of the Chinese Medicine Clinic cum Training and Research Centre\",\"type\":\"string\"},\"location\":{\"description\":\"Location or district of the clinic\",\"type\":\"string\"},\"year\":{\"description\":\"Year of the attendance record\",\"example\":\"2023\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"metadata\":{\"description\":\"Metadata about the dataset\",\"properties\":{\"dataProvider\":{\"description\":\"Provider of the data\",\"example\":\"Hospital Authority\",\"type\":\"string\"},\"lastUpdated\":{\"description\":\"Last update timestamp of the dataset\",\"format\":\"date-time\",\"type\":\"string\"},\"updateFrequency\":{\"description\":\"Frequency of dataset updates\",\"example\":\"Annually\",\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Successful response with annual attendance data in Simplified Chinese\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"description\":\"Error response object\",\"properties\":{\"error\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"message\":{\"description\":\"Error message describing what went wrong\",\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Bad request\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"description\":\"Error response object\",\"properties\":{\"error\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"message\":{\"description\":\"Error message describing what went wrong\",\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}","source":"openapi3","version":1},"kind":"http","method":"GET","orig":"/cmctr/annual-attendances-sc.json","segments":[{"lit":"cmctr"},{"lit":"annual-attendances-sc.json"}],"select":{},"transform":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"list"}},"relations":{"ancestors":[]},"key$":"annual_attendances_sc","name__orig":"annual_attendances_sc","Name":"AnnualAttendancesSc","name_":"annual_attendances_sc","name-":"annual-attendances-sc","NAME":"ANNUAL_ATTENDANCES_SC","index$":1}, {"active":true,"entity":"annual_attendances_sc","key$":"BasicAnnualAttendancesScFlow","kind":"basic","name":"BasicAnnualAttendancesScFlow","param":{},"step":[{"active":true,"data":{},"input":{},"match":{},"op":"list","spec":[],"valid":[{"apply":"ItemExists","def":{"ref":"annual_attendances_sc_ref01"}}],"index$":0}]}, 'AnnualAttendancesSc')
     }
     const client = setup.client
     const struct = setup.struct
@@ -109,13 +108,6 @@ function basicSetup(extra?: any) {
       }]
     })
 
-  // Detect whether the user provided a real ENTID JSON via env var. The
-  // basic flow consumes synthetic IDs from the fixture file; without an
-  // override those synthetic IDs reach the live API and 4xx. Surface this
-  // to the test so it can skip rather than fail.
-  const idmapEnvVal = process.env['CHINESE_MEDICINE_CLINICS_TEST_ANNUAL_ATTENDANCES_SC_ENTID']
-  const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{')
-
   const env = envOverride({
     'CHINESE_MEDICINE_CLINICS_TEST_ANNUAL_ATTENDANCES_SC_ENTID': idmap,
     'CHINESE_MEDICINE_CLINICS_TEST_LIVE': 'FALSE',
@@ -126,7 +118,13 @@ function basicSetup(extra?: any) {
 
   const live = 'TRUE' === env.CHINESE_MEDICINE_CLINICS_TEST_LIVE
 
+  const transport = createLiveTransport()
   if (live) {
+    const rawIds = process.env['CHINESE_MEDICINE_CLINICS_TEST_ANNUAL_ATTENDANCES_SC_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
     client = new ChineseMedicineClinicsSDK(merge([
       // FIRST, so the generated fields below win: sdk-test-control.json's
       // test.client.options adds to the live client, it does not redirect it.
@@ -138,7 +136,8 @@ function basicSetup(extra?: any) {
       // argument at all - so a bare 'extra' silently discarded the apikey
       // and server values above and handed the SDK undefined. Harmless
       // while there was nothing in that object; not harmless now.
-      extra || {}
+      extra || {},
+      { system: { fetch: transport.fetch } }
     ]))
   }
 
@@ -151,7 +150,7 @@ function basicSetup(extra?: any) {
     data: entityData,
     explain: 'TRUE' === env.CHINESE_MEDICINE_CLINICS_TEST_EXPLAIN,
     live,
-    syntheticOnly: live && !idmapOverridden,
+    transport,
     now: Date.now(),
   }
 

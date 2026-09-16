@@ -1,12 +1,18 @@
 # ChineseMedicineClinics SDK feature factory
 
 from chinesemedicineclinics_sdk.feature.base_feature import ChineseMedicineClinicsBaseFeature
+from chinesemedicineclinics_sdk.feature.ratelimit_feature import ChineseMedicineClinicsRatelimitFeature
+from chinesemedicineclinics_sdk.feature.retry_feature import ChineseMedicineClinicsRetryFeature
 from chinesemedicineclinics_sdk.feature.test_feature import ChineseMedicineClinicsTestFeature
+from chinesemedicineclinics_sdk.feature.timeout_feature import ChineseMedicineClinicsTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: ChineseMedicineClinicsBaseFeature(),
+    "ratelimit": lambda: ChineseMedicineClinicsRatelimitFeature(),
+    "retry": lambda: ChineseMedicineClinicsRetryFeature(),
     "test": lambda: ChineseMedicineClinicsTestFeature(),
+    "timeout": lambda: ChineseMedicineClinicsTimeoutFeature(),
 }
 
 
